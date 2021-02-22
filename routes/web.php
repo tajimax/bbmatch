@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'BBmatchController@showList')->name('show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
