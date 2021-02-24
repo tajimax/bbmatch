@@ -2,28 +2,31 @@
 @section('title', '検索ページ')
 @section('content')
 <div class="tab-wrapper">
-    <div class="tab-nav flex">
-        <div class="tab-nav__item active">他のユーザー</div>
-    </div>
     <!-- 小説コンテンツ部分 -->
-    <div class="tab-content">
-        <div class="tab-content__item">
-            <!-- コンテンツ部分 -->
-            <div class="tab-content2 active">
-                <div class="grid">
-                    <div class="posted-novel flex">
-                        <div class="posted-work__novel-img-wrapper">
-                            <img class="posted-work__img" src="#">
-                        </div>
-                        <div class="posted-work__novel-content-wrapper">
-                            <a class="posted-work__ttl" href="#">{{ $item -> name }}</a>
-                            <a class="posted-work__genre" href="#">{{ $item -> address }}</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="field">
+            <img class="diamond" src="/images/field.jpg" alt="">
+            <img class="P position" src="/images/symbol.png" alt="">
+            <img class="C position" src="/images/symbol.png" alt="">
+            <img class="FB position" src="/images/symbol.png" alt="">
+            <img class="SB position" src="/images/symbol.png" alt="">
+            <img class="TB position" src="/images/symbol.png" alt="">
+            <img class="SS position" src="/images/symbol.png" alt="">
+            <img class="LF position" src="/images/symbol.png" alt="">
+            <img class="CF position" src="/images/symbol.png" alt="">
+            <img class="RF position" src="/images/symbol.png" alt="">
+            <div class="grid">
+                <button class="btn">投手</button>
+                <button class="btn">捕手</button>
+                <button class="btn">一塁手</button>
+                <button class="btn">二塁手</button>
+                <button class="btn">三塁手</button>
+                <button class="btn">遊撃手</button>
+                <button class="btn">左翼手</button>
+                <button class="btn">中翼手</button>
+                <button class="btn">右翼手  </button>
+                <button class="btn">全選択</button>
             </div>
         </div>
-    </div>
+        <img src="/images/calendar.png" alt="">
 </div>
-
 @endsection

@@ -1,23 +1,37 @@
 @extends('layouts.app')
+@section('title', '検索ページ')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+    <div class="tab-wrapper">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+        <!-- 小説コンテンツ部分 -->
+            <div class="field">
+                <img class="diamond" src="/images/field.jpg" alt="">
+                <img class="P position" src="/images/symbol.png" alt="">
+                <img class="C position" src="/images/symbol.png" alt="">
+                <img class="FB position" src="/images/symbol.png" alt="">
+                <img class="SB position" src="/images/symbol.png" alt="">
+                <img class="TB position" src="/images/symbol.png" alt="">
+                <img class="SS position" src="/images/symbol.png" alt="">
+                <img class="LF position" src="/images/symbol.png" alt="">
+                <img class="CF position" src="/images/symbol.png" alt="">
+                <img class="RF position" src="/images/symbol.png" alt="">
+                <div class="grid">
+                    <button class="btn">投手</button>
+                    <button class="btn">捕手</button>
+                    <button class="btn">一塁手</button>
+                    <button class="btn">二塁手</button>
+                    <button class="btn">三塁手</button>
+                    <button class="btn">遊撃手</button>
+                    <button class="btn">左翼手</button>
+                    <button class="btn">中翼手</button>
+                    <button class="btn">右翼手</button>
+                    <button class="btn">全選択</button>
                 </div>
             </div>
-        </div>
     </div>
-</div>
 @endsection

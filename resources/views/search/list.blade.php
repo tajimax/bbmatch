@@ -12,7 +12,7 @@
             <div class="tab-content2 active">
                 <div class="grid">
                     @foreach($items as $item)
-                    <div class="posted-novel flex">
+                    <div class="posted-novel flex-column">
                         <div class="posted-work__novel-img-wrapper">
                             <img class="posted-work__img" src="#">
                         </div>
