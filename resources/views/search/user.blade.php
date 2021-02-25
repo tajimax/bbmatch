@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', '検索ページ')
+@section('title', 'チーム詳細')
 @section('content')
 <div class="tab-wrapper">
     <!-- 小説コンテンツ部分 -->
