@@ -23,7 +23,7 @@
 
 <!----- 投稿一覧 ----->
 <section class="section-wrapper">
-    <div class="commonInner flex-column">
+    <div class="commonInner">
         @yield('content')
     </div>
 </section>

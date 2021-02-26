@@ -1,4 +1,4 @@
-@extends('layouts.homeLayout')
+@extends('layouts.app')
 @section('title', 'マイページ')
 
 @section('content')
@@ -51,6 +51,9 @@
                     <div class="text_underline"></div>
                 </div>
                 <div class="profile-intro">{{ $item->introduction }}</div>
+                <div class="flex">
+                    <a href="{{ route('edit') }}" class="btn2">編集</a>
+                </div>
             </div>
             <div class="content-item">
                 おすすめの球場を表示

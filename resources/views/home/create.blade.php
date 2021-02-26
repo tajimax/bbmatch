@@ -1,4 +1,4 @@
-@extends('layouts.homeLayout')
+@extends('layouts.app')
 @section('title', 'マイページ')
 
 @section('content')
@@ -14,9 +14,7 @@
             </div>
             <div class="content-item flex">
                 <div class="field">
-                    <form action="" method="post">
-                        <input class="flatpickr schedule" type="text" readonly="readonly" value="カレンダー">
-                    </form>
+                    <input class="flatpickr schedule" type="text" readonly="readonly" value="カレンダー">
                     <img class="diamond" src="/images/field.jpg" alt="">
                     <img class="P position" src="/images/symbol.png" alt="" id="P">
                     <img class="C position" src="/images/symbol.png" alt=""  id="C">
@@ -42,15 +40,30 @@
                 </div>
             </div>
             <div class="content-item" style="padding: 0 30px 30px;">
-                <div class="group">
-                    <div class="profile-item">{{ $item->team }}</div>
-                    <div class="text_underline"></div>
-                </div>
-                <div class="group">
-                    <div class="profile-item">{{ $item->address}}</div>
-                    <div class="text_underline"></div>
-                </div>
-                <div class="profile-intro">{{ $item->introduction }}</div>
+                <form action="{{ route('store') }}" method="post">
+                    @csrf
+                    <div class="group">
+                        <input name="team" id="input" type="text" placeholder="チーム名を入力して下さい">
+                        <div class="text_underline"></div>
+                    </div> 
+                    @if ($errors->has('team'))
+                        <div>{{ $errors->first('team') }}</div>
+                    @endif
+                    <div class="group">
+                        <input name="address" id="input" type="text" placeholder="所在地を入力して下さい">
+                        <div class="text_underline"></div>
+                    </div>
+                    @if ($errors->has('address'))
+                        <div>{{ $errors->first('address') }}</div>
+                    @endif
+                    <textarea class="textarea" name="introduction" id="" cols="30" rows="6" placeholder="紹介文"></textarea>
+                    @if ($errors->has('introduction'))
+                        <div>{{ $errors->first('introduction') }}</div>
+                    @endif
+                    <input type="hidden" name="user_id" value='{{ Auth::id() }}'>
+
+                    <input type="submit" value="登録">
+                </form>
             </div>
             <div class="content-item">
                 おすすめの球場を表示

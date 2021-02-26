@@ -18,3 +18,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user/{id}', 'BBmatchController@showUser')->name('user');
+
+// チーム詳細編集画面を表示
+Route::get('/home/edit', 'BBmatchController@showEdit')->name('edit');
+// チーム詳細編集内容を登録
+Route::post('/home/update', 'BBmatchController@exeUpdate')->name('update');
+// マイページの作成
+Route::post('/home/store', 'BBmatchController@exeStore')->name('store');
+// スケジュールの作成
+Route::post('/home/schedule', 'BBmatchController@exeSchedule')->name('schedule');
