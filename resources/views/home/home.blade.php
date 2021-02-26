@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.homeLayout')
 @section('title', 'マイページ')
 
 @section('content')
@@ -14,8 +14,10 @@
             </div>
             <div class="content-item flex">
                 <div class="field">
-                    <form action="" method="post">
-                        <input class="flatpickr schedule" type="text" readonly="readonly" value="{{ $position->date }}">
+                    <form action="{{ route('SearchSchedule') }}" method="post">
+                        @csrf
+                        <input class="flatpickr schedule" type="text" readonly="readonly" name="date" value="{{ $position->date }}">
+                        <input class="btn" type="submit" value="検索">
                     </form>
                     <img class="diamond" src="/images/field.jpg" alt="">
                     <img class="P position {{ $position->P }}" src="/images/symbol.png" alt="" id="P">

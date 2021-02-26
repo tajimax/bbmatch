@@ -27,3 +27,5 @@ Route::post('/home/update', 'BBmatchController@exeUpdate')->name('update');
 Route::post('/home/store', 'BBmatchController@exeStore')->name('store');
 // スケジュールの作成
 Route::post('/home/schedule', 'BBmatchController@exeSchedule')->name('schedule');
+// スケジュールの作成
+Route::post('/home/SearchSchedule', 'BBmatchController@exeSearchSchedule')->name('SearchSchedule');

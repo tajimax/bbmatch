@@ -134,7 +134,8 @@ a {
 
 .schedule {
   position: absolute;
-  left: 20%;
+  left: 5%;
+  font-size: 20px;
 }
 
 .diamond {

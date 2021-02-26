@@ -29,7 +29,7 @@ class HomeController extends Controller
         $user_id = Auth::id();
         $date = '2021-03-01';
         $item = Team::where('user_id', $user_id)->first();
-        $position = Schedule::where('user_id', $user_id)->where('date', $date)->first();  
+        $position = Schedule::where('user_id', $user_id)->where('date', $date)->first();
         return view('/home/home', ['item'=>$item, 'position'=>$position]);
     }
 }

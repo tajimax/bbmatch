@@ -57,4 +57,14 @@ class BBmatchController extends Controller
         Schedule::create($request->all());
         return redirect(route('home'));
     }
+
+    // スケジュール検索
+    public function exeSearchSchedule(Request $request){
+        $user_id = Auth::id();
+        $input = $request->all();
+        $date = $input['date'];
+        $item = Team::where('user_id', $user_id)->first();
+        $position = Schedule::where('user_id', $user_id)->where('date', $date)->first();
+        return view('/home/home', ['item'=>$item, 'position'=>$position]);
+    }
 }
