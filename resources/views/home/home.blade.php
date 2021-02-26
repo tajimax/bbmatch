@@ -15,18 +15,18 @@
             <div class="content-item flex">
                 <div class="field">
                     <form action="" method="post">
-                        <input class="flatpickr schedule" type="text" readonly="readonly" value="カレンダー">
+                        <input class="flatpickr schedule" type="text" readonly="readonly" value="{{ $position->date }}">
                     </form>
                     <img class="diamond" src="/images/field.jpg" alt="">
-                    <img class="P position" src="/images/symbol.png" alt="" id="P">
-                    <img class="C position" src="/images/symbol.png" alt=""  id="C">
-                    <img class="FB position" src="/images/symbol.png" alt="" id="FB">
-                    <img class="SB position" src="/images/symbol.png" alt="" id="SB">
-                    <img class="TB position" src="/images/symbol.png" alt="" id="TB">
-                    <img class="SS position" src="/images/symbol.png" alt="" id="SS">
-                    <img class="LF position" src="/images/symbol.png" alt="" id="LF">
-                    <img class="CF position" src="/images/symbol.png" alt="" id="CF">
-                    <img class="RF position" src="/images/symbol.png" alt="" id="RF">
+                    <img class="P position {{ $position->P }}" src="/images/symbol.png" alt="" id="P">
+                    <img class="C position {{ $position->C }}" src="/images/symbol.png" alt=""  id="C">
+                    <img class="FB position {{ $position->FB }}" src="/images/symbol.png" alt="" id="FB">
+                    <img class="SB position {{ $position->SB }}" src="/images/symbol.png" alt="" id="SB">
+                    <img class="TB position {{ $position->TB }}" src="/images/symbol.png" alt="" id="TB">
+                    <img class="SS position {{ $position->SS }}" src="/images/symbol.png" alt="" id="SS">
+                    <img class="LF position {{ $position->LF }}" src="/images/symbol.png" alt="" id="LF">
+                    <img class="CF position {{ $position->CF }}" src="/images/symbol.png" alt="" id="CF">
+                    <img class="RF position {{ $position->RF }}" src="/images/symbol.png" alt="" id="RF">
                 </div>
                 <div class="grid">
                     <button class="btn2" id="btn-P">投手</button>
