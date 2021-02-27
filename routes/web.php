@@ -11,6 +11,8 @@
 |
 */
 
+
+// チーム一覧画面を表示
 Route::get('/', 'BBmatchController@showList')->name('show');
 
 Auth::routes();
@@ -28,4 +30,4 @@ Route::post('/home/store', 'BBmatchController@exeStore')->name('store');
 // スケジュールの作成
 Route::post('/home/schedule', 'BBmatchController@exeSchedule')->name('schedule');
 // スケジュールの作成
-Route::post('/home/SearchSchedule', 'BBmatchController@exeSearchSchedule')->name('SearchSchedule');
+Route::post('/home', 'BBmatchController@exeSearchSchedule')->name('SearchSchedule');

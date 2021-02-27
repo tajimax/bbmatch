@@ -26,6 +26,7 @@ class CreateSchedulesTable extends Migration
             $table->string('LF');
             $table->string('CF');
             $table->string('RF');
+            $table->integer('member');
             $table->timestamps();
         });
     }
