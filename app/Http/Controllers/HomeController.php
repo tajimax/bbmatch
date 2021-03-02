@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Team;
+use App\User;
 use App\Schedule;
 use Auth;
 
@@ -26,10 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::id();
+        $id = Auth::id();
         $date = '2021-03-01';
-        $item = Team::where('user_id', $user_id)->first();
-        $position = Schedule::where('user_id', $user_id)->where('date', $date)->first();
-        return view('/home/home', ['item'=>$item, 'position'=>$position]);
+        $item = User::where('id', $id)->first();
+        return view('/home/home', ['item'=>$item]);
     }
 }

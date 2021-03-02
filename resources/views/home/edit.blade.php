@@ -27,7 +27,6 @@
                         <input class="LF check" type="checkbox" name="LF" value="active">
                         <input class="CF check" type="checkbox" name="CF" value="active">
                         <input class="RF check" type="checkbox" name="RF" value="active">
-                        <input type="text" name="member">
                         <input type="hidden" name="user_id" value='{{ Auth::id() }}'>
                         <input type="submit" value="登録">
                     </form>
@@ -49,11 +48,11 @@
                 <form action="{{ route('update') }}" method="post">
                     @csrf
                     <div class="group">
-                        <input name="team" id="input" type="text" value="{{ $item->team }}">
+                        <input name="name" id="input" type="text" value="{{ $item->name }}">
                         <div class="text_underline"></div>
                     </div> 
-                    @if ($errors->has('team'))
-                        <div>{{ $errors->first('team') }}</div>
+                    @if ($errors->has('name'))
+                        <div>{{ $errors->first('name') }}</div>
                     @endif
                     <div class="group">
                         <input name="address" id="input" type="text" value="{{ $item->address }}">

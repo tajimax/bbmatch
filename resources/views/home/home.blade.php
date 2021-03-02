@@ -16,19 +16,19 @@
                 <div class="field">
                     <form action="{{ route('SearchSchedule') }}" method="post">
                         @csrf
-                        <input class="flatpickr schedule" type="text" readonly="readonly" name="date" value="{{ $position->date }}">
+                        <input class="flatpickr schedule" type="text" readonly="readonly" name="date" value="{{ isset($position->date) }}">
                         <input class="btn" type="submit" value="検索">
                     </form>
                     <img class="diamond" src="/images/field.jpg" alt="">
-                    <img class="P position {{ $position->P }}" src="/images/symbol.png" alt="" id="P">
-                    <img class="C position {{ $position->C }}" src="/images/symbol.png" alt=""  id="C">
-                    <img class="FB position {{ $position->FB }}" src="/images/symbol.png" alt="" id="FB">
-                    <img class="SB position {{ $position->SB }}" src="/images/symbol.png" alt="" id="SB">
-                    <img class="TB position {{ $position->TB }}" src="/images/symbol.png" alt="" id="TB">
-                    <img class="SS position {{ $position->SS }}" src="/images/symbol.png" alt="" id="SS">
-                    <img class="LF position {{ $position->LF }}" src="/images/symbol.png" alt="" id="LF">
-                    <img class="CF position {{ $position->CF }}" src="/images/symbol.png" alt="" id="CF">
-                    <img class="RF position {{ $position->RF }}" src="/images/symbol.png" alt="" id="RF">
+                    <img class="P position {{ isset($position->P) }}" src="/images/symbol.png" alt="" id="P">
+                    <img class="C position {{ isset($position->C) }}" src="/images/symbol.png" alt=""  id="C">
+                    <img class="FB position {{ isset($position->FB) }}" src="/images/symbol.png" alt="" id="FB">
+                    <img class="SB position {{ isset($position->SB) }}" src="/images/symbol.png" alt="" id="SB">
+                    <img class="TB position {{ isset($position->TB) }}" src="/images/symbol.png" alt="" id="TB">
+                    <img class="SS position {{ isset($position->SS) }}" src="/images/symbol.png" alt="" id="SS">
+                    <img class="LF position {{ isset($position->LF) }}" src="/images/symbol.png" alt="" id="LF">
+                    <img class="CF position {{ isset($position->CF) }}" src="/images/symbol.png" alt="" id="CF">
+                    <img class="RF position {{ isset($position->RF) }}" src="/images/symbol.png" alt="" id="RF">
                 </div>
                 <div class="grid">
                     <button class="btn2" id="btn-P">投手</button>
@@ -45,11 +45,11 @@
             </div>
             <div class="content-item" style="padding: 0 30px 30px;">
                 <div class="group">
-                    <div class="profile-item">{{ $item->team }}</div>
+                    <div class="profile-item">{{ $item->name }}</div>
                     <div class="text_underline"></div>
                 </div>
                 <div class="group">
-                    <div class="profile-item">{{ $item->address}}</div>
+                    <div class="profile-item">{{ $item->address }}</div>
                     <div class="text_underline"></div>
                 </div>
                 <div class="profile-intro">{{ $item->introduction }}</div>

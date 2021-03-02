@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Team;
+use App\User;
 use App\Schedule;
 use App\Http\Requests\TeamReaquest;
 use App\Http\Requests\Reaquest;
@@ -13,37 +13,37 @@ class BBmatchController extends Controller
 {
     // チーム一覧画面を表示
     public function showList(){
-        $items = Team::all();
+        $items = User::all();
         return view('search.list', ['items' => $items]);
     }
 
     // 他のチームの詳細ページを表示
     public function showUser(Request $request){
-        $item = Team::find($request->id)->first();
+        $item = User::find($request->id)->first();
         return view('search.user', ['item' => $item]);
     }
 
     // マイページの作成
-    public function exeStore(TeamReaquest $request){
-        Team::create($request->all());
+    public function exeStore(Reaquest $request){
+        User::create($request->all());
         \Session::flash('err_msg', 'マイページの作成に成功しました。');
         return redirect(route('home'));
     }
 
     // マイページ編集画面を表示
     public function showEdit(){
-        $user_id = Auth::id();
-        $item = Team::where('user_id', $user_id)->first();
+        $id = Auth::id();
+        $item = User::where('id', $id)->first();
         return view('home.edit', ['item' => $item]);
     }
 
     // マイページの編集
-    public function exeUpdate(TeamReaquest $request){
+    public function exeUpdate(Request $request){
         $inputs = $request->all();
-        $user_id = Auth::id();
-        $item = Team::where('user_id', $user_id)->first();
+        $id = Auth::id();
+        $item = User::where('id', $id)->first();
         $item -> fill([
-            'team' => $inputs['team'],
+            'name' => $inputs['name'],
             'address' => $inputs['address'],
             'introduction' => $inputs['introduction'],
         ]);
@@ -60,11 +60,11 @@ class BBmatchController extends Controller
 
     // スケジュール検索
     public function exeSearchSchedule(Request $request){
-        $user_id = Auth::id();
+        $id = Auth::id();
         $input = $request->all();
         $date = $input['date'];
-        $item = Team::where('user_id', $user_id)->first();
-        $position = Schedule::where('user_id', $user_id)->where('date', $date)->first();
+        $item = User::where('id', $id)->first();
+        $position = Schedule::where('id', $id)->where('date', $date)->first();
         return view('/home/home', ['item'=>$item, 'position'=>$position]);
     }
 }

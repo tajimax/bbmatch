@@ -27,7 +27,6 @@
                         <input class="LF check" type="checkbox" name="LF" value="active">
                         <input class="CF check" type="checkbox" name="CF" value="active">
                         <input class="RF check" type="checkbox" name="RF" value="active">
-                        <input type="hidden" name="user_id" value='{{ Auth::id() }}'>
                         <input type="submit" value="登録">
                     </form>
                 </div>
@@ -46,11 +45,11 @@
             </div>
             <div class="content-item" style="padding: 0 30px 30px;">
                 <div class="group">
-                    <div class="profile-item">{{ $item->team }}</div>
+                    <div class="profile-item">{{ $item->name }}</div>
                     <div class="text_underline"></div>
                 </div>
                 <div class="group">
-                    <div class="profile-item">{{ $item->address}}</div>
+                    <div class="profile-item">{{ $item->address }}</div>
                     <div class="text_underline"></div>
                 </div>
                 <div class="profile-intro">{{ $item->introduction }}</div>

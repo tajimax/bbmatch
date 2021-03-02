@@ -17,7 +17,7 @@
                             <img class="posted-work__img" src="#">
                         </div>
                         <div class="posted-work__novel-content-wrapper">
-                            <a class="posted-work__ttl" href="/user/{{ $item -> id }}">{{ $item -> team }}</a>
+                            <a class="posted-work__ttl" href="/user/{{ $item -> id }}">{{ $item -> name }}</a>
                             <a class="posted-work__genre" href="#">{{ $item -> address }}</a>
                         </div>
                     </div>
