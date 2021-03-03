@@ -26,15 +26,16 @@ class ScheduleRequest extends FormRequest
         return [
             'user_id' => 'required',
             'date' => 'required',
-            'P' => 'required',
-            'C' => 'required',
-            'FB' => 'required',
-            'SB' => 'required',
-            'TB' => 'required',
-            'SS' => 'required',
-            'LF' => 'required',
-            'CF' => 'required',
-            'RF' => 'required',
+            'P' => 'nullable',
+            'C' => 'nullable',
+            'FB' => 'nullable',
+            'SB' => 'nullable',
+            'TB' => 'nullable',
+            'SS' => 'nullable',
+            'LF' => 'nullable',
+            'CF' => 'nullable',
+            'RF' => 'nullable',
+            'member' => 'required',
         ];
     }
 }

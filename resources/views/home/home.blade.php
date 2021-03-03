@@ -1,4 +1,4 @@
-@extends('layouts.homeLayout')
+@extends('layouts.app')
 @section('title', 'マイページ')
 
 @section('content')
@@ -18,6 +18,9 @@
                         @csrf
                         <input class="flatpickr schedule" type="text" readonly="readonly" name="date" value="{{ isset($position->date) }}">
                         <input class="btn" type="submit" value="検索">
+                        <div class="flex">
+                            <a href="{{ route('editSchedule') }}" class="btn2">スケジュール登録</a>
+                        </div>
                     </form>
                     <img class="diamond" src="/images/field.jpg" alt="">
                     <img class="P position {{ isset($position->P) }}" src="/images/symbol.png" alt="" id="P">

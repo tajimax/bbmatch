@@ -27,7 +27,9 @@ Route::get('/home/edit', 'BBmatchController@showEdit')->name('edit');
 Route::post('/home/update', 'BBmatchController@exeUpdate')->name('update');
 // マイページの作成
 Route::post('/home/store', 'BBmatchController@exeStore')->name('store');
+// スケジュールの登録
+Route::get('/home/schedule', 'BBmatchController@editSchedule')->name('editSchedule');
 // スケジュールの作成
 Route::post('/home/schedule', 'BBmatchController@exeSchedule')->name('schedule');
 // スケジュールの作成
-Route::post('/home', 'BBmatchController@exeSearchSchedule')->name('SearchSchedule');
+Route::post('/search/user', 'BBmatchController@exeSearchSchedule')->name('SearchSchedule');

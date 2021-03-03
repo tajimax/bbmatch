@@ -19,6 +19,11 @@
                         <div class="posted-work__novel-content-wrapper">
                             <a class="posted-work__ttl" href="/user/{{ $item -> id }}">{{ $item -> name }}</a>
                             <a class="posted-work__genre" href="#">{{ $item -> address }}</a>
+                            @if ($item -> schedules != null)
+                                @foreach($item->schedules as $schedule)
+                                <div>{{ $schedule -> date }}</div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                     @endforeach

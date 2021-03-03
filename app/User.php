@@ -29,6 +29,10 @@ class User extends Authenticatable
         // 'remember_token',
     ];
 
+    public function schedules(){
+        return $this->hasMany('App\Schedule');
+    }
+
     /**
      * The attributes that should be cast to native types.
      *

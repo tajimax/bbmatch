@@ -14,22 +14,21 @@
             </div>
             <div class="content-item flex">
                 <div class="field">
-                    <form action="{{ route('schedule') }}" method="post">
+                    <form action="{{ route('SearchSchedule') }}" method="post">
                         @csrf
-                        <input class="flatpickr schedule" type="text" readonly="readonly" name="date" value="カレンダー">
-                        <img class="diamond" src="/images/field.jpg" alt="">
-                        <input class="P check" type="checkbox" name="P" value="active">
-                        <input class="C check" type="checkbox" name="C" value="active">
-                        <input class="FB check" type="checkbox" name="FB" value="active">
-                        <input class="SB check" type="checkbox" name="SB" value="active">
-                        <input class="TB check" type="checkbox" name="TB" value="active">
-                        <input class="SS check" type="checkbox" name="SS" value="active">
-                        <input class="LF check" type="checkbox" name="LF" value="active">
-                        <input class="CF check" type="checkbox" name="CF" value="active">
-                        <input class="RF check" type="checkbox" name="RF" value="active">
-                        <input type="hidden" name="user_id" value='{{ Auth::id() }}'>
-                        <input type="submit" value="登録">
+                        <input class="flatpickr schedule" type="text" readonly="readonly" name="date" value="{{ isset($position->date) }}">
+                        <input class="btn" type="submit" value="検索">
                     </form>
+                    <img class="diamond" src="/images/field.jpg" alt="">
+                    <img class="P position {{ isset($position->P) }}" src="/images/symbol.png" alt="" id="P">
+                    <img class="C position {{ isset($position->C) }}" src="/images/symbol.png" alt=""  id="C">
+                    <img class="FB position {{ isset($position->FB) }}" src="/images/symbol.png" alt="" id="FB">
+                    <img class="SB position {{ isset($position->SB) }}" src="/images/symbol.png" alt="" id="SB">
+                    <img class="TB position {{ isset($position->TB) }}" src="/images/symbol.png" alt="" id="TB">
+                    <img class="SS position {{ isset($position->SS) }}" src="/images/symbol.png" alt="" id="SS">
+                    <img class="LF position {{ isset($position->LF) }}" src="/images/symbol.png" alt="" id="LF">
+                    <img class="CF position {{ isset($position->CF) }}" src="/images/symbol.png" alt="" id="CF">
+                    <img class="RF position {{ isset($position->RF) }}" src="/images/symbol.png" alt="" id="RF">
                 </div>
                 <div class="grid">
                     <button class="btn2" id="btn-P">投手</button>
