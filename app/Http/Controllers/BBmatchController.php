@@ -10,17 +10,12 @@ use App\Http\Requests\Reaquest;
 use Auth;
 
 class BBmatchController extends Controller
-{
-    // チーム一覧画面を表示
-    public function showList(){
-        $items = User::all();
-        return view('search.list', ['items' => $items]);
-    }
-
+{   
     // 他のチームの詳細ページを表示
     public function showUser(Request $request){
-        $item = User::find($request->id)->first();
-        // $date = date(‘Y-m-d’);
+        $user_id = $request->id;
+        $date = $request->date;
+        $item = Schedule::where('user_id', $user_id)->where('date', $date)->first();
         return view('search.user', ['item' => $item]);
     }
 

@@ -13,13 +13,14 @@
 
 
 // チーム一覧画面を表示
-Route::get('/', 'BBmatchController@showList')->name('show');
+Route::get('/', 'ListController@showList')->name('show');
+Route::post('/member', 'ListController@showMember')->name('member');
+Route::post('/date', 'ListController@showDate')->name('date');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/user/{id}', 'BBmatchController@showUser')->name('user');
+Route::get('/user/{id}/{date}', 'BBmatchController@showUser')->name('user');
 
 // チーム詳細編集画面を表示
 Route::get('/home/edit', 'BBmatchController@showEdit')->name('edit');

@@ -31,6 +31,8 @@
                             <input name="member" type="number">
                             <div class="text_underline"></div>
                         </div> 
+                        <input type="hidden" name="name" value='{{ Auth::user()->name }}'>
+                        <input type="hidden" name="address" value='{{ Auth::user()->address }}'>  
                         <input type="hidden" name="user_id" value='{{ Auth::id() }}'>
                         <input class="btn2" type="submit" value="登録">
                         <a href="{{ route('home') }}" class="btn2">キャンセル</a>

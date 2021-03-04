@@ -54,20 +54,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="introduction" class="col-md-4 col-form-label text-md-right">{{ __('チーム紹介') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="introduction" type="introduction" class="form-control @error('introduction') is-invalid @enderror" name="introduction" value="{{ old('introduction') }}" required autocomplete="introduction">
-
-                                @error('introduction')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
 
                             <div class="col-md-6">

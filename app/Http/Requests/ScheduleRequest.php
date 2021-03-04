@@ -26,6 +26,8 @@ class ScheduleRequest extends FormRequest
         return [
             'user_id' => 'required',
             'date' => 'required',
+            'name' => 'required',
+            'address' => 'required',
             'P' => 'nullable',
             'C' => 'nullable',
             'FB' => 'nullable',

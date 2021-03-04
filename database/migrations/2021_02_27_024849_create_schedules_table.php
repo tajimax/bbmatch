@@ -16,16 +16,18 @@ class CreateSchedulesTable extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
+            $table->string('name');
+            $table->string('address');
             $table->date('date');
-            $table->string('P');
-            $table->string('C');
-            $table->string('FB');
-            $table->string('SB');
-            $table->string('TB');
-            $table->string('SS');
-            $table->string('LF');
-            $table->string('CF');
-            $table->string('RF');
+            $table->string('P')->nullable();
+            $table->string('C')->nullable();
+            $table->string('FB')->nullable();
+            $table->string('SB')->nullable();
+            $table->string('TB')->nullable();
+            $table->string('SS')->nullable();
+            $table->string('LF')->nullable();
+            $table->string('CF')->nullable();
+            $table->string('RF')->nullable();
             $table->integer('member');
             $table->timestamps();
         });

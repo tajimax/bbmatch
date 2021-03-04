@@ -47,13 +47,15 @@
                 </div>
             </div>
             <div class="content-item" style="padding: 0 30px 30px;">
-                <div class="group">
-                    <div class="profile-item">{{ $item->name }}</div>
-                    <div class="text_underline"></div>
-                </div>
-                <div class="group">
-                    <div class="profile-item">{{ $item->address }}</div>
-                    <div class="text_underline"></div>
+                <div class="flex">
+                    <div class="group" style="width: 400px;">
+                        <div class="profile-item">{{ $item->name }}</div>
+                        <div class="text_underline"></div>
+                    </div>
+                    <div class="group" style="width: 200px; text-align: center;">
+                        <div class="profile-item">{{ $item->address }}</div>
+                        <div class="text_underline"></div>
+                    </div>
                 </div>
                 <div class="profile-intro">{{ $item->introduction }}</div>
                 <div class="flex">
