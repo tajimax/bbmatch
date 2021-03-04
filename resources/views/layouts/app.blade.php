@@ -20,10 +20,8 @@
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <!-- カレンダー -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
     <div id="app">
@@ -87,5 +85,16 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+        const today = function () {
+            let today = new Date();
+            today.setDate(today.getDate());
+            let yyyy = today.getFullYear();
+            let mm = ("0"+(today.getMonth()+1)).slice(-2);
+            let dd = ("0"+today.getDate()).slice(-2);
+            document.getElementById("today").value=yyyy+'-'+mm+'-'+dd;
+        }
+    </script>
 </body>
 </html>

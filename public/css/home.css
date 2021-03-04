@@ -5,6 +5,11 @@ a {
   display: block;
 }
 
+a:hover {
+  text-decoration: none;
+  display: block;
+}
+
 /*----- 共通部分 -----*/
 .flex {
   display: flex;
@@ -97,8 +102,10 @@ a {
 .field {
   position: relative;
   height: 340px;
-  width: 470px;
+  width: 500px;
   border-radius: 20px;
+  margin: 0 auto;
+  background-image: url(/images/field.jpg);
 }
 
 .profile {
@@ -110,13 +117,17 @@ a {
 }
 
 .profile-item {
-  margin-top: 30px;
   font-size: 16px;
   width: 90%;
   border: none;
   outline: none;
   padding-bottom: 4px;
+  padding-left: 8px;
   box-sizing: border-box;
+}
+
+.profile-intro-wrapper {
+  position: relative;
 }
 
 .profile-intro {
@@ -132,6 +143,18 @@ a {
   font-size: 16px;
 }
 
+.profile-edit {
+  position: relative;
+  color: #808080;
+  text-align: center;
+  border: 1px solid #808080;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  height: 2.3em;
+  max-width: 150px;
+  overflow: hidden;
+}
 
 .schedule {
   position: absolute;
