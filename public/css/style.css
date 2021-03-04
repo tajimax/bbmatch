@@ -96,7 +96,7 @@ a {
 
 .tab-content2 {
   width: 100%;
-  display: none;
+  display: block;
   padding: 40px 40px;
 }
 
@@ -176,10 +176,6 @@ a {
   line-height: 2;
   font-size: 1rem;
   color: #3879D9;
-}
-
-.active {
-  display: block;
 }
 
 /* アコーディオンメニュー */

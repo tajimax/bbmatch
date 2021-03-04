@@ -19,7 +19,8 @@
                             <form action="{{ route('SearchSchedule') }}" method="post">
                                 @csrf
                                 <div class="group">
-                                    <input type="date" name="date" value="{{ isset($position->date) }}" placeholder="日付で検索" style="color:#fff;">                                    <div class="text_underline"></div>
+                                    <!-- <label style="position:absolute; width: 100px; left:0; z-index:1; background-color:#fff;" for="calender">あああ</label> -->
+                                    <input style="position:relative;" id="calender" type="date" name="date" value="{{ isset($position->date) }}" placeholder="日付で検索" style="color:#fff;">                                    <div class="text_underline"></div>
                                 </div>
                             </form>
                             <input class="profile-edit" type="submit" value="検索">
@@ -55,7 +56,13 @@
                     </div>
                 </div>
                 <div class="profile-intro-wrapper">
-                    <div class="profile-intro">{{ $item->introduction }}</div>
+                    <div class="profile-intro">
+                        @if( $item->introduction === NULL )
+                            紹介文はありません。
+                        @else
+                            {{ $item->introduction }}
+                        @endif
+                    </div>
                 </div>
                 <!-- <a class="fas fa-edit fa-2x" style="color: dimgray;" href="{{ route('edit') }}"></a> -->
                 <!-- <a href="{{ route('edit') }}" class="btn2">編集</a> -->

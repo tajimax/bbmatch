@@ -5,7 +5,7 @@
     <div class="tab-nav flex">
         <div class="tab-nav__item">チーム一覧</div>
         <div class="tab-nav__item">
-            <p class="menu js-menu">メニュー1</p>
+            <p class="menu js-menu">条件で絞り込む</p>
             <div class="contents">                
                 <div class="flex">
                     <form class="search_container" action="{{ route('member') }}" method="post">
