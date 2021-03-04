@@ -5,17 +5,20 @@
     <div class="tab-nav flex">
         <div class="tab-nav__item">チーム一覧</div>
         <div class="tab-nav__item">
-            <div class="flex">
-                <form class="search_container" action="{{ route('member') }}" method="post">
-                    @csrf
-                    <input type="number" name="member" placeholder="  人数で検索">
-                    <input type="submit" value="&#xf002">
-                </form>
-                <form class="search_container" action="{{ route('date') }}" method="post">
-                    @csrf
-                    <input type="date" name="date" placeholder="  日付で検索">
-                    <input type="submit" value="&#xf002">
-                </form>
+            <p class="menu js-menu">メニュー1</p>
+            <div class="contents">                
+                <div class="flex">
+                    <form class="search_container" action="{{ route('member') }}" method="post">
+                        @csrf
+                        <input type="number" name="member" placeholder="  人数で検索">
+                        <input type="submit" value="&#xf002">
+                    </form>
+                    <form class="search_container" action="{{ route('date') }}" method="post">
+                        @csrf
+                        <input type="date" name="date" placeholder="  日付で検索">
+                        <input type="submit" value="&#xf002">
+                    </form>
+                </div>
             </div>
         </div>
     </div>

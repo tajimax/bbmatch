@@ -85,16 +85,5 @@
             @yield('content')
         </main>
     </div>
-
-    <script>
-        const today = function () {
-            let today = new Date();
-            today.setDate(today.getDate());
-            let yyyy = today.getFullYear();
-            let mm = ("0"+(today.getMonth()+1)).slice(-2);
-            let dd = ("0"+today.getDate()).slice(-2);
-            document.getElementById("today").value=yyyy+'-'+mm+'-'+dd;
-        }
-    </script>
 </body>
 </html>
