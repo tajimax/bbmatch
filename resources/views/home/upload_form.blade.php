@@ -10,11 +10,21 @@
                 </div>
             @endif
             <div class="content-item">
-                @if( $image->file_path === NULL )
-                    <a href="{{ route('upload_form') }}"><img class="profile" src="/images/profile.jpeg" alt=""></a>
-                @else
-                    <a href="{{ route('upload_form') }}"><img src="{{ Storage::url($image->file_path) }}"/></a>                    
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
+                <form method="post"	action="{{ route('upload_image') }}" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="image" accept="image/png, image/jpeg">
+                    <input type="submit" value="Upload">
+                </form>
+                <img class="profile" src="/images/profile.jpeg" alt="">
             </div>
             <div class="content-item">
                 <div class="field">

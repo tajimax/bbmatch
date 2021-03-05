@@ -34,3 +34,7 @@ Route::get('/home/schedule', 'BBmatchController@editSchedule')->name('editSchedu
 Route::post('/home/schedule', 'BBmatchController@exeSchedule')->name('schedule');
 // スケジュールの作成
 Route::post('/search/user', 'BBmatchController@exeSearchSchedule')->name('SearchSchedule');
+
+// 画像アップロード機能
+Route::get('/form', 'UploadImageController@show')->name('upload_form');
+Route::post('/upload', 'UploadImageController@upload')->name('upload_image');

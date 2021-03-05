@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Schedule;
+use App\UploadImage;
 use Auth;
 
 class HomeController extends Controller
@@ -29,6 +30,8 @@ class HomeController extends Controller
         $id = Auth::id();
         $date = '2021-03-01';
         $item = User::where('id', $id)->first();
-        return view('/home/home', ['item'=>$item]);
+        $uploads = UploadImage::orderBy("id", "desc")->first();
+        // $uploads = UploadImage::where()->first();
+        return view('/home/home', ['item'=>$item, 'image'=>$uploads]);
     }
 }
