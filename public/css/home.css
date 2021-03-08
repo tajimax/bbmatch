@@ -97,6 +97,8 @@ a:hover {
 .content-item {
   border-radius: 20px;
   position: relative;
+  max-height: 340px;
+  max-width: 685px;
 }
 
 .field {
@@ -105,7 +107,7 @@ a:hover {
   width: 500px;
   border-radius: 20px;
   margin: 0 auto;
-  background-image: url(/images/field.jpg);
+  /* background-image: url(/images/field.jpg); */
 }
 
 .profile {

@@ -28,10 +28,11 @@ class HomeController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $date = '2021-03-01';
+        $date = date('y-m-d');
         $item = User::where('id', $id)->first();
-        $uploads = UploadImage::orderBy("id", "desc")->first();
+        $uploads = UploadImage::where('user_id', $id)->first();
+        $position = Schedule::where('user_id', $id)->where('date', $date)->first();
         // $uploads = UploadImage::where()->first();
-        return view('/home/home', ['item'=>$item, 'image'=>$uploads]);
+        return view('/home/home', ['item'=>$item, 'image'=>$uploads, 'position'=>$position]);
     }
 }

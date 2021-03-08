@@ -23,16 +23,18 @@ class UploadImageController extends Controller
 		$upload_image = $request->file('image');
 	
 		if($upload_image) {
+			$user_id = Auth::id();
 			//アップロードされた画像を保存する
 			$path = $upload_image->store('public/uploads');
 			//画像の保存に成功したらDBに記録する
 			if($path){
 				UploadImage::create([
-					"file_name" => $upload_image->getClientOriginalName(),
-					"file_path" => $path
+					'user_id' => $user_id,
+					'file_name' => $upload_image->getClientOriginalName(),
+					'file_path' => $path
 				]);
 			}
 		}
-		return redirect(route('home'));
+		return redirect(route('edit'));
 	}
 }

@@ -8,5 +8,5 @@ class UploadImage extends Model
 {
     protected $table = 'upload_images';
 
-    protected $fillable = [ 'file_name', 'file_path'];
+    protected $fillable = ['user_id', 'file_name', 'file_path'];
 }

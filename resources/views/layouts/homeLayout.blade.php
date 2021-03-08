@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/home.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
 <body>
 <!----- ヘッダー部分 ----->
 <header class="header flex">
@@ -19,9 +18,7 @@
 
 <!----- 投稿一覧 ----->
 <section class="section-wrapper">
-    <div class="commonInner">
-        @yield('content')
-    </div>
+    @yield('content')
 </section>
 
 </body>

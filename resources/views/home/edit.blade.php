@@ -1,4 +1,4 @@
-@extends('layouts.homeLayout')
+@extends('layouts.app')
 @section('title', 'マイページ')
 
 @section('content')
@@ -10,15 +10,29 @@
                 </div>
             @endif
             <div class="content-item">
-                <img class="profile" src="/images/profile.jpeg" alt="">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form method="post"	action="{{ route('upload_image') }}" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="image" accept="image/png, image/jpeg">
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                    <input type="submit" value="Upload">
+                </form>
+                @if( $image !== NULL )
+                    <img class="profile" src="{{ Storage::url($image->file_path) }}"/>
+                @else
+                    <img class="profile" src="/images/profile.jpeg" alt="">
+                @endif
             </div>
             <div class="content-item flex">
                 <div class="field">
-                    <form action="{{ route('SearchSchedule') }}" method="post">
-                        @csrf
-                        <input class="flatpickr schedule" type="text" readonly="readonly" name="date" value="{{ isset($position->date) }}">
-                        <input class="btn" type="submit" value="検索">
-                    </form>
                     <img class="diamond" src="/images/field.jpg" alt="">
                     <img class="P position {{ isset($position->P) }}" src="/images/symbol.png" alt="" id="P">
                     <img class="C position {{ isset($position->C) }}" src="/images/symbol.png" alt=""  id="C">
@@ -30,46 +44,37 @@
                     <img class="CF position {{ isset($position->CF) }}" src="/images/symbol.png" alt="" id="CF">
                     <img class="RF position {{ isset($position->RF) }}" src="/images/symbol.png" alt="" id="RF">
                 </div>
-                <div class="grid">
-                    <button class="btn2" id="btn-P">投手</button>
-                    <button class="btn2" id="btn-C">捕手</button>
-                    <button class="btn2" id="btn-FB">一塁手</button>
-                    <button class="btn2" id="btn-SB">二塁手</button>
-                    <button class="btn2" id="btn-TB">三塁手</button>
-                    <button class="btn2" id="btn-SS">遊撃手</button>
-                    <button class="btn2" id="btn-LF">左翼手</button>
-                    <button class="btn2" id="btn-CF">中翼手</button>
-                    <button class="btn2" id="btn-RF">右翼手</button>
-                    <button class="btn2" id="btn-ALL">全選択</button>
-                </div>
             </div>
             <div class="content-item" style="padding: 0 30px 30px;">
                 <form action="{{ route('update') }}" method="post">
                     @csrf
-                    <div class="group">
-                        <input name="name" id="input" type="text" value="{{ $item->name }}">
-                        <div class="text_underline"></div>
-                    </div> 
-                    @if ($errors->has('name'))
-                        <div>{{ $errors->first('name') }}</div>
-                    @endif
-                    <div class="group">
-                        <input name="address" id="input" type="text" value="{{ $item->address }}">
-                        <div class="text_underline"></div>
+                    <div class="flex" style="align-items: flex-end;">
+                        <div class="group" style="width: 400px;">
+                            <input class="profile-item" name="name" id="input" type="text" value="{{ $item->name }}" style="font-size: 32px;">
+                            <div class="text_underline"></div>
+                        </div>
+                        @if ($errors->has('name'))
+                            <div>{{ $errors->first('name') }}</div>
+                        @endif
+                        <div class="flex-column">
+                            <div class="flex">
+                                <a href="{{ route('home') }}" class="profile-edit">キャンセル</a>
+                                <input type="submit" value="更新" class="profile-edit">
+                            </div>
+                            <div class="group" style="width: 200px; text-align: center;">
+                                <input class="profile-item" name="address" id="input" type="text" value="{{ $item->address }}">
+                                <div class="text_underline"></div>
+                            </div>
+                            @if ($errors->has('address'))
+                                <div>{{ $errors->first('address') }}</div>
+                            @endif
+                        </div>
                     </div>
-                    @if ($errors->has('address'))
-                        <div>{{ $errors->first('address') }}</div>
-                    @endif
                     <textarea class="textarea" name="introduction" id="" cols="30" rows="6">{{ $item->introduction }}</textarea>
                     @if ($errors->has('introduction'))
                         <div>{{ $errors->first('introduction') }}</div>
                     @endif
                     <input type="hidden" name="user_id" value='{{ Auth::id() }}'>
-
-                    <div class="flex">
-                        <a href="{{ route('home') }}" class="btn2">キャンセル</a>
-                        <input type="submit" value="更新" class="btn2">
-                    </div>
                 </form>
             </div>
             <div class="content-item">

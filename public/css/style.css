@@ -26,6 +26,7 @@ a {
 }
 
 .section-wrapper {
+  min-height: 100vh;
   padding: 50px;
   background-color: #F8FAFC;
 }
@@ -63,38 +64,38 @@ a {
 }
 
 /*----- 原作一覧 -----*/
-.tab-wrapper {
+.content-wrapper {
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   background-color: #fff;
   border-radius: 10px;
 }
 
-.tab-nav {
+.content-header {
+  height: 90px;
   width: 100%;
 }
 
-.tab-nav__item {
+.content-ttl {
   display: inline-block;
-  width: 50%;
-  font-size: 1rem;
   line-height: 60px;
-  color: #65B2F7;
+  width: 75%;
+  font-size: 2.5rem;
+  color: black;
   display: inline-block;
   text-align: center;
 }
 
-.tab-content {
-  width: 100%;
-  display: block;
+.content-search {
+  display: inline-block;
+  width: 25%;
+  font-size: 1rem;
+  color: black;
+  display: inline-block;
+  text-align: center;
 }
 
-.tab-content__item {
-  height: 100%;
-  width: 100%;
-}
-
-.tab-content2 {
+.content-item {
   width: 100%;
   display: block;
   padding: 40px 40px;
@@ -107,9 +108,9 @@ a {
   padding: 3px 10px;
   border-radius: 20px;
   height: 2.3em;
-  width: 260px;
+  width: 220px;
   overflow: hidden;
-  margin-right: 50px;
+  margin-top: 10px;
 }
 
 .search_container input[type="number"],
@@ -151,8 +152,15 @@ a {
 .team-content-wrapper {
   height: 50%;
   width: 100%;
-  padding: 0 20px;
   color: #3879D9;
+  display: grid;
+  grid-template: 
+    "..... ............  ............  ............ ....." 10px
+    "..... team__ttl     team__ttl     team__ttl    ....." 1fr
+    "..... team__address team__address ............ ....." 1fr
+    "..... team__date    team__date    team__member ....." 1fr
+    "..... ............  ............  ............ ....." 10px/
+     20px  1fr           1fr           1fr          20px;
 }
 
 .team__img {
@@ -165,45 +173,74 @@ a {
 }
 
 .team__ttl {
+  grid-area: team__ttl;
   width: 100%;
-  line-height: 1.5;
-  font-size: 1.5rem;
+  line-height: 1rem;
+  font-size: 2rem;
   color: #3879D9;
 }
 
-.team__genre {
+.team__address {
+  grid-area: team__address;
   width: 100%;
-  line-height: 2;
+  line-height: 2rem;
   font-size: 1rem;
+  color: #3879D9;
+  vertical-align: middle;
+}
+
+.team__date {
+  grid-area: team__date;
+  width: 100%;
+  line-height: 1rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #3879D9;
+}
+
+.team__member {
+  grid-area: team__member;
+  width: 100%;
+  font-size: 2rem;
+  line-height: 1rem;
   color: #3879D9;
 }
 
 /* アコーディオンメニュー */
 .menu {
-  background-color: purple;
-  color: white;
-  font-size: 18px;
-  padding: 10px;
+  color: #808080;
+  font-size: 16px;
+  padding: 10px 10px;
   text-align: center;
+  border: 1px solid #808080;
   cursor: pointer;
   user-select: none;
+  display: block;
+  border-radius: 20px;
+  max-width: 150px;
+  overflow: hidden;
 }
+
 .menu:hover,
 .menu:active,
 .menu.is-active {
-  background-color: black;
+  background-color: #fff;
 }
 .contents {
+  position: absolute;
+  z-index: 1;
   text-align: center;
   line-height: 0;
   height: 0;
   overflow: hidden;
   opacity: 0;
   transition-duration: 0.4s;
+  margin-top: 10px;
+  background-color: #F8FAFC;
 }
  
 .contents.is-open {
-  border: 1px solid black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   padding: 10px;
   line-height: normal;
   height: auto;

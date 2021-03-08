@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Schedule;
+use App\UploadImage;
 use App\Http\Requests\Reaquest;
 use Auth;
 
