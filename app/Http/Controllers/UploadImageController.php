@@ -24,6 +24,7 @@ class UploadImageController extends Controller
 	
 		if($upload_image) {
 			$user_id = Auth::id();
+			UploadImage::where('user_id', $user_id)->delete();
 			//アップロードされた画像を保存する
 			$path = $upload_image->store('public/uploads');
 			//画像の保存に成功したらDBに記録する

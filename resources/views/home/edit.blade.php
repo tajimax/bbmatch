@@ -27,9 +27,9 @@
                     <input type="submit" value="更新">
                 </form>
                 @if( $image !== NULL )
-                    <div id="preview" class="preview"><img class="profile" src="{{ Storage::url($image->file_path) }}"/></div>
+                    <div id="preview" class="profile"><img id="profileImage" class="profile" src="{{ Storage::url($image->file_path) }}"/></div>
                 @else
-                    <div id="preview" class="preview"><img class="profile" src="/images/profile.jpeg" alt=""></div>
+                    <div id="preview" class="profile"><img id="profileImage" class="profile" src="/images/profile.jpeg" alt=""></div>
                 @endif
             </div>
             <div class="content-item flex">

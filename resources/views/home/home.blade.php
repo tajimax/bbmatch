@@ -66,7 +66,15 @@
             </div>
             <div class="content-item">
                 <!-- 本当はgoogleapi使っておすすめの球場を表示したい -->
-                メッセージとかお知らせとか表示
+                <div class="news__wrapper">
+                    <h2 class="section__title"><span>お知らせ</span></h2>
+                    <ul class="news-list">
+                        <li class="news-list__item"><a href="#"><time datetime="2019-08-23">0000.00.00</time><span>xxxxxxxxxxxxxxxxxx</span></a></li>
+                        <li class="news-list__item"><a href="#"><time datetime="2019-08-08">0000.00.00</time><span>xxxxxxxxxxxxxxxxxx</span></a></li>
+                        <li class="news-list__item"><a href="#"><time datetime="2019-07-14">0000.00.00</time><span>xxxxxxxxxxxxxxxxxx</span></a></li>
+                        <li class="news-list__item"><a href="#"><time datetime="2019-07-14">0000.00.00</time><span>xxxxxxxxxxxxxxxxxx</span></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

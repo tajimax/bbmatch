@@ -93,6 +93,7 @@
             var reader = new FileReader();
             var preview = document.getElementById("preview");
             var previewImage = document.getElementById("previewImage");
+            var profileImage = document.getElementById("profileImage");
             
             if(previewImage != null) {
                 preview.removeChild(previewImage);
@@ -102,6 +103,7 @@
                 img.setAttribute("src", reader.result);
                 img.setAttribute("id", "previewImage");
                 preview.appendChild(img);
+                profileImage.style.display ="none";
             };
             
             reader.readAsDataURL(file);
