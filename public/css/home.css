@@ -101,6 +101,8 @@ a:hover {
   max-width: 685px;
 }
 
+
+/* スケジュール部分 */
 .field {
   position: relative;
   height: 340px;
@@ -108,54 +110,6 @@ a:hover {
   border-radius: 20px;
   margin: 0 auto;
   /* background-image: url(/images/field.jpg); */
-}
-
-.profile {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 8px gray;
-}
-
-.profile-item {
-  font-size: 16px;
-  width: 90%;
-  border: none;
-  outline: none;
-  padding-bottom: 4px;
-  padding-left: 20px;
-  box-sizing: border-box;
-}
-
-.profile-intro-wrapper {
-  position: relative;
-}
-
-.profile-intro {
-  box-sizing: border-box;
-  margin-top: 30px;
-  height: 170px;
-  width: 100%;
-  border: solid 1px #c2c2c2;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #fff;
-  outline: 0;
-  font-size: 16px;
-}
-
-.profile-edit {
-  position: relative;
-  color: #808080;
-  text-align: center;
-  border: 1px solid #808080;
-  display: block;
-  padding: 3px 10px;
-  border-radius: 20px;
-  height: 2.3em;
-  max-width: 150px;
-  overflow: hidden;
 }
 
 .schedule {
@@ -252,37 +206,66 @@ a:hover {
 }
 
 
-#input{
-  margin-top: 30px;
-  font-size: 16px;
-  width: 100%;
-  border: none;
-  outline: none;
-  padding-bottom: 8px;
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-}
-
 .text_underline{
   position: relative; /*.text_underline::beforeの親要素*/
   border-top: 1px solid #c2c2c2; /*text3の下線*/
 }
 
-/*共通のstyle*/
-.text_underline::before,
-.text_underline::after{
-  position: absolute; 
-  bottom: 0px; /*中央配置*/
-  width: 0px; /*アニメーションで0pxから50%に*/
-  height: 1px; /*高さ*/
-  content: '';
-  background-color: #3be5ae; /*アニメーションの色*/
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
+
+/* プロフィール部分 */
+.profile-wrapper {
+  height: 100%;
+  display: grid;
+  grid-template: 
+    "..... ............. ............. ............... ....." auto
+    "..... profile-name  ............. profile-btn     ....." 50px
+    "..... profile-name  ............. profile-address ....." 30px
+    "..... ............. ............. ............... ....." 30px
+    "..... profile-intro profile-intro profile-intro   ....." 200px
+    "..... ............. ............. ............... ....." auto/
+     0     2fr           30px          1fr             0;
 }
 
+.profile-name {
+  grid-area: profile-name;
+  font-size: 2rem;
+  line-height: 2rem;
+  color: #808080;
+  border-bottom: solid 1px #c2c2c2;
+  display: flex;
+  align-items: flex-end;
+}
+
+.profile-btn {
+  grid-area: profile-btn;
+  color: #808080;
+}
+
+.profile-address {
+  grid-area: profile-address;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #808080;
+  border-bottom: solid 1px #c2c2c2;
+  display: flex;
+  align-items: flex-end;
+}
+
+.profile-intro {
+  grid-area: profile-intro;
+  border: solid 1px #c2c2c2;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.profile-item {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
 
 .textarea{
   box-sizing: border-box;
+  color: #808080;
   margin-top: 30px;
   width: 100%;
   border: solid 1px #c2c2c2;
@@ -291,4 +274,49 @@ a:hover {
   background-color: #fff;
   outline: 0;
   font-size: 16px;
+}
+
+.profile-edit {
+  position: relative;
+  color: #808080;
+  text-align: center;
+  border: 1px solid #808080;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  height: 2.3em;
+  max-width: 150px;
+  overflow: hidden;
+}
+
+.img-select {
+  display: none;
+}
+
+.fa-camera {
+  cursor: pointer;
+  font-family: FontAwesome;
+  font-size: 2.0rem;
+  border: none;
+  background: none;
+  color: #3879D9;
+  position: absolute;
+  width: 2.0rem;
+  height: 2.0rem;
+  right: 0;
+  top: -10px;
+  outline: none;
+}
+
+#previewImage {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px gray;
+}
+
+.profile {
+  height: 100%;
 }

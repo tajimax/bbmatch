@@ -20,7 +20,7 @@
                 <form action="{{ route('SearchSchedule') }}" method="post" class="flex">
                     @csrf
                     <div class="group">
-                        <input style="position:relative;" type="date" name="date">
+                        <input type="date" name="date">
                         <div class="text_underline"></div>
                     </div>
                     <div>
@@ -40,23 +40,12 @@
                     <img class="CF position" src="/images/symbol.png" alt="" id="CF">
                     <img class="RF position" src="/images/symbol.png" alt="" id="RF">
                 </div>
-                <div style="font-size:18px; position: absolute; right:50px; bottom:0px;">参加人数:　<span style="font-size:48px;">9</span>　人</div>
+                <div>参加人数:　<span>{{ $item->member }}</span>　人</div>
             </div>
-            <div class="content-item" style="padding: 0 30px;">
-                <div class="flex" style="align-items: flex-end;">
-                    <div class="group" style="width: 400px;">
-                        <div class="profile-item" style="font-size: 32px;">{{ $item->name }}</div>
-                        <div class="text_underline"></div>
-                    </div>
-                    <div class="flex-column">
-                        <div class="profile-edit" style="margin: 0 auto 20px; border: 0px solid #fff;"></div>
-                        <div class="group" style="width: 200px; text-align: center;">
-                            <div class="profile-item">{{ $item->address }}</div>
-                            <div class="text_underline"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-intro-wrapper">
+            <div class="content-item">
+                <div class="profile-wrapper">
+                    <div class="profile-name"><p class="profile-item">{{ $item->name }}</p></div>
+                    <div class="profile-address"><p class="profile-item">{{ $item->address }}</p></div>
                     <div class="profile-intro">
                         @if( $item->introduction === NULL )
                             紹介文はありません。

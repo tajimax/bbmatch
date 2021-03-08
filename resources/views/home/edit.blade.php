@@ -21,14 +21,15 @@
                 @endif
                 <form method="post"	action="{{ route('upload_image') }}" enctype="multipart/form-data">
                     @csrf
-                    <input type="file" name="image" accept="image/png, image/jpeg">
+                    <label for="img-select" class="fas fa-camera"></label>
+                    <input id="img-select" class="img-select" type="file" name="image" accept="image/png, image/jpeg" onChange="imgPreView(event)">
                     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                    <input type="submit" value="Upload">
+                    <input type="submit" value="更新">
                 </form>
                 @if( $image !== NULL )
-                    <img class="profile" src="{{ Storage::url($image->file_path) }}"/>
+                    <div id="preview" class="preview"><img class="profile" src="{{ Storage::url($image->file_path) }}"/></div>
                 @else
-                    <img class="profile" src="/images/profile.jpeg" alt="">
+                    <div id="preview" class="preview"><img class="profile" src="/images/profile.jpeg" alt=""></div>
                 @endif
             </div>
             <div class="content-item flex">
@@ -45,32 +46,22 @@
                     <img class="RF position {{ isset($position->RF) }}" src="/images/symbol.png" alt="" id="RF">
                 </div>
             </div>
-            <div class="content-item" style="padding: 0 30px 30px;">
-                <form action="{{ route('update') }}" method="post">
+            <div class="content-item">
+                <form action="{{ route('update') }}" method="post" class="profile-wrapper">
                     @csrf
-                    <div class="flex" style="align-items: flex-end;">
-                        <div class="group" style="width: 400px;">
-                            <input class="profile-item" name="name" id="input" type="text" value="{{ $item->name }}" style="font-size: 32px;">
-                            <div class="text_underline"></div>
-                        </div>
-                        @if ($errors->has('name'))
-                            <div>{{ $errors->first('name') }}</div>
-                        @endif
-                        <div class="flex-column">
-                            <div class="flex">
-                                <a href="{{ route('home') }}" class="profile-edit">キャンセル</a>
-                                <input type="submit" value="更新" class="profile-edit">
-                            </div>
-                            <div class="group" style="width: 200px; text-align: center;">
-                                <input class="profile-item" name="address" id="input" type="text" value="{{ $item->address }}">
-                                <div class="text_underline"></div>
-                            </div>
-                            @if ($errors->has('address'))
-                                <div>{{ $errors->first('address') }}</div>
-                            @endif
-                        </div>
+                    <input class="profile-name" name="name" type="text" value="  {{ $item->name }}">
+                    @if ($errors->has('name'))
+                        <div>{{ $errors->first('name') }}</div>
+                    @endif
+                    <div class="profile-btn flex">
+                        <a href="{{ route('home') }}" class="profile-edit">キャンセル</a>
+                        <input type="submit" value="更新" class="profile-edit">
                     </div>
-                    <textarea class="textarea" name="introduction" id="" cols="30" rows="6">{{ $item->introduction }}</textarea>
+                    <input class="profile-address" name="address" id="input" type="text" value="  {{ $item->address }}">
+                    @if ($errors->has('address'))
+                        <div>{{ $errors->first('address') }}</div>
+                    @endif
+                    <textarea class="profile-intro" name="introduction" id="" cols="30" rows="6">{{ $item->introduction }}</textarea>
                     @if ($errors->has('introduction'))
                         <div>{{ $errors->first('introduction') }}</div>
                     @endif
@@ -78,12 +69,9 @@
                 </form>
             </div>
             <div class="content-item">
-                おすすめの球場を表示
+                <!-- 本当はgoogleapi使っておすすめの球場を表示したい -->
+                他のチーム一覧をスライダーで実装
             </div>
         </div>
     </div>
-
-    <script>
-        flatpickr('.flatpickr');
-    </script>
 @endsection

@@ -11,9 +11,9 @@
             @endif
             <div class="content-item">
                 @if( $image->file_path === NULL )
-                    <a href="{{ route('upload_form') }}"><img class="profile" src="/images/profile.jpeg" alt=""></a>
+                    <img class="profile" src="/images/profile.jpeg" alt="">
                 @else
-                    <a href="{{ route('upload_form') }}"><img src="{{ Storage::url($image->file_path) }}"/></a>                    
+                    <img class="profile" src="{{ Storage::url($image->file_path) }}"/>               
                 @endif
             </div>
             <div class="content-item flex">
@@ -35,11 +35,11 @@
                         <input type="hidden" name="user_id" value='{{ Auth::id() }}'>
                         <div class="group flex">
                             <div class="group">
-                                <input style="position:relative;" type="date" name="date" placeholder="日付で検索" style="color:#fff;">
+                                <input type="date" name="date" placeholder="日付で検索">
                                 <div class="text_underline"></div>
                             </div>
                             <div class="group">
-                                <input style="position:relative;" type="number" name="member" placeholder="参加人数" style="color:#fff;">
+                                <input type="number" name="member" placeholder="参加人数">
                                 <div class="text_underline"></div>
                             </div>
                             <input class="profile-edit" type="submit" value="登録">
@@ -47,23 +47,15 @@
                         </div>
                     </form>
                 </div>
-                <div style="font-size:18px; position: absolute; right:50px; bottom:0px;">参加人数:　<span style="font-size:48px;">9</span>　人</div>
+                <div>参加人数:　<span>9</span>　人</div>
             </div>
-            <div class="content-item" style="padding: 0 30px;">
-                <div class="flex" style="align-items: flex-end;">
-                    <div class="group" style="width: 400px;">
-                        <div class="profile-item" style="font-size: 32px;">{{ $item->name }}</div>
-                        <div class="text_underline"></div>
+            <div class="content-item">
+                <div class="profile-wrapper">
+                    <div class="profile-name"><p class="profile-item">{{ $item->name }}</p></div>
+                    <div class="profile-btn">
+                        <a href="{{ route('edit') }}" class="profile-edit">プロフ   ィール編集</a>
                     </div>
-                    <div class="flex-column">
-                        <a href="{{ route('edit') }}" class="profile-edit" style="margin: 0 auto 20px;">プロフィール編集</a>
-                        <div class="group" style="width: 200px; text-align: center;">
-                            <div class="profile-item">{{ $item->address }}</div>
-                            <div class="text_underline"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-intro-wrapper">
+                    <div class="profile-address"><p class="profile-item">{{ $item->address }}</p></div>
                     <div class="profile-intro">
                         @if( $item->introduction === NULL )
                             紹介文はありません。
@@ -74,7 +66,8 @@
                 </div>
             </div>
             <div class="content-item">
-                おすすめの球場を表示
+                <!-- 本当はgoogleapi使っておすすめの球場を表示したい -->
+                他のチーム一覧をスライダーで実装
             </div>
         </div>
     </div>
