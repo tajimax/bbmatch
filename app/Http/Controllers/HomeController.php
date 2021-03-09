@@ -33,6 +33,6 @@ class HomeController extends Controller
         $uploads = UploadImage::where('user_id', $id)->first();
         $position = Schedule::where('user_id', $id)->where('date', $date)->first();
         // $uploads = UploadImage::where()->first();
-        return view('/home/home', ['item'=>$item, 'image'=>$uploads, 'position'=>$position]);
+        return view('home.home', ['item'=>$item, 'image'=>$uploads, 'position'=>$position]);
     }
 }

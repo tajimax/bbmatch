@@ -38,3 +38,10 @@ Route::post('/home/search', 'BBmatchController@exeSearchSchedule')->name('Search
 // 画像アップロード機能
 Route::get('/form', 'UploadImageController@show')->name('upload_form');
 Route::post('/upload', 'UploadImageController@upload')->name('upload_image');
+
+
+
+// ______________________________________________________________ reactのテスト
+Route::get('/{any}', function () {
+    return view('react_test');
+})->where('any','.*');

@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// ________________________________________________  reactのテスト
+Route::get('/user',function (Request $request) {
+	
+	$users = App\User::all();
+	
+	return response()->json(['users' => $users]);
+
+});
