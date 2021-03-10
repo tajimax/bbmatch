@@ -3,7 +3,9 @@
 @section('content')
 <div class="content-wrapper">
     <div class="content-header flex">
-        <div class="content-ttl">チーム一覧</div>
+        <div class="content-ttl">対戦相手を募集</div>
+        <div class="content-ttl">助っ人を募集</div>
+        <div class="content-ttl">メンバーを募集</div>
         <div class="content-search">
             <p class="menu js-menu">条件で絞り込む</p>
             <div class="contents">                

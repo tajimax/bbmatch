@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tab.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -24,6 +25,7 @@
     </div>
 </section>
 
+<script src="js/tab.js"></script>
 <script>
     const menu = document.querySelectorAll(".js-menu");
 

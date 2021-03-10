@@ -15,37 +15,45 @@
                     <img class="profile" src="/images/profile.jpeg" alt="">
                 @endif
             </div>
-            <div class="content-item">
-                <div class="field">
-                    <div class="flex">
-                        <form action="{{ route('SearchSchedule') }}" method="post" class="flex">
-                            @csrf
-                            <div class="group">
-                                <input type="date" name="date">
-                                <div class="text_underline"></div>
+            <div class="content-item" id="js-tab">
+                <ul class="tab-nav flex">
+                    <li class="tab-nav__item" data-nav="0">募集状況</li>
+                    <li class="tab-nav__item" data-nav="1">対戦相手募集</li>
+                    <li class="tab-nav__item" data-nav="2">助っ人募集</li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-content__item flex" data-content="0">
+                        <div class="schedule-wrapper">
+                            <div></div>
+                            <div class="calendar-wrapper">
+                                <div class="calender-btn-wrapper">
+                                    <button id="prev" type="button">前月</button>
+                                    <button id="next" type="button">次月</button>
+                                </div>
+                                <div id="calendar"></div>
                             </div>
-                            <input class="profile-edit" type="submit" value="検索">
-                        </form>
-                        <a href="{{ route('editSchedule') }}" class="profile-edit">スケジュール登録</a>
+                        </div>
                     </div>
-                    <img class="diamond" src="/images/field.jpg" alt="">
-                    <img class="P position" src="/images/symbol.png" alt="" id="P">
-                    <img class="C position" src="/images/symbol.png" alt=""  id="C">
-                    <img class="FB position" src="/images/symbol.png" alt="" id="FB">
-                    <img class="SB position" src="/images/symbol.png" alt="" id="SB">
-                    <img class="TB position" src="/images/symbol.png" alt="" id="TB">
-                    <img class="SS position" src="/images/symbol.png" alt="" id="SS">
-                    <img class="LF position" src="/images/symbol.png" alt="" id="LF">
-                    <img class="CF position" src="/images/symbol.png" alt="" id="CF">
-                    <img class="RF position" src="/images/symbol.png" alt="" id="RF">
-                </div>
-                <div>参加人数:　
-                    <span>
-                        @if( $position !== NULL )
-                            {{ $position->member }}
-                        @endif
-                    </span>
-                    　人
+                    <div class="tab-content__item" data-content="1">
+                        <form action="" method="post">
+                            <div class="flex">
+                                <input type="text" placeholder="開催日時" style="width:50%;">
+                                <input type="text" placeholder="試合場所（グラウンド名など）" style="width:50%;">
+                            </div>
+                            <textarea name="" id="" cols="6" rows="10" style="width:90%;">備考</textarea>
+                            <input type="submit" value="募集する">
+                        </form>
+                    </div>
+                    <div class="tab-content__item" data-content="2">
+                        <form action="" method="post">
+                            <div class="flex">
+                                <input type="text" placeholder="開催日時" style="width:50%;">
+                                <input type="text" placeholder="試合場所（グラウンド名など）" style="width:50%;">
+                            </div>
+                            <textarea name="" id="" cols="6" rows="10" style="width:90%;">備考</textarea>
+                            <input type="submit" value="募集する">
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="content-item">
