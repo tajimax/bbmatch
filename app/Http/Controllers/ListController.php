@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Schedule;
-use App\UploadImage;
+use App\OpponentRecruit;
+use App\HelperRecruit;
 use App\Http\Requests\Reaquest;
 use Auth;
 
@@ -13,9 +13,9 @@ class ListController extends Controller
 {
     // 当日のチーム一覧画面を表示
     public function showList(){
-        $date = date('y-m-d');
-        $items = Schedule::where('date', '>=', $date)->get();
-        return view('search.list', ['items' => $items]);
+        $opponents = OpponentRecruit::all();
+        $helpers = HelperRecruit::all();
+        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers]);
     }
 
     // 人数でチーム一覧画面を表示

@@ -108,8 +108,19 @@ ul {
   border-top: 1px solid #c2c2c2; /*text3の下線*/
 }
 
+.recruit-item {
+  height: 40px;
+  margin-right: 30px;
+}
 
-/* プロフィール部分 */
+.recruit-note {
+  margin-top: 10px;
+  height: 200px;
+  width: 85%;
+}
+
+
+/* ______________________________________________________________________________________  プロフィール部分 */
 .profile-wrapper {
   height: 100%;
   display: grid;
@@ -226,7 +237,7 @@ ul {
 
 
 
-
+/* ______________________________________________________________________________________  お知らせ部分 */
 .news__wrapper {
   width: 80%;
   margin: 0 auto;

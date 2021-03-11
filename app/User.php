@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'address', 'introduction', 'password',
+        'name', 'email', 'address', 'introduction', 'password', 'file_path', 'file_name',
     ];
 
     /**
@@ -28,10 +28,6 @@ class User extends Authenticatable
         'password',
         // 'remember_token',
     ];
-
-    public function schedules(){
-        return $this->hasMany('App\Schedule');
-    }
 
     /**
      * The attributes that should be cast to native types.

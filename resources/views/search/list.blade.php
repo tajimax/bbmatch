@@ -1,11 +1,10 @@
 @extends('layouts.layout')
 @section('title', '検索ページ')
 @section('content')
-<div class="content-wrapper">
-    <div class="content-header flex">
-        <div class="content-ttl">対戦相手を募集</div>
-        <div class="content-ttl">助っ人を募集</div>
-        <div class="content-ttl">メンバーを募集</div>
+<div class="content-wrapper" id="js-tab">
+    <div class="tab-nav flex">
+        <div class="tab-nav__item" data-nav="0">対戦相手を募集</div>
+        <div class="tab-nav__item" data-nav="1">助っ人を募集</div>
         <div class="content-search">
             <p class="menu js-menu">条件で絞り込む</p>
             <div class="contents">                
@@ -30,21 +29,38 @@
         </div>
     </div>
     <!-- コンテンツ部分 -->
-    <div class="content-item">
-        <div class="grid">
-            @foreach($items as $item)
-            <div class="team flex-column">
-                <div class="team-img-wrapper">
-                    <img class="team__img" src="">
+    <div class="tab-content">
+        <div class="tab-content__item" data-content="0">
+            <div class="grid">
+                @foreach($opponents as $opponent)
+                <div class="team flex-column">
+                    <div class="team-img-wrapper">
+                        <img class="team__img" src="{{ Storage::url($opponent->getImage()) }}">
+                    </div>
+                    <div class="team-content-wrapper">
+                        <a class="team__ttl" href="#">{{ $opponent -> game_day }} </a>
+                        <a class="team__address" href="#">{{ $opponent -> game_place }}</a>
+                        <a class="team__date" href="#">{{ $opponent -> note }}</a>
+                    </div>
                 </div>
-                <div class="team-content-wrapper">
-                    <a class="team__ttl" href="{{ route('user',['id' => $item->user_id, 'date' => $item->date]) }}">{{ $item -> name }}</a>
-                    <a class="team__address" href="#">{{ $item -> address }}</a>
-                    <a class="team__date" href="#">{{ $item -> date }}</a>
-                    <a class="team__member" href="#">{{ $item -> member }}人</a>
-                </div>
+                @endforeach
             </div>
-            @endforeach
+        </div>
+        <div class="tab-content__item" data-content="1">
+            <div class="grid">
+                @foreach($helpers as $helper)
+                <div class="team flex-column">
+                    <div class="team-img-wrapper">
+                        <img class="team__img" src="{{ Storage::url($helper->getImage()) }}">
+                    </div>
+                    <div class="team-content-wrapper">
+                        <a class="team__ttl" href="#">{{ $helper -> game_day }} </a>
+                        <a class="team__address" href="#">{{ $helper -> game_place }}</a>
+                        <a class="team__date" href="#">{{ $helper -> note }}</a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>

@@ -9,8 +9,8 @@
                 </div>
             @endif
             <div class="content-item">
-                @if( $image !== NULL )
-                    <img class="profile" src="{{ Storage::url($image->file_path) }}"/>
+                @if( $item['file_path'] !== NULL )
+                    <img class="profile" src="{{ Storage::url($item->file_path) }}"/>
                 @else
                     <img class="profile" src="/images/profile.jpeg" alt="">
                 @endif
@@ -35,23 +35,31 @@
                         </div>
                     </div>
                     <div class="tab-content__item" data-content="1">
-                        <form action="" method="post">
+                        <form action="{{ route('opponent') }}" method="post">
+                            @csrf
                             <div class="flex">
-                                <input type="text" placeholder="開催日時" style="width:50%;">
-                                <input type="text" placeholder="試合場所（グラウンド名など）" style="width:50%;">
+                                <input class="recruit-item" type="date" name="game_day">
+                                <input class="recruit-item" type="time" name="start_time">
+                                <input class="recruit-item" type="time" name="end_time">
+                                <input class="recruit-item" type="text" name="game_place" placeholder="試合場所（グラウンド名など）">
+                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                             </div>
-                            <textarea name="" id="" cols="6" rows="10" style="width:90%;">備考</textarea>
-                            <input type="submit" value="募集する">
+                            <textarea name="note" id="" cols="6" rows="10" class="recruit-note" placeholder="備考"></textarea>
+                            <input class="profile-edit" type="submit" value="募集する">
                         </form>
                     </div>
                     <div class="tab-content__item" data-content="2">
-                        <form action="" method="post">
+                        <form action="{{ route('helper') }}" method="post">
+                            @csrf
                             <div class="flex">
-                                <input type="text" placeholder="開催日時" style="width:50%;">
-                                <input type="text" placeholder="試合場所（グラウンド名など）" style="width:50%;">
+                                <input class="recruit-item" type="date" name="game_day">
+                                <input class="recruit-item" type="time" name="start_time">
+                                <input class="recruit-item" type="time" name="end_time">
+                                <input class="recruit-item" type="text" name="game_place" placeholder="試合場所（グラウンド名など）">
+                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                             </div>
-                            <textarea name="" id="" cols="6" rows="10" style="width:90%;">備考</textarea>
-                            <input type="submit" value="募集する">
+                            <textarea name="note" id="" cols="6" rows="10" class="recruit-note" placeholder="備考"></textarea>
+                            <input class="profile-edit" type="submit" value="募集する">
                         </form>
                     </div>
                 </div>

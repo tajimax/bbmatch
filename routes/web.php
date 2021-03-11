@@ -40,6 +40,10 @@ Route::get('/form', 'UploadImageController@show')->name('upload_form');
 Route::post('/upload', 'UploadImageController@upload')->name('upload_image');
 
 
+// 募集要項を登録
+Route::post('/home/opponent', 'RecruitController@exeOpponentRecruit')->name('opponent');
+Route::post('/home/helper', 'RecruitController@exeHelperRecruit')->name('helper');
+
 
 // ______________________________________________________________ reactのテスト
 Route::get('/{any}', function () {

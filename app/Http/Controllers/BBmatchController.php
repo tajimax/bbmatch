@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Schedule;
-use App\UploadImage;
-use App\Http\Requests\ScheduleRequest;
 use App\Http\Requests\Reaquest;
 use Auth;
 
@@ -25,8 +22,7 @@ class BBmatchController extends Controller
     public function showEdit(){
         $id = Auth::id();
         $item = User::where('id', $id)->first();
-        $uploads = UploadImage::where('user_id', $id)->first();
-        return view('home.edit', ['item' => $item, 'image'=>$uploads]);
+        return view('home.edit', ['item' => $item,]);
     }
 
     // マイページの編集
@@ -39,6 +35,18 @@ class BBmatchController extends Controller
             'address' => $inputs['address'],
             'introduction' => $inputs['introduction'],
         ]);
+
+        $upload_image = $request->file('image');
+        if($upload_image) {
+            $path = $upload_image->store('public/uploads');
+            //画像の保存に成功したらDBに記録する
+            if($path){
+                $item -> fill([
+                    'file_name' => $upload_image->getClientOriginalName(),
+                    'file_path' => $path
+                ]);
+            }
+        }
         $item -> save();
         \Session::flash('err_msg', '編集しました。');
         return redirect(route('home'));

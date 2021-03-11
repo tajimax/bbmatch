@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUploadImagesTable extends Migration
+class CreateOpponentRecruitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateUploadImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('upload_images', function (Blueprint $table) {
+        Schema::create('opponent_recruits', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
+            $table->date('game_day')->nullable();
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
+            $table->string('game_place')->nullable();
+            $table->string('note')->nullable();
             $table->string('file_name')->nullable();
             $table->string('file_path')->nullable();
             $table->timestamps();
@@ -29,6 +34,6 @@ class CreateUploadImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('upload_images');
+        Schema::dropIfExists('opponent_recruits');
     }
 }
