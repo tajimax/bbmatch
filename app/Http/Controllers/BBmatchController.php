@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\OpponentRecruit;
 use App\Http\Requests\Reaquest;
 use Auth;
 
@@ -11,11 +12,11 @@ class BBmatchController extends Controller
 {   
     // 他のチームの詳細ページを表示
     public function showUser(Request $request){
-        $user_id = $request->id;
-        $date = $request->date;
-        $item = Schedule::where('user_id', $user_id)->where('date', $date)->first();
-        $uploads = UploadImage::where('user_id', $user_id)->first();
-        return view('search.user', ['item' => $item, 'image'=>$uploads]);
+        $id = $request->id;
+        $user_id = $request->user_id;
+        $item = OpponentRecruit::where('id', $id)->first();
+        $opponents= OpponentRecruit::where('user_id', $user_id)->get();
+        return view('search.user', ['item' => $item, 'opponents' => $opponents]);
     }
 
     // マイページ編集画面を表示
@@ -50,29 +51,5 @@ class BBmatchController extends Controller
         $item -> save();
         \Session::flash('err_msg', '編集しました。');
         return redirect(route('home'));
-    }
-
-    // スケジュールの作成画面を表示
-    public function editSchedule(){
-        $id = Auth::id();
-        $item = User::where('id', $id)->first();
-        $uploads = UploadImage::orderBy("id", "desc")->first();
-        return view('home.schedule', ['item'=>$item, 'image'=>$uploads]);
-    }
-
-    // スケジュールの作成実行
-    public function exeSchedule(ScheduleRequest $request){
-        Schedule::create($request->all());
-        return redirect(route('home'));
-    }
-
-    // スケジュールの作成実行
-    public function exeSearchSchedule(Request $request){
-        $id = Auth::id();
-        $date = $request->date;
-        $item = User::where('id', $id)->first();
-        $uploads = UploadImage::where('user_id', $id)->first();
-        $position = Schedule::where('user_id', $id)->where('date', $date)->first();
-        return view('/home/home', ['item'=>$item, 'image'=>$uploads, 'position'=>$position]);
     }
 }

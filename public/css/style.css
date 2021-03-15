@@ -41,13 +41,13 @@ a {
 }
 
 .button {
-  padding: 12px 24px;
-  margin-left: 10px;
-  color: white;
-  display: inline-block;
-  opacity: 0.8;
-  border-radius: 4px;
-  background-color: #239b76;
+  color: #808080;
+  text-align: center;
+  border: 1px solid #808080;
+  padding: 8px 12px;
+  border-radius: 20px;
+  height: 1.0;
+  margin-right: 20px;
 }
 
 /*----- ヘッダー部分 -----*/
@@ -71,20 +71,6 @@ a {
   border-radius: 10px;
 }
 
-.content-header {
-  height: 90px;
-  width: 100%;
-}
-
-.content-ttl {
-  display: inline-block;
-  line-height: 40px;
-  width: 25%;
-  font-size: 1.6rem;
-  color: #3879D9;
-  text-align: center;
-}
-
 .content-search {
   display: inline-block;
   width: 25%;
@@ -106,13 +92,11 @@ a {
   display: block;
   padding: 3px 10px;
   border-radius: 20px;
-  height: 1rem;
   width: 220px;
-  overflow: hidden;
   margin-top: 10px;
 }
 
-.search_container input[type="number"],
+.search_container input[type="text"],
 .search_container input[type="date"] {
   display: block;
   border: none;
@@ -135,13 +119,13 @@ a {
 }
 
 .team {
-  height: 350px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  height: 300px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
 .team-img-wrapper {
-  height: 50%;
+  height: 65%;
   width: 100%;
   border-radius: 10px 0 0 10px;
   position: relative;
@@ -159,24 +143,34 @@ a {
   filter: blur(1px);
 }
 
+.team__date {
+  padding: 20px 10px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  background-color: blue;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
 .team-content-wrapper {
-  height: 50%;
+  height: 35%;
   width: 100%;
   color: #3879D9;
   display: grid;
   grid-template: 
-    "..... ............  ............  ............ ....." 10px
-    "..... team__ttl     team__ttl     team__ttl    ....." 1fr
-    "..... team__address team__address ............ ....." 1fr
-    "..... team__date    team__date    team__member ....." 1fr
-    "..... ............  ............  ............ ....." 10px/
-     20px  1fr           1fr           1fr          20px;
+    "..... ............  ............  ............... ....." 20px
+    "..... team__name     team__name     team__name    ....." 1.5fr
+    "..... team__address team__address recruit__detail ....." 1fr
+    "..... ............  ............  ............... ....." 10px/
+     20px  1fr           1fr           1fr             30px;
 }
 
-.team__ttl {
-  grid-area: team__ttl;
+.team__name {
+  grid-area: team__name;
   width: 100%;
-  line-height: 1rem;
+  line-height: 1;
   font-size: 2rem;
   color: #3879D9;
 }
@@ -184,19 +178,10 @@ a {
 .team__address {
   grid-area: team__address;
   width: 100%;
-  line-height: 2rem;
+  line-height: 2;
   font-size: 1rem;
   color: #3879D9;
   vertical-align: middle;
-}
-
-.team__date {
-  grid-area: team__date;
-  width: 100%;
-  line-height: 1rem;
-  font-size: 1rem;
-  line-height: 2rem;
-  color: #3879D9;
 }
 
 .team__member {
@@ -205,6 +190,16 @@ a {
   font-size: 2rem;
   line-height: 1rem;
   color: #3879D9;
+}
+
+.recruit__detail {
+  grid-area: recruit__detail;
+  color: #808080;
+  text-align: center;
+  border: 1px solid #808080;
+  padding: 8px 12px;
+  border-radius: 20px;
+  height: 1.0;
 }
 
 /* アコーディオンメニュー */
@@ -246,4 +241,10 @@ a {
   line-height: normal;
   height: auto;
   opacity: 1;
+}
+
+.list-nav {
+  line-height: 3.5rem;
+  padding: 0 80px;
+  color: #65B2F7;
 }

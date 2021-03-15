@@ -10,53 +10,47 @@
                 </div>
             @endif
             <div class="content-item">
-                @if( $image !== NULL )
-                    <img class="profile" src="{{ Storage::url($image->file_path) }}"/>
+                @if( $item->getImage() !== NULL )
+                    <img class="profile" src="{{ Storage::url($item->getImage()) }}"/>
                 @else
-                    <img class="profile" src="/images/profile.jpeg" alt="">
+                    <img class="profile" src="/images/symbol.png" alt="">
                 @endif
             </div>
             <div class="content-item">
-                <form action="{{ route('SearchSchedule') }}" method="post" class="flex">
-                    @csrf
-                    <div class="group">
-                        <input type="date" name="date">
-                        <div class="text_underline"></div>
+                <div class="">
+                    <div class="flex">
+                        <div class="recruit-item">{{ $item->game_day }}</div>
+                        <div class="recruit-item">{{ $item->start_time }}</div>
+                        <div class="recruit-item">{{ $item->end_time }}</div>
+                        <div class="recruit-item">{{ $item->game_place }}</div>
                     </div>
-                    <div>
-                        {{ $item -> date }}
-                    </div>
-                    <input class="profile-edit" type="submit" value="検索">
-                </form>
-                <div class="field">
-                    <img class="diamond" src="/images/field.jpg" alt="">
-                    <img class="P position" src="/images/symbol.png" alt="" id="P">
-                    <img class="C position" src="/images/symbol.png" alt=""  id="C">
-                    <img class="FB position" src="/images/symbol.png" alt="" id="FB">
-                    <img class="SB position" src="/images/symbol.png" alt="" id="SB">
-                    <img class="TB position" src="/images/symbol.png" alt="" id="TB">
-                    <img class="SS position" src="/images/symbol.png" alt="" id="SS">
-                    <img class="LF position" src="/images/symbol.png" alt="" id="LF">
-                    <img class="CF position" src="/images/symbol.png" alt="" id="CF">
-                    <img class="RF position" src="/images/symbol.png" alt="" id="RF">
+                    <div class="recruit-note">{{ $item->note }}</div>
                 </div>
-                <div>参加人数:　<span>{{ $item->member }}</span>　人</div>
             </div>
             <div class="content-item">
                 <div class="profile-wrapper">
-                    <div class="profile-name"><p class="profile-item">{{ $item->name }}</p></div>
-                    <div class="profile-address"><p class="profile-item">{{ $item->address }}</p></div>
-                    <div class="profile-intro">
-                        @if( $item->introduction === NULL )
-                            紹介文はありません。
-                        @else
-                            {{ $item->introduction }}
-                        @endif
-                    </div>
+                    <div class="profile-name"><p class="profile-item">{{ $item->getName() }}</p></div>
+                    <div class="profile-address"><p class="profile-item">{{ $item->getAddress() }}</p></div>
+                    <div class="profile-intro">{{ $item->getIntro() }}</div>
                 </div>
             </div>
             <div class="content-item">
-                おすすめの球場を表示
+                <table>
+                    <tr>
+                        <th>日程</th>
+                        <th>開始時間</th>
+                        <th>終了時間</th>
+                        <th>場所</th>
+                    </tr>
+                    @foreach($opponents as $opponent)
+                    <tr>
+                        <td>{{ $opponent['game_day'] }}</td>
+                        <td><?php echo date("H:i", strtotime($opponent['start_time'])) ?></td>
+                        <td><?php echo date("H:i", strtotime($opponent['end_time'])) ?></td>
+                        <td>{{ $opponent['game_place'] }}</td>
+                    </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>

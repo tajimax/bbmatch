@@ -19,16 +19,27 @@ class ListController extends Controller
     }
 
     // 人数でチーム一覧画面を表示
-    public function showMember(Request $request){
-        $member = $request->member;
-        $items = Schedule::where('member', '>=', $member)->get();
-        return view('search.list', ['items' => $items]);
+    public function searchByAddress(Request $request){
+        $address = $request->address;
+        $opponents = OpponentRecruit::searchOpponentByAddress($address)->get();
+        $helpers = HelperRecruit::searchHelperByAddress($address)->get();
+        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers]);
     }
 
     // 日付でチーム一覧画面を表示
-    public function showDate(Request $request){
+    public function searchByDate(Request $request){
         $date = $request->date;
-        $items = Schedule::where('date', '>=', $date)->get();
-        return view('search.list', ['items' => $items]);
+        $opponents = OpponentRecruit::searchOpponentByDate($date)->get();
+        $helpers = HelperRecruit::searchHelperByDate($date)->get();
+        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers]);
+    }
+
+    // 人数でチーム一覧画面を表示
+    public function searchByAddressDate(Request $request){
+        $address = $request->address;
+        $date = $request->date;
+        $opponents = OpponentRecruit::searchOpponentByAddress($address)->searchOpponentByDate($date)->get();
+        $helpers = HelperRecruit::searchHelperByAddress($address)->searchHelperByDate($date)->get();
+        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers]);
     }
 }

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Schedule;
-use App\UploadImage;
+use App\OpponentRecruit;
+use App\HelperRecruit;
 use Auth;
 
 class HomeController extends Controller
@@ -28,9 +28,9 @@ class HomeController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $date = date('y-m-d');
         $item = User::where('id', $id)->first();
-        // $uploads = UploadImage::where()->first();
-        return view('home.home', ['item'=>$item,]);
+        $opponents = OpponentRecruit::where('user_id', $id)->get();
+        $helpers= HelperRecruit::where('user_id', $id)->get();
+        return view('home.home', ['item'=>$item, 'helpers'=>$helpers, 'opponents'=>$opponents]);
     }
 }

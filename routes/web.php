@@ -14,38 +14,26 @@
 
 // チーム一覧画面を表示
 Route::get('/', 'ListController@showList')->name('show');
-Route::post('/member', 'ListController@showMember')->name('member');
-Route::post('/date', 'ListController@showDate')->name('date');
+Route::post('/searchByAddress', 'ListController@searchByAddress')->name('searchByAddress'); //チーム所在地で検索
+Route::post('/searchByDate', 'ListController@searchByDate')->name('searchByDate'); //日付で検索
+Route::post('/searchByAddressDate', 'ListController@searchByAddressDate')->name('searchByAddressDate'); //日付と所在地で検索
 
+// マイページを表示
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/edit', 'BBmatchController@showEdit')->name('edit'); // チーム詳細編集画面を表示
+Route::post('/home/update', 'BBmatchController@exeUpdate')->name('update'); // チーム詳細編集内容を登録
 
-Route::get('/user/{id}/{date}', 'BBmatchController@showUser')->name('user');
-
-// チーム詳細編集画面を表示
-Route::get('/home/edit', 'BBmatchController@showEdit')->name('edit');
-// チーム詳細編集内容を登録
-Route::post('/home/update', 'BBmatchController@exeUpdate')->name('update');
-// マイページの作成
-Route::post('/home/store', 'BBmatchController@exeStore')->name('store');
-// スケジュールの登録
-Route::get('/home/schedule', 'BBmatchController@editSchedule')->name('editSchedule');
-// スケジュールの作成
-Route::post('/home/schedule', 'BBmatchController@exeSchedule')->name('schedule');
-// スケジュールの作成
-Route::post('/home/search', 'BBmatchController@exeSearchSchedule')->name('SearchSchedule');
-
-// 画像アップロード機能
-Route::get('/form', 'UploadImageController@show')->name('upload_form');
-Route::post('/upload', 'UploadImageController@upload')->name('upload_image');
-
+// 他のユーザー画面を表示
+Route::get('/user/{id}/{user_id}', 'BBmatchController@showUser')->name('user');
 
 // 募集要項を登録
 Route::post('/home/opponent', 'RecruitController@exeOpponentRecruit')->name('opponent');
 Route::post('/home/helper', 'RecruitController@exeHelperRecruit')->name('helper');
 
 
+
 // ______________________________________________________________ reactのテスト
-Route::get('/{any}', function () {
-    return view('react_test');
-})->where('any','.*');
+// Route::get('/{any}', function () {
+//     return view('react_test');
+// })->where('any','.*');
