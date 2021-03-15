@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\OpponentRecruit;
+use App\Recruit;
 use App\Http\Requests\Reaquest;
 use Auth;
 
@@ -14,8 +14,8 @@ class BBmatchController extends Controller
     public function showUser(Request $request){
         $id = $request->id;
         $user_id = $request->user_id;
-        $item = OpponentRecruit::where('id', $id)->first();
-        $opponents= OpponentRecruit::where('user_id', $user_id)->get();
+        $item = Recruit::where('id', $id)->first();
+        $opponents= Recruit::where('user_id', $user_id)->get();
         return view('search.user', ['item' => $item, 'opponents' => $opponents]);
     }
 

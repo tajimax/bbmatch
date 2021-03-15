@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\OpponentRecruit;
-use App\HelperRecruit;
+use App\Recruit;
 use Auth;
 
 class HomeController extends Controller
@@ -29,8 +28,7 @@ class HomeController extends Controller
     {
         $id = Auth::id();
         $item = User::where('id', $id)->first();
-        $opponents = OpponentRecruit::where('user_id', $id)->get();
-        $helpers= HelperRecruit::where('user_id', $id)->get();
-        return view('home.home', ['item'=>$item, 'helpers'=>$helpers, 'opponents'=>$opponents]);
+        $recruits = Recruit::where('user_id', $id)->get();
+        return view('home.home', ['item'=>$item, 'recruits'=>$recruits]);
     }
 }

@@ -28,8 +28,7 @@ Route::post('/home/update', 'BBmatchController@exeUpdate')->name('update'); // �
 Route::get('/user/{id}/{user_id}', 'BBmatchController@showUser')->name('user');
 
 // 募集要項を登録
-Route::post('/home/opponent', 'RecruitController@exeOpponentRecruit')->name('opponent');
-Route::post('/home/helper', 'RecruitController@exeHelperRecruit')->name('helper');
+Route::post('/home/recruit', 'RecruitController@exeRecruit')->name('recruit');
 
 
 

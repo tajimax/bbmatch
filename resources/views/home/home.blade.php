@@ -25,23 +25,31 @@
                     <div class="tab-content__item flex" data-content="0">
                         <table>
                             <tr>
+                                <th>カテゴリ</th>
                                 <th>日程</th>
                                 <th>開始時間</th>
                                 <th>終了時間</th>
                                 <th>場所</th>
                             </tr>
-                            @foreach($opponents as $opponent)
+                            @foreach($recruits as $recruit)
                             <tr>
-                                <td>{{ $opponent['game_day'] }}</td>
-                                <td><?php echo date("H:i", strtotime($opponent['start_time'])) ?></td>
-                                <td><?php echo date("H:i", strtotime($opponent['end_time'])) ?></td>
-                                <td>{{ $opponent['game_place'] }}</td>
+                                <td>
+                                    @if( $recruit->category === 'opponent' )
+                                    対戦相手
+                                    @else
+                                    助っ人
+                                    @endif
+                                </td>
+                                <td>{{ $recruit['game_day'] }}</td>
+                                <td><?php echo date("H:i", strtotime($recruit['start_time'])) ?></td>
+                                <td><?php echo date("H:i", strtotime($recruit['end_time'])) ?></td>
+                                <td>{{ $recruit['game_place'] }}</td>
                             </tr>
                             @endforeach
                         </table>
                     </div>
                     <div class="tab-content__item" data-content="1">
-                        <form action="{{ route('opponent') }}" method="post">
+                        <form action="{{ route('recruit') }}" method="post">
                             @csrf
                             <div class="flex">
                                 <div class="flex">
@@ -63,11 +71,12 @@
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                             </div>
                             <textarea name="note" id="" cols="6" rows="10" class="recruit-note" placeholder="備考"></textarea>
+                            <input type="hidden" name="category" value="opponent">
                             <input class="profile-edit" type="submit" value="募集する">
                         </form>
                     </div>
                     <div class="tab-content__item" data-content="2">
-                        <form action="{{ route('helper') }}" method="post">
+                        <form action="{{ route('recruit') }}" method="post">
                             @csrf
                             <div class="flex">
                                 <input class="recruit-item" type="date" name="game_day">
@@ -77,6 +86,7 @@
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                             </div>
                             <textarea name="note" id="" cols="6" rows="10" class="recruit-note" placeholder="備考"></textarea>
+                            <input type="hidden" name="category" value="helper">
                             <input class="profile-edit" type="submit" value="募集する">
                         </form>
                     </div>
