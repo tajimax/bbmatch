@@ -9,16 +9,6 @@
             <p class="menu js-menu">条件で絞り込む</p>
             <div class="contents">                
                 <div class="flex-column">
-                    <!-- <form class="search_container" action="{{ route('searchByDate') }}" method="post">
-                        @csrf
-                        <input type="date" name="date" placeholder="  日付で検索">
-                        <input type="submit" value="&#xf002">
-                    </form>
-                    <form class="search_container" action="{{ route('searchByAddress') }}" method="post">
-                        @csrf
-                        <input type="text" name="address" placeholder="地域で検索">
-                        <input type="submit" value="&#xf002">
-                    </form> -->
                     <form class="search_container" action="{{ route('searchByAddressDate') }}" method="post">
                         @csrf
                         <input type="date" name="date" placeholder="  日付で検索">
@@ -39,7 +29,7 @@
                         @if( $opponent->getImage() !== NULL )
                             <img class="team__img" src="{{ Storage::url($opponent->getImage()) }}">
                         @else
-                            <img class="profile" src="/images/" alt="">
+                            <img class="team__img" src="/images/profile_img.svg" alt="">
                         @endif
                         <span class="team__date"><?php echo ltrim(date("m", strtotime($opponent['game_day'])), 0) . '/' . ltrim(date("d", strtotime($opponent['game_day'])), 0) ?></span>
                     </div>

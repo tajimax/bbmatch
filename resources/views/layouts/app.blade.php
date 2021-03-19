@@ -21,7 +21,6 @@
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/calender.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tab.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
@@ -89,7 +88,6 @@
         </main>
     </div>
 
-    <script src="js/calender.js"></script>
     <script src="js/tab.js"></script>
     <script>
         function imgPreView(event) {
