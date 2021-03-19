@@ -115,35 +115,33 @@
                 </div>
             </div>
             <div class="content-item">
-                <div class="news__wrapper">
-                    <h2 class="section__title"><span>応募中一覧</span></h2>
-                    <table class="schedule_table">
-                        <tr>
-                            <th class="schedule_header">カテゴリ</th>
-                            <th class="schedule_header">チーム名</th>
-                            <th class="schedule_header">日程</th>
-                            <th class="schedule_header">開始時間</th>
-                            <th class="schedule_header">終了時間</th>
-                            <th class="schedule_header">場所</th>
-                        </tr>
-                        @foreach($applications as $application)
-                        <tr>
-                            <td class="schedule_data">
-                                @if( $application->getCategory() === 'opponent' )
-                                対戦相手
-                                @else
-                                助っ人
-                                @endif
-                            </td>
-                            <td class="schedule_data">{{ $application->getReceiveName() }}</td>
-                            <td class="schedule_data">{{ $application->getGameDay() }}</td>
-                            <td class="schedule_data">{{ $application->getStartTime() }}</td>
-                            <td class="schedule_data">{{ $application->getEndTime() }}</td>
-                            <td class="schedule_data">{{ $application->getGamePlace() }}</td>
-                        </tr>
-                        @endforeach
-                    </table>
-                </div>
+                <h2 class="section__title"><span>応募中一覧</span></h2>
+                <table class="schedule_table">
+                    <tr>
+                        <th class="schedule_header">カテゴリ</th>
+                        <th class="schedule_header">チーム名</th>
+                        <th class="schedule_header">日程</th>
+                        <th class="schedule_header">開始時間</th>
+                        <th class="schedule_header">終了時間</th>
+                        <th class="schedule_header">場所</th>
+                    </tr>
+                    @foreach($applications as $application)
+                    <tr>
+                        <td class="schedule_data">
+                            @if( $application->getCategory() === 'opponent' )
+                            対戦相手
+                            @else
+                            助っ人
+                            @endif
+                        </td>
+                        <td class="schedule_data">{{ $application->getReceiveName() }}</td>
+                        <td class="schedule_data">{{ $application->getGameDay() }}</td>
+                        <td class="schedule_data">{{ $application->getStartTime() }}</td>
+                        <td class="schedule_data">{{ $application->getEndTime() }}</td>
+                        <td class="schedule_data">{{ $application->getGamePlace() }}</td>
+                    </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>

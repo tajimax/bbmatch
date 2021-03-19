@@ -50,7 +50,7 @@
                         @if( $helper->getImage() !== NULL )
                             <img class="team__img" src="{{ Storage::url($helper->getImage()) }}">
                         @else
-                            <img class="profile" src="/images/" alt="">
+                            <img class="team__img" src="/images/profile_img.svg" alt="">
                         @endif
                         <span class="team__date"><?php echo ltrim(date("m", strtotime($helper['game_day'])), 0) . '/' . ltrim(date("d", strtotime($helper['game_day'])), 0) ?></span>
                     </div>

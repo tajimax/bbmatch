@@ -30,8 +30,8 @@ class HomeController extends Controller
         $id = Auth::id();
         $item = User::where('id', $id)->first();
         $recruits = Recruit::where('user_id', $id)->get();
+        
         $recruit_ids = $recruits->pluck('id');
-
         $applications = Message::whereNotIn('recruit_id', $recruit_ids)->where('send_user_id', $id)->groupBy('receive_user_id')->get();
 
         return view('home.home', ['item'=>$item, 'recruits'=>$recruits, 'applications'=>$applications]);
@@ -64,7 +64,11 @@ class HomeController extends Controller
         $id = Auth::id();
         $item = User::where('id', $id)->first();
         $recruits = Recruit::where('user_id', $id)->get();
-        return view('home.edit', ['item' => $item, 'recruits' => $recruits]);
+
+        $recruit_ids = $recruits->pluck('id');
+        $applications = Message::whereNotIn('recruit_id', $recruit_ids)->where('send_user_id', $id)->groupBy('receive_user_id')->get();
+
+        return view('home.edit', ['item' => $item, 'recruits' => $recruits, 'applications'=>$applications]);
     }
 
     // マイページの編集

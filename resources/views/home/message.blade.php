@@ -21,12 +21,16 @@
                     <ul class="message-content">
                     @foreach($messages as $message)
                         @if($message['send_user_id'] === Auth::id())
-                        <div class="message-text" style="flex-direction:row-reverse;">
+                        <div class="talk_right">
                             <p>{{ $message['text'] }}</p>
                         </div>
                         @else
-                        <div class="message-text">
-                            <img src="{{ Storage::url($message->getImage()) }}" alt="" style="height:50px; width:50px;">
+                        <div class="talk_left">
+                            @if( $message->getImage() !== NULL )
+                                <img class="msg-icon" src="{{ Storage::url($message->getImage()) }}" alt="">
+                            @else
+                                <img class="msg-icon" src="/images/profile_img.svg" alt="">
+                            @endif
                             <p>{{ $message['text'] }}</p>
                         </div>
                         @endif
@@ -60,9 +64,21 @@
                                 <td class="schedule_data"><?php echo ltrim(date("H:i", strtotime($recruit['end_time'])), '0') ?></td>
                                 <td class="schedule_data">{{ $recruit->game_place }}</td>
                             </tr>
+                            <tr>
+                                <td>　</td>
+                                <td>　</td>
+                                <td>　</td>
+                                <td>　</td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;">　備考</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
                         </table>
                     </div>
-                    <div class="recruit-note">{{ $recruit->note }}</div>
+                    <div class="recruit-note" style="margin-top:5px;">{{ $recruit->note }}</div>
                 </div>
             </div>
         </div>
