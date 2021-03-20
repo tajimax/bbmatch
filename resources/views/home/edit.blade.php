@@ -28,17 +28,17 @@
             <div class="content-item">
                 <form action="{{ route('update') }}" method="post" class="profile-wrapper" enctype="multipart/form-data">
                     @csrf
-                    <label for="img-select" class="fas fa-camera">プロフィール写真選択</label>
-                    <input id="img-select" class="img-select" type="file" name="image" accept="image/png, image/jpeg, image/jpg" onChange="imgPreView(event)">
-                    <input class="profile-name" name="name" type="text" value="{{ $item->name }}">
-                    @if ($errors->has('name'))
-                        <div>{{ $errors->first('name') }}</div>
-                    @endif
                     <div class="profile-btn flex">
                         <a href="{{ route('home') }}" class="profile-edit">キャンセル</a>
                         <input type="submit" value="更新" class="profile-edit">
                     </div>
-                    <input class="profile-address" name="address" id="input" type="text" value="{{ $item->address }}">
+                    <label for="img-select" class="img-select-label"><< プロフィール画像を選択</label>
+                    <input id="img-select" class="img-select" type="file" name="image" accept="image/png, image/jpeg, image/jpg" onChange="imgPreView(event)">
+                    <input class="profile-name profile-item" name="name" type="text" value="{{ $item->name }}" style="height:50px; margin-top:30px;">
+                    @if ($errors->has('name'))
+                        <div>{{ $errors->first('name') }}</div>
+                    @endif
+                    <input class="profile-address profile-item" name="address" id="input" type="text" value="{{ $item->address }}" style="line-height:1;">
                     @if ($errors->has('address'))
                         <div>{{ $errors->first('address') }}</div>
                     @endif

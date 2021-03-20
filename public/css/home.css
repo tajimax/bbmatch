@@ -120,7 +120,7 @@ ul {
 }
 
 .recruit-note {
-  margin: 20px auto 0;
+  margin: 5px auto 0;
   height: 150px;
   width: 90%;
   box-sizing: border-box;
@@ -153,18 +153,21 @@ ul {
   color: #808080;
   border-bottom: solid 1px #c2c2c2;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  height:50px;
+  margin-top:30px;
 }
 
 .profile-btn {
   grid-area: profile-btn;
   color: #808080;
+  margin-bottom: auto;
 }
 
 .profile-address {
   grid-area: profile-address;
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 1.0;
   color: #808080;
   border-bottom: solid 1px #c2c2c2;
   display: flex;
@@ -176,11 +179,12 @@ ul {
   border: solid 1px #c2c2c2;
   border-radius: 5px;
   background-color: #fff;
+  padding: 10px;
 }
 
 .profile-item {
-  padding-left: 20px;
-  margin-bottom: 10px;
+  padding: 0 0 10px 20px;
+  margin-bottom: 0;
 }
 
 .textarea{
@@ -211,6 +215,16 @@ ul {
 
 .img-select {
   display: none;
+}
+
+.img-select-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #65B2F7;
+  padding: 0 10px;
+  border-bottom: 1px solid #65B2F7;
+  cursor: pointer;
 }
 
 .fa-camera {
@@ -272,40 +286,21 @@ ul {
 
 /* ______________________________________________________________________________________  お知らせ部分 */
 .section__title {
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   font-size: 1.4rem;
+  width: 90%;
   line-height: 1.0;
+  border-bottom: 2px solid #808080;
+  color: #808080;
+  padding: 0 15px 10px;
+}
+
+.notFound {
+  font-size: 1.4rem;
+  color: #808080;
   text-align: center;
+  margin-top: 120px;
 }
-
-.section__title span {
-  display: inline-block;
-  padding: 8px 16px;
-  position: relative;
-}
-
-.section__title span::before, .section__title span::after {
-  content: '';
-  display: block;
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  z-index: 1;
-}
-
-.section__title span::before {
-  top: 0;
-  left: 0;
-  background: linear-gradient(135deg, #008DD5 0%, #008DD5 50%, transparent 50%, transparent 100%);
-}
-
-.section__title span::after {
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, transparent 0%, transparent 50%, #008DD5 50%, #008DD5 100%);
-}
-
-
 
 
 /* ______________________________________________________________________________________  お知らせ部分 */
@@ -313,14 +308,17 @@ ul {
   width: 100%;
   height: 700px;
   position: relative;
-  background-color: #F8FAFC;
+  background-color: #DDD;
   border-radius: 10px;
   padding:10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) inset;
 }
 
 .message-content {
+  height: 75%;
   width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .message-text {
@@ -334,6 +332,7 @@ ul {
 }
 
 .message-reply-form {
+  height: 15%;
   width: 90%;
   margin: 0 auto;
   position: absolute;
@@ -355,9 +354,15 @@ ul {
   height:60px;
   width:60px;
   border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
 }
 
 
+.talk_left {
+	margin-top:25px;
+  margin-left: 10px;
+}
 .talk_left p:before {  /* 左ふきだしの左三角を描画 */
 	content: '';
 	position:absolute;
@@ -373,11 +378,13 @@ ul {
 	border-radius:10px;
 	padding:10px;
 	margin:0 0 0 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 .talk_right {
   display: flex;
   flex-direction: row-reverse;
-	margin-top:1em;
+	margin-top:25px;
+  margin-right: 10px;
 }
 .talk_right p:after { /* 右ふきだしの右三角を描画 */
 	content: '';
@@ -394,4 +401,5 @@ ul {
 	border-radius:10px;
 	padding:10px;
 	margin:0 10px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }

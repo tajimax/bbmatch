@@ -5,18 +5,17 @@
     <div class="tab-nav flex">
         <div class="tab-nav__item list-nav" data-nav="0">対戦相手を募集</div>
         <div class="tab-nav__item list-nav" data-nav="1">助っ人を募集</div>
-        <div class="content-search">
-            <p class="menu js-menu">条件で絞り込む</p>
-            <div class="contents">                
-                <div class="flex-column">
-                    <form class="search_container" action="{{ route('searchByAddressDate') }}" method="post">
-                        @csrf
-                        <input type="date" name="date" placeholder="  日付で検索">
-                        <input type="text" name="address" placeholder="地域で検索">
-                        <input type="submit" value="&#xf002">
-                    </form>
-                </div>
+        <div class="btn-wrapper flex">
+            <div class="button">
+                <p class="js-menu">条件で絞り込む</p>
+                <form class="contents flex-column" action="{{ route('searchByAddressDate') }}" method="post">
+                    @csrf
+                    <input class="search_container" type="date" name="date" placeholder="  日付で検索">
+                    <input class="search_container" type="text" name="address" placeholder="地域で検索">
+                    <input class="search_container" type="submit" value="検索">
+                </form>
             </div>
+            <a href="{{ route('show') }}" class="button">検索条件をクリア</a>
         </div>
     </div>
     <!-- コンテンツ部分 -->

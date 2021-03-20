@@ -24,11 +24,9 @@ Route::get('/home/chat/{recruit_id}/{message_user_id}', 'HomeController@message'
 Route::get('/home/edit', 'HomeController@showEdit')->name('edit'); // チーム詳細編集画面を表示
 Route::post('/home/update', 'HomeController@exeUpdate')->name('update'); // チーム詳細編集内容を登録
 
-// 他のユーザー画面を表示
-Route::get('/user/{id}/{user_id}', 'BBmatchController@showUser')->name('user');
-
 // 募集要項を登録
-Route::post('/home/recruit', 'RecruitController@exeRecruit')->name('recruit');
+Route::get('/user/{recruit_id}/{user_id}', 'RecruitController@showRecruit')->name('show_recruit');
+Route::post('/home/recruit', 'RecruitController@storeRecruit')->name('store_recruit');
 
 // メッセージ機能
 Route::post('/home/message', 'MessageController@sendMessage')->name('send_msg');

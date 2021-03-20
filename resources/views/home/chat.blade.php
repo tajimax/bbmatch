@@ -47,9 +47,25 @@
                                 <td class="schedule_data"><?php echo ltrim(date("H:i", strtotime($recruit['end_time'])), '0') ?></td>
                                 <td class="schedule_data">{{ $recruit->game_place }}</td>
                             </tr>
+                            <tr>
+                                <td>　</td>
+                                <td>　</td>
+                                <td>　</td>
+                                <td>　</td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;">　備考</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
                         </table>
                     </div>
-                    <div class="recruit-note">{{ $recruit->note }}</div>
+                    @if($recruit->note === NULL)
+                        <div class="recruit-note">備考はありません。</div>
+                    @else
+                        <div class="recruit-note">{{ $recruit->note }}</div>
+                    @endif
                 </div>
             </div>
             <div class="content-item">

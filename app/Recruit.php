@@ -31,14 +31,19 @@ class Recruit extends Model
         return $this->user->file_path;
     }
 
-    public function scopeDivideByCategory($query, $str) {
+    public function scopeSearchByCategory($query, $str) {
         return $query -> where('category', '=', $str);
     }
 
     public function scopeSearchByAddress($query, $str) {
-        $user = User::where('address', $str)->first();
-        $user_id = $user['id'];
-        return $query -> where('user_id', '=', $user_id);
+        $users = User::where('address', $str)->get(); //検索した住所に該当する全ユーザーを取得
+
+        if(isset($users)){
+            $user_ids = $users->pluck('id'); //取得した全ユーザーのIDを配列で取得
+        }else{
+            $user_ids = [1];
+        }
+        return $query -> whereIn('user_id', $user_ids); //取得した全ユーザーのIDから全リクルートを表示
     }
 
     public function scopeSearchByDate($query, $str) {
