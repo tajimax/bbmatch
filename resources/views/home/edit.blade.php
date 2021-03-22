@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.homeLayout')
 @section('title', 'マイページ')
 
 @section('content')
@@ -29,8 +29,8 @@
                 <form action="{{ route('update') }}" method="post" class="profile-wrapper" enctype="multipart/form-data">
                     @csrf
                     <div class="profile-btn flex">
-                        <a href="{{ route('home') }}" class="profile-edit">キャンセル</a>
-                        <input type="submit" value="更新" class="profile-edit">
+                        <a href="{{ route('home') }}" class="button">キャンセル</a>
+                        <input type="submit" value="更新" class="button">
                     </div>
                     <label for="img-select" class="img-select-label"><< プロフィール画像を選択</label>
                     <input id="img-select" class="img-select" type="file" name="image" accept="image/png, image/jpeg, image/jpg" onChange="imgPreView(event)">
@@ -42,7 +42,10 @@
                     @if ($errors->has('address'))
                         <div>{{ $errors->first('address') }}</div>
                     @endif
-                    <textarea class="profile-intro" name="introduction" id="" cols="30" rows="6">{{ $item->introduction }}</textarea>
+                    <div class="profile-intro">
+                        <div class="profile-intro-label">　チーム紹介</div>
+                        <textarea class="profile-intro-text" name="introduction" id="" cols="30" rows="6">{{ $item->introduction }}</textarea>
+                    </div>
                     @if ($errors->has('introduction'))
                         <div>{{ $errors->first('introduction') }}</div>
                     @endif

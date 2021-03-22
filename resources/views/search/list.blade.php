@@ -15,7 +15,7 @@
                     <input class="search_container" type="submit" value="検索">
                 </form>
             </div>
-            <a href="{{ route('show') }}" class="button">検索条件をクリア</a>
+            <a href="{{ route('showSearchRecruit') }}" class="button">検索条件をクリア</a>
         </div>
     </div>
     <!-- コンテンツ部分 -->
@@ -30,11 +30,12 @@
                         @else
                             <img class="team__img" src="/images/profile_img.svg" alt="">
                         @endif
-                        <span class="team__date"><?php echo ltrim(date("m", strtotime($opponent['game_day'])), 0) . '/' . ltrim(date("d", strtotime($opponent['game_day'])), 0) ?></span>
+                        <span class="team__date">{{ date("n/j", strtotime($opponent['game_day'])) }}</span>
                     </div>
                     <div class="team-content-wrapper">
-                        <div class="team__name">{{ $opponent -> getName() }} </div>
-                        <div class="team__address">{{ $opponent -> getAddress() }}</div>
+                        <div class="recruit_item game_time">{{ date("G:i", strtotime($opponent['start_time'])) . '~' . date("G:i", strtotime($opponent['end_time']))}} </div>
+                        <div class="recruit_item game_place">{{ $opponent -> game_place }}</div>
+                        <div class="recruit_item team_data">{{ $opponent -> getName() }}（{{ $opponent -> getAddress() }}）</div>
                         <a class="recruit__detail" href="/user/{{ $opponent -> id }}/{{ $opponent -> user_id }}">詳細</a>
                     </div>
                 </div>
@@ -51,11 +52,12 @@
                         @else
                             <img class="team__img" src="/images/profile_img.svg" alt="">
                         @endif
-                        <span class="team__date"><?php echo ltrim(date("m", strtotime($helper['game_day'])), 0) . '/' . ltrim(date("d", strtotime($helper['game_day'])), 0) ?></span>
+                        <span class="team__date">{{ date("n/j", strtotime($helper['game_day'])) }}</span>
                     </div>
                     <div class="team-content-wrapper">
-                        <div class="team__name">{{ $helper -> getName() }} </div>
-                        <div class="team__address">{{ $helper -> getAddress() }}</div>
+                        <div class="recruit_item game_time">{{ date("G:i", strtotime($helper['start_time'])) . '~' . date("G:i", strtotime($helper['end_time']))}} </div>
+                        <div class="recruit_item game_place">{{ $helper -> game_place }}</div>
+                        <div class="recruit_item team_data">{{ $helper -> getName() }}（{{ $helper -> getAddress() }}）</div>
                         <a class="recruit__detail" href="/user/{{ $helper -> id }}/{{ $helper -> user_id }}">詳細</a>
                     </div>
                 </div>

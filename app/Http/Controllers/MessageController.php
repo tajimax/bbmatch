@@ -23,7 +23,3 @@ class MessageController extends Controller
         return redirect(route('message', ['recruit_id'=>$recruit_id ,'message_user_id'=>$message_user_id ]));
     }
 }
-
-//平均年齢
-//チームレベル
-//過去の実績

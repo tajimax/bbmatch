@@ -18,13 +18,17 @@
             </div>
             <div class="content-item">
                 <div class="profile-wrapper">
-                    <div class="profile-name"><p class="profile-item">{{ $recruit->getName() }}</p></div>
-                    <div class="profile-address"><p class="profile-item">{{ $recruit->getAddress() }}</p></div>
-                    @if($recruit->getIntro() === NULL)
-                        <div class="profile-intro">チーム紹介文はありません。</div>
-                    @else
-                        <div class="profile-intro">{{ $recruit->getIntro() }}</div>
-                    @endif
+                    <div class="profile-name"><p class="profile-item"><span style="font-size:1rem;">チーム名： </span>{{ $recruit->getName() }}</p></div>
+                    <div class="profile-address"><p class="profile-item"><span style="font-size:1rem;">所在地： </span>{{ $recruit->getAddress() }}</p></div>
+                    <div class="profile-intro">
+                        <label class="profile-intro-label">　チーム紹介</label>
+                        @if($recruit->getIntro() === NULL)
+                            <div class="profile-intro-text">チーム紹介文はありません。</div>
+                        @else
+                            <div class="profile-intro-text">{{ $recruit->getIntro() }}</div>
+                        @endif
+
+                    </div>
                 </div>
             </div>
             <div class="content-item">
@@ -41,9 +45,9 @@
                             <tr>
                                 <td class="schedule_data">
                                     @if( $recruit->category === 'opponent' )
-                                    対戦相手
+                                    対戦相手募集
                                     @else
-                                    助っ人
+                                    助っ人募集
                                     @endif
                                 </td>
                                 <td class="schedule_data">{{ $recruit->game_day }}</td>
@@ -73,6 +77,9 @@
                         <div class="recruit-note">{{ $recruit->note }}</div>
                     @endif
                 </div>
+            </div>
+            <div class="content-item">
+                <div class="section__title">メッセージを送る</div>
                 @if(Auth::check())
                     @if(Auth::id() !== $recruit['user_id'])
                     <form class="message-form" action="{{ route('send_msg') }}" method="post">
@@ -89,35 +96,6 @@
                 @else
                     <div class="caution" style="color:red; margin:20px 0 0 40px">※メッセージを送信するには、ログインしてください。</div>
                 @endif
-            </div>
-            <div class="content-item">
-                <div class="section__title">{{ $recruit->getName() }}の全ての募集中</div>
-                <table class="schedule_table">
-                    <tr>
-                        <th class="schedule_header">カテゴリ</th>
-                        <th class="schedule_header">日程</th>
-                        <th class="schedule_header">開始時間</th>
-                        <th class="schedule_header">終了時間</th>
-                        <th class="schedule_header">場所</th>
-                        <th class="schedule_header">詳細</th>
-                    </tr>
-                    @foreach($recruits as $recruit)
-                    <tr>
-                        <td class="schedule_data">
-                            @if( $recruit->category === 'opponent' )
-                            対戦相手
-                            @else
-                            助っ人
-                            @endif
-                        </td>
-                        <td class="schedule_data">{{ $recruit['game_day'] }}</td>
-                        <td class="schedule_data"><?php echo date("H:i", strtotime($recruit['start_time'])) ?></td>
-                        <td class="schedule_data"><?php echo date("H:i", strtotime($recruit['end_time'])) ?></td>
-                        <td class="schedule_data">{{ $recruit['game_place'] }}</td>
-                        <td class="schedule_data"><a href="/user/{{ $recruit -> id }}/{{ $recruit -> user_id }}">詳細</a></td>
-                    </tr>
-                    @endforeach
-                </table>
             </div>
         </div>
     </div>

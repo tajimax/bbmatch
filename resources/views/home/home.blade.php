@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.homeLayout')
 @section('title', 'マイページ')
 
 @section('content')
@@ -19,15 +19,16 @@
                 <div class="profile-wrapper">
                     <div class="profile-name profile-item">{{ $item->name }}</div>
                     <div class="profile-btn flex">
-                        <a href="{{ route('edit') }}" class="profile-edit">プロフィール編集</a>
+                        <a href="{{ route('edit') }}" class="button">プロフィール編集</a>
                     </div>
                     <div class="profile-address profile-item">{{ $item->address }}</div>
                     <div class="profile-intro">
-                        @if( $item->introduction === NULL )
-                            紹介文はありません。
-                        @else
-                            {{ $item->introduction }}
-                        @endif
+                        <div class="profile-intro-label">　チーム紹介</div>
+                            @if( $item->introduction === NULL )
+                                <div class="profile-intro-text">紹介文はありません。</div>
+                            @else
+                                <div class="profile-intro-text">{{ $item->introduction }}</div>
+                            @endif
                     </div>
                 </div>
             </div>
@@ -46,8 +47,7 @@
                                 <tr>
                                     <th class="schedule_header">カテゴリ</th>
                                     <th class="schedule_header">日程</th>
-                                    <th class="schedule_header">開始時間</th>
-                                    <th class="schedule_header">終了時間</th>
+                                    <th class="schedule_header">試合時間</th>
                                     <th class="schedule_header">場所</th>
                                     <th class="schedule_header">応募チーム数</th>
                                 </tr>
@@ -60,9 +60,8 @@
                                         助っ人
                                         @endif
                                     </td>
-                                    <td class="schedule_data">{{ $recruit['game_day'] }}</td>
-                                    <td class="schedule_data"><?php echo date("H:i", strtotime($recruit['start_time'])) ?></td>
-                                    <td class="schedule_data"><?php echo date("H:i", strtotime($recruit['end_time'])) ?></td>
+                                    <td class="schedule_data">{{ date("Y.n.j", strtotime($recruit['game_day'])) }}</td>
+                                    <td class="schedule_data">{{ date("H:i", strtotime($recruit['start_time'])) . '~' . date("H:i", strtotime($recruit['end_time'])) }}</td>
                                     <td class="schedule_data">{{ $recruit['game_place'] }}</td>
                                     <td class="schedule_data"><a href="home/chat/{{ $recruit['id'] }}">{{ $recruit['msg_user_count'] }}</a></td>
                                 </tr>

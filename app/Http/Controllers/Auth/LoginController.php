@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -36,5 +37,32 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+
+    // ゲストユーザー用のユーザーIDを定数として定義
+    private const GUEST_USER_ID_01 = 6;
+    private const GUEST_USER_ID_02 = 7;
+
+    // ゲストログイン処理
+     public function guestLogin_01()
+    {
+        // id=1 のゲストユーザー情報がDBに存在すれば、ゲストログインする
+        if (Auth::loginUsingId(self::GUEST_USER_ID_01)) {
+            return redirect('/showSearchRecruit');
+        }
+
+        return redirect('/showSearchRecruit');
+    }
+
+    // ゲストログイン処理
+     public function guestLogin_02()
+    {
+        // id=2 のゲストユーザー情報がDBに存在すれば、ゲストログインする
+        if (Auth::loginUsingId(self::GUEST_USER_ID_02)) {
+            return redirect('/showSearchRecruit');
+        }
+
+        return redirect('/showSearchRecruit');
     }
 }

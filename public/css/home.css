@@ -122,6 +122,7 @@ ul {
 .recruit-note {
   margin: 5px auto 0;
   height: 150px;
+  line-height: 1.4;
   width: 90%;
   box-sizing: border-box;
   border: solid 1px #c2c2c2;
@@ -129,6 +130,7 @@ ul {
   padding: 10px;
   display: block;
   background-color: #fff;
+  white-space: pre-wrap;
 }
 
 
@@ -176,41 +178,33 @@ ul {
 
 .profile-intro {
   grid-area: profile-intro;
+  background-color: #fff;
+}
+
+.profile-intro-label {
+  background-color: #fff;
+  line-height: 1.4;
+  height: 10%;
+  font-weight: bold;
+}
+
+.profile-intro-text {
   border: solid 1px #c2c2c2;
   border-radius: 5px;
   background-color: #fff;
   padding: 10px;
+  height: 90%;
+  width: 100%;
+  line-height: 1.4;
+  margin-top: 5px;
+  white-space: pre-wrap;
+  display: block;
+  box-sizing: border-box;
 }
 
 .profile-item {
   padding: 0 0 10px 20px;
   margin-bottom: 0;
-}
-
-.textarea{
-  box-sizing: border-box;
-  color: #808080;
-  margin-top: 30px;
-  width: 100%;
-  border: solid 1px #c2c2c2;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #fff;
-  outline: 0;
-  font-size: 16px;
-}
-
-.profile-edit {
-  position: relative;
-  color: #808080;
-  text-align: center;
-  border: 1px solid #808080;
-  display: block;
-  padding: 3px 10px;
-  border-radius: 20px;
-  height: 2.3em;
-  max-width: 150px;
-  overflow: hidden;
 }
 
 .img-select {
@@ -225,21 +219,6 @@ ul {
   padding: 0 10px;
   border-bottom: 1px solid #65B2F7;
   cursor: pointer;
-}
-
-.fa-camera {
-  cursor: pointer;
-  font-family: FontAwesome;
-  font-size: 2.0rem;
-  border: none;
-  background: none;
-  color: #3879D9;
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  left: -72px;
-  top: 0px;
-  outline: none;
 }
 
 #previewImage {
@@ -340,11 +319,12 @@ ul {
 }
 
 .message-textarea {
+  height: 160px;
   color: #808080;
   border: 1px solid #808080;
   padding: 8px 12px;
   border-radius: 10px;
-  height: 1.0;
+  line-height: 1.4;
   margin-right: 20px;
   width: 100%;
   box-sizing: border-box;

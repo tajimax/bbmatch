@@ -126,36 +126,31 @@ a {
   color: #3879D9;
   display: grid;
   grid-template: 
-    "..... ............  ............  ............... ....." 20px
-    "..... team__name     team__name     team__name    ....." 1.5fr
-    "..... team__address team__address recruit__detail ....." 1fr
+    "..... ............  ............  ............... ....." 10px
+    "..... game_time     game_time     recruit__detail ....." 1.0fr
+    "..... game_place    game_place    game_place      ....." 1.0fr
+    "..... team_data     team_data     team_data       ....." 1.0fr
     "..... ............  ............  ............... ....." 10px/
-     20px  1fr           1fr           1fr             30px;
+     10px  1fr           1fr           1fr             10px;
 }
 
-.team__name {
-  grid-area: team__name;
-  width: 100%;
-  line-height: 1;
-  font-size: 2rem;
-  color: #3879D9;
-}
-
-.team__address {
-  grid-area: team__address;
+.recruit_item {
   width: 100%;
   line-height: 2;
   font-size: 1rem;
   color: #3879D9;
-  vertical-align: middle;
 }
 
-.team__member {
-  grid-area: team__member;
-  width: 100%;
-  font-size: 2rem;
-  line-height: 1rem;
-  color: #3879D9;
+.game_time {
+  grid-area: game_time;
+}
+
+.game_place {
+  grid-area: game_place;
+}
+
+.team_data {
+  grid-area: team_data;
 }
 
 .recruit__detail {
@@ -191,9 +186,10 @@ a {
 }
 
 .search_container {
+  background-color: #fff;
   border: 1px solid #999;
   display: block;
-  padding: 3px 10px;
+  padding: 5px 10px;
   border-radius: 20px;
   width: 220px;
   margin-top: 10px;
@@ -202,7 +198,8 @@ a {
 .search_container input[type="text"],
 .search_container input[type="date"],
 .search_container input[type="submit"] {
+  background-color: #fff;
   display: block;
   border: none;
-  line-height: 1.0;
+  line-height: 2.0;
 }

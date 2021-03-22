@@ -12,8 +12,12 @@
 */
 
 
+Route::get('/', function(){
+    return view('top');
+})->name('showTop');
+
 // チーム一覧画面を表示
-Route::get('/', 'ListController@showList')->name('show');
+Route::get('/showSearchRecruit', 'ListController@showList')->name('showSearchRecruit');
 Route::post('/searchByAddressDate', 'ListController@searchByAddressDate')->name('searchByAddressDate'); //日付と所在地で検索
 
 // マイページを表示
@@ -33,6 +37,9 @@ Route::post('/home/message', 'MessageController@sendMessage')->name('send_msg');
 Route::post('/home/reply', 'MessageController@replyMessage')->name('reply_msg');
 
 
+// ゲストユーザーログイン
+Route::get('guest01', 'Auth\LoginController@guestLogin_01')->name('login_guest_01');
+Route::get('guest02', 'Auth\LoginController@guestLogin_02')->name('login_guest_02');
 
 // ______________________________________________________________ reactのテスト
 // Route::get('/{any}', function () {
