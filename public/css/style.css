@@ -51,6 +51,17 @@ a {
   cursor: pointer;
 }
 
+.big-btn {
+  width: 90%;
+  color: #fff;
+  text-align: center;
+  padding: 16px 0;
+  border-radius: 5px;
+  margin: 0 auto 40px;
+  cursor: pointer;
+  background-color: #239b76;
+}
+
 /*----- ヘッダー部分 -----*/
 .header {
   height: 80px;
@@ -126,12 +137,12 @@ a {
   color: #3879D9;
   display: grid;
   grid-template: 
-    "..... ............  ............  ............... ....." 10px
+    "..... ............  ............  ............... ....." 5px
     "..... game_time     game_time     recruit__detail ....." 1.0fr
     "..... game_place    game_place    game_place      ....." 1.0fr
     "..... team_data     team_data     team_data       ....." 1.0fr
-    "..... ............  ............  ............... ....." 10px/
-     10px  1fr           1fr           1fr             10px;
+    "..... ............  ............  ............... ....." 5px/
+     10px  1.5fr         1.5fr         1fr             10px;
 }
 
 .recruit_item {

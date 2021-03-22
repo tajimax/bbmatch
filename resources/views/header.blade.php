@@ -10,6 +10,7 @@
                     <a class="button" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                 @endif
             @else
+                <a class="button" href="{{ route('home') }}">{{ __('マイページ') }}</a>
                 <a class="button" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -19,6 +20,7 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
+
             @endguest
     </div>
 </div>

@@ -21,6 +21,7 @@
     <!-- コンテンツ部分 -->
     <div class="tab-content">
         <div class="tab-content__item content-item" data-content="0">
+            <div class="big-btn">新規投稿（対戦相手を募集する）</div>
             <div class="grid">
                 @foreach($opponents as $opponent)
                 <div class="team flex-column">
@@ -33,8 +34,8 @@
                         <span class="team__date">{{ date("n/j", strtotime($opponent['game_day'])) }}</span>
                     </div>
                     <div class="team-content-wrapper">
-                        <div class="recruit_item game_time">{{ date("G:i", strtotime($opponent['start_time'])) . '~' . date("G:i", strtotime($opponent['end_time']))}} </div>
-                        <div class="recruit_item game_place">{{ $opponent -> game_place }}</div>
+                        <div class="recruit_item game_time">試合時間：{{ date("G:i", strtotime($opponent['start_time'])) . '~' . date("G:i", strtotime($opponent['end_time']))}} </div>
+                        <div class="recruit_item game_place">試合場所：{{ $opponent -> game_place }}</div>
                         <div class="recruit_item team_data">{{ $opponent -> getName() }}（{{ $opponent -> getAddress() }}）</div>
                         <a class="recruit__detail" href="/user/{{ $opponent -> id }}/{{ $opponent -> user_id }}">詳細</a>
                     </div>
@@ -43,6 +44,7 @@
             </div>
         </div>
         <div class="tab-content__item content-item" data-content="1">
+            <div class="big-btn">新規投稿（助っ人を募集する）</div>
             <div class="grid">
                 @foreach($helpers as $helper)
                 <div class="team flex-column">
