@@ -26,6 +26,7 @@
 </section>
 
 <script src="js/tab.js"></script>
+<script src="js/modal.js"></script>
 <script>
     const menu = document.querySelectorAll(".js-menu");
 

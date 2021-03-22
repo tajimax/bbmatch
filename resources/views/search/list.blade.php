@@ -21,7 +21,41 @@
     <!-- コンテンツ部分 -->
     <div class="tab-content">
         <div class="tab-content__item content-item" data-content="0">
-            <div class="big-btn">新規投稿（対戦相手を募集する）</div>
+            <div class="big-btn" id="opponent_recruit-show">新規投稿（対戦相手を募集する）</div>
+            <!-- ログインモーダル部分 -->
+            <div class="opponent_recruit-modal-wrapper" id="opponent_recruit-modal">
+                <div class="modal">
+                    <div class="close-modal" id="close-opponent_recruit-modal">
+                        <i class="fa fa-2x fa-times"></i>
+                    </div>
+                    
+                    
+                    <div id="opponent_recruit-form">
+                        <h2>ログイン</h2>
+                        <form action="{{ route('store_recruit') }}" method="post">
+                            @csrf
+                            <table class="schedule_table">
+                                <tr>
+                                    <th class="schedule_header">日程</th>
+                                    <th class="schedule_header">開始時間</th>
+                                    <th class="schedule_header">終了時間</th>
+                                    <th class="schedule_header">場所</th>
+                                </tr>
+                                <tr>
+                                    <td class="schedule_data"><input id="game_day" class="recruit-item" type="date" name="game_day"></td>
+                                    <td class="schedule_data"><input id="start_time" class="recruit-item" type="time" name="start_time"></td>
+                                    <td class="schedule_data"><input id="end_time" class="recruit-item" type="time" name="end_time"></td>
+                                    <td class="schedule_data"><input id="game_place" class="recruit-item" type="text" name="game_place" placeholder="試合場所"></td>
+                                </tr>
+                            </table>
+                            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                            <textarea name="note" id="" cols="6" rows="6" class="recruit-note" placeholder="備考"></textarea>
+                            <input type="hidden" name="category" value="opponent">
+                            <input class="profile-edit" type="submit" value="募集する">
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="grid">
                 @foreach($opponents as $opponent)
                 <div class="team flex-column">
