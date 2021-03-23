@@ -20,17 +20,104 @@
     </div>
     <!-- コンテンツ部分 -->
     <div class="tab-content">
+        @auth
+            <h2 class="login-check">※{{ $auths['name'] }}でログイン中です</h2>
+        @else
+            <h2 class="login-check">※ログインしていません。</h2>
+        @endauth
         <div class="tab-content__item content-item" data-content="0">
             <div class="big-btn" id="opponent_recruit-show">新規投稿（対戦相手を募集する）</div>
-            <!-- ログインモーダル部分 -->
+            <!-- 新規投稿モーダル（対戦相手募集） -->
             <div class="opponent_recruit-modal-wrapper" id="opponent_recruit-modal">
                 <div class="modal">
                     <div class="close-modal" id="close-opponent_recruit-modal">
                         <i class="fa fa-2x fa-times"></i>
                     </div>
                     
-                    
                     <div id="opponent_recruit-form">
+                        <h2>対戦相手を募集する</h2>
+                        @auth
+                            <form action="{{ route('store_recruit') }}" method="post">
+                                @csrf
+                                <table class="schedule_table">
+                                    <tr>
+                                        <th class="schedule_header">日程</th>
+                                        <th class="schedule_header">開始時間</th>
+                                        <th class="schedule_header">終了時間</th>
+                                        <th class="schedule_header">場所</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="schedule_data"><input id="game_day" class="recruit-item" type="date" name="game_day"></td>
+                                        <td class="schedule_data"><input id="start_time" class="recruit-item" type="time" name="start_time"></td>
+                                        <td class="schedule_data"><input id="end_time" class="recruit-item" type="time" name="end_time"></td>
+                                        <td class="schedule_data"><input id="game_place" class="recruit-item" type="text" name="game_place" placeholder="試合場所"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>　</td>
+                                        <td>　</td>
+                                        <td>　</td>
+                                        <td>　</td>
+                                        <td>　</td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align:left;">　備考</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </table>
+                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                <textarea name="note" id="" cols="6" rows="6" class="recruit-note" placeholder="備考"></textarea>
+                                <input type="hidden" name="category" value="opponent">
+                                <div class="btn-wrapper">
+                                    <input class="button" type="submit" value="募集する">
+                                </div>
+                            </form>
+                        @else
+                            <h2 class="login-check">※新規投稿するには、ログインしてください。</h2>
+                            <div class="btn-wrapper flex">
+                                <a class="button" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                                <a class="button" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+                            </div>
+                        @endauth
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                @foreach($opponents as $opponent)
+                <div class="team flex-column">
+                    <div class="team-img-wrapper">
+                        @if( $opponent->getImage() !== NULL )
+                            <img class="team__img" src="{{ Storage::url($opponent->getImage()) }}">
+                        @else
+                            <img class="team__img" src="/images/profile_img.svg">
+                        @endif
+                        <p class="team__date">
+                            <span>{{ date("Y", strtotime($opponent['game_day'])) }}</span>
+                            <span>{{ date("n/j", strtotime($opponent['game_day'])) }}</span>
+                        </p>
+                    </div>
+                    <div class="team-content-wrapper">
+                        <div class="recruit_item game_time">試合時間：{{ date("G:i", strtotime($opponent['start_time'])) . '~' . date("G:i", strtotime($opponent['end_time']))}} </div>
+                        <div class="recruit_item game_place">試合場所：{{ $opponent -> game_place }}</div>
+                        <div class="recruit_item team_data">{{ $opponent -> getName() }}（{{ $opponent -> getAddress() }}）</div>
+                        <a class="recruit__detail" href="/user/{{ $opponent -> id }}/{{ $opponent -> user_id }}">詳細</a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        <div class="tab-content__item content-item" data-content="1">
+            <div class="big-btn" id="helper_recruit-show">新規投稿（助っ人を募集する）</div>
+            <!-- 新規投稿モーダル（助っ人募集） -->
+            <div class="helper_recruit-modal-wrapper" id="helper_recruit-modal">
+                <div class="modal">
+                    <div class="close-modal" id="close-helper_recruit-modal">
+                        <i class="fa fa-2x fa-times"></i>
+                    </div>
+                    
+                    <div id="helper_recruit-form">
                         <h2>ログイン</h2>
                         <form action="{{ route('store_recruit') }}" method="post">
                             @csrf
@@ -49,36 +136,13 @@
                                 </tr>
                             </table>
                             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                            <textarea name="note" id="" cols="6" rows="6" class="recruit-note" placeholder="備考"></textarea>
-                            <input type="hidden" name="category" value="opponent">
-                            <input class="profile-edit" type="submit" value="募集する">
+                            <textarea name="note" id="" cols="6" rows="10" class="recruit-note" placeholder="備考"></textarea>
+                            <input type="hidden" name="category" value="helper">
+                            <input class="button" type="submit" value="募集する">
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="grid">
-                @foreach($opponents as $opponent)
-                <div class="team flex-column">
-                    <div class="team-img-wrapper">
-                        @if( $opponent->getImage() !== NULL )
-                            <img class="team__img" src="{{ Storage::url($opponent->getImage()) }}">
-                        @else
-                            <img class="team__img" src="/images/profile_img.svg" alt="">
-                        @endif
-                        <span class="team__date">{{ date("n/j", strtotime($opponent['game_day'])) }}</span>
-                    </div>
-                    <div class="team-content-wrapper">
-                        <div class="recruit_item game_time">試合時間：{{ date("G:i", strtotime($opponent['start_time'])) . '~' . date("G:i", strtotime($opponent['end_time']))}} </div>
-                        <div class="recruit_item game_place">試合場所：{{ $opponent -> game_place }}</div>
-                        <div class="recruit_item team_data">{{ $opponent -> getName() }}（{{ $opponent -> getAddress() }}）</div>
-                        <a class="recruit__detail" href="/user/{{ $opponent -> id }}/{{ $opponent -> user_id }}">詳細</a>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="tab-content__item content-item" data-content="1">
-            <div class="big-btn">新規投稿（助っ人を募集する）</div>
             <div class="grid">
                 @foreach($helpers as $helper)
                 <div class="team flex-column">

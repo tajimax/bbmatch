@@ -12,6 +12,8 @@ class Message extends Model
     
     protected $fillable = ['recruit_id' ,'send_user_id', 'receive_user_id', 'text',];
 
+
+// ________________________________________________________________ユーザーテーブルとのリレーション
     public function sendUser() {
         return $this->belongsTo('App\User', 'send_user_id');
     }
@@ -36,6 +38,8 @@ class Message extends Model
         return $this->receiveUser->name;
     }
 
+
+// ________________________________________________________________リクルートテーブルとのリレーション
     public function recruit() {
         return $this->belongsTo('App\Recruit', 'recruit_id');
     }
@@ -62,5 +66,9 @@ class Message extends Model
 
     public function getUserID() {
         return $this->recruit->user_id;
+    }
+
+    public function getMessageCount() {
+        $messages = Message::Where('send_user_id', $message_user_id)->where('receive_user_id', $id)->where('unread', true)->count();
     }
 }

@@ -51,12 +51,11 @@ class HomeController extends Controller
     public function message($recruit_id, $message_user_id)  //応募してきているチームとのメッセージを表示
     {
         $id = Auth::id();
-        $item = User::where('id', $id)->first();
         $recruit = Recruit::where('id', $recruit_id)->first();
 
-        $messages = Message::whereIn('send_user_id', [$id, $message_user_id])->whereIn('receive_user_id', [$id, $message_user_id])->get();
+        $messages = Message::where('send_user_id', $id)->orWhere('send_user_id', $message_user_id)->where('receive_user_id', $id)->orWhere('receive_user_id', $message_user_id)->get();
 
-        return view('home.message', ['item'=>$item, 'recruit'=>$recruit, 'messages'=>$messages, 'message_user_id'=>$message_user_id]);
+        return view('home.message', ['recruit'=>$recruit, 'messages'=>$messages, 'message_user_id'=>$message_user_id]);
     }
 
     // マイページ編集画面を表示

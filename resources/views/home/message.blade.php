@@ -9,8 +9,8 @@
                 </div>
             @endif
             <div class="content-item">
-                @if( $item['file_path'] !== NULL )
-                    <img class="profile" src="{{ Storage::url($item->file_path) }}"/>
+                @if( $recruit->getImage() !== NULL )
+                    <img class="profile" src="{{ Storage::url($recruit->getImage()) }}"/>
                 @else
                     <img class="profile" src="/images/profile_img.svg" alt="">
                 @endif

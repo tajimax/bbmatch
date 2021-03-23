@@ -19,18 +19,18 @@
     
 
     // ログインモーダルを表示
-    const $helper_show = document.getElementById('helper-show');
-    const $helper_modal = document.getElementById('helper-modal');
+    const $helper_recruit_show = document.getElementById('helper_recruit-show');
+    const $helper_recruit_modal = document.getElementById('helper_recruit-modal');
     
-    $helper_show.addEventListener('click', function() {
-      $helper_modal.classList.add('active');
+    $helper_recruit_show.addEventListener('click', function() {
+      $helper_recruit_modal.classList.add('active');
     })
 
 
     // ログインモーダルを閉じる
-    const $closeHelper = document.getElementById('close-helper-modal');
+    const $closeHelper_recruit = document.getElementById('close-helper_recruit-modal');
 
-    $closeHelper.addEventListener('click', function() {
-      $helper_modal.classList.remove('active');
+    $closeHelper_recruit.addEventListener('click', function() {
+      $helper_recruit_modal.classList.remove('active');
     })
 })();

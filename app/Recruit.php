@@ -11,6 +11,8 @@ class Recruit extends Model
     
     protected $fillable = ['category', 'game_day', 'user_id', 'start_time', 'end_time', 'game_place', 'note',];
 
+
+// ________________________________________________________________ユーザーテーブルとのリレーション
     public function user() {
         return $this->belongsTo('App\User');
     }
@@ -31,22 +33,23 @@ class Recruit extends Model
         return $this->user->file_path;
     }
 
+// ________________________________________________________________ユーザーテーブルとのリレーション
     public function scopeSearchByCategory($query, $str) {
         return $query -> where('category', '=', $str);
     }
 
     public function scopeSearchByAddress($query, $str) {
-        $users = User::where('address', $str)->get(); //検索した住所に該当する全ユーザーを取得
+        $users = User::where('address', $str)->get();   //検索した住所に該当する全ユーザーを取得
 
         if(isset($users)){
-            $user_ids = $users->pluck('id'); //取得した全ユーザーのIDを配列で取得
+            $user_ids = $users->pluck('id');            //取得した全ユーザーのIDを配列で取得
         }else{
             $user_ids = [1];
         }
-        return $query -> whereIn('user_id', $user_ids); //取得した全ユーザーのIDから全リクルートを表示
+        return $query -> whereIn('user_id', $user_ids); //取得した全ユーザーのIDからリクルートを表示
     }
 
     public function scopeSearchByDate($query, $str) {
-        return $query -> where('game_day', '=', $str);
+        return $query -> where('game_day', '=', $str);  //検索した日付に該当する全ユーザーを取得
     }
 }

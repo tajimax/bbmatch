@@ -37,7 +37,7 @@ a {
 }
 
 .btn-wrapper {
-  margin: 20px 0;
+  margin-top: 10px;
 }
 
 .button {
@@ -76,6 +76,12 @@ a {
 }
 
 /*----- 原作一覧 -----*/
+.login-check {
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}
+
 .content-wrapper {
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -92,7 +98,7 @@ a {
 .content-item {
   width: 100%;
   display: block;
-  padding: 40px 100px;
+  padding: 20px 100px 40px;
 }
 
 .team {
@@ -218,16 +224,14 @@ a {
 
 /*モーダル*/
 .opponent_recruit-modal-wrapper,
-.signup-modal-wrapper,
-.identify-modal-wrapper,
-.post-modal-wrapper {
+.helper_recruit-modal-wrapper {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 100;
+  z-index: 1;
   display: none;
 }
 
@@ -241,29 +245,48 @@ a {
   left: 50%;
   transform: translate(-50%, -65%);
   background-color: #e6ecf0;
-  padding: 20px 0 40px;
+  padding: 20px 40px;
   border-radius: 10px;
-  width: 450px;
+  width: auto;
   height: auto;
   text-align: center;
 }
 
-.modal__form {
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.recruit-note {
+  margin: 5px auto 0;
+  height: 150px;
+  line-height: 1.4;
   width: 100%;
-}
-
-.modal__form h2 {
-  color: #5f5d60;
-  letter-spacing: 1px;
-  margin-bottom: 40px;
-}
-
-.modal__form input, .modal__form select, .modal__form label {
-  display: block;
-  width: 320px;
-  margin: 0 auto 20px;
-  font-size: 12px;
-  padding: 12px 12px;
-  border: 1px solid #d0d5d8;
+  box-sizing: border-box;
+  border: solid 1px #c2c2c2;
   border-radius: 5px;
+  padding: 10px;
+  display: block;
+  background-color: #fff;
+  white-space: pre-wrap;
+}
+/* ______________________________________________________________________________________  スケジュール一覧部分 */
+.schedule_table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 20px auto 0;
+  width: 90%;
+  text-align: center;
+}
+
+.schedule_header {
+  padding: 5px;
+  text-align: center;
+}
+
+.schedule_data {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: center;
 }

@@ -89,7 +89,9 @@
                             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                             <textarea name="note" id="" cols="6" rows="6" class="recruit-note" placeholder="備考"></textarea>
                             <input type="hidden" name="category" value="opponent">
-                            <input class="profile-edit" type="submit" value="募集する">
+                            <div class="btn-wrapper">
+                                <input class="button" type="submit" value="募集する">
+                            </div>
                         </form>
                     </div>
                     <div class="tab-content__item" data-content="2">

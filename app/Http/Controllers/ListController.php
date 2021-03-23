@@ -14,7 +14,8 @@ class ListController extends Controller
     public function showList(){
         $opponents = Recruit::searchByCategory('opponent')->get();
         $helpers = Recruit::searchByCategory('helper')->get();
-        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers]);
+        $auths = Auth::user();
+        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths]);
     }
 
     // チーム一覧画面を表示
