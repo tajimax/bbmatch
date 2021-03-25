@@ -13,7 +13,11 @@ class MessageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        if($this->path() == 'home/message' || $this->path() == 'home/reply') {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

@@ -9,6 +9,9 @@
         <textarea class="message-textarea" name="text" id="" cols="30" rows="2" placeholder="メッセージを入力"></textarea>
         <input class="button" type="submit" value="送信">
     </form>
+    @error('text')
+        <div>{{ $message }}</div>
+    @enderror
     @else
         <div class="caution" style="color:red; margin:20px 0 0 40px">※あなたの投稿です。</div>
     @endif

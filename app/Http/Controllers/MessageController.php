@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use App\Http\Requests\MessageRequest;
 use App\Recruit;
 use Auth;
 
 class MessageController extends Controller
 {
-    public function sendMessage(Request $request) {
+    public function sendMessage(MessageRequest $request) {
         Message::create($request->all());
 
         $id = Auth::id();
@@ -22,7 +23,7 @@ class MessageController extends Controller
         return redirect(route('home'));
     }
     
-    public function replyMessage(Request $request) {
+    public function replyMessage(MessageRequest $request) {
         Message::create($request->all());
 
         $id = Auth::id();
