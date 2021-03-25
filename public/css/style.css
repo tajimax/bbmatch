@@ -40,6 +40,17 @@ a {
   margin-top: 10px;
 }
 
+.header_button {
+  color: #fff;
+  text-align: center;
+  border: 1px solid #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  height: 1.0;
+  cursor: pointer;
+  margin: auto 10px;
+}
+
 .button {
   color: #808080;
   text-align: center;
@@ -47,8 +58,8 @@ a {
   padding: 8px 12px;
   border-radius: 20px;
   height: 1.0;
-  margin-right: 20px;
   cursor: pointer;
+  margin: auto 10px;
 }
 
 .big-btn {
@@ -62,18 +73,43 @@ a {
   background-color: #239b76;
 }
 
+.big-btn:hover {
+  opacity: 0.8;
+}
+
 /*----- ヘッダー部分 -----*/
 .header {
   height: 80px;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(35, 35, 35, 0.9);
 }
 
 .header__logo {
   height: 70px;
   width: 290px;
 }
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #fff;
+  height: 70px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.header-nav a:link,
+.header-nav a:visited,
+.header-nav a:hover,
+.header-nav a:active {
+  margin-left: 20px;
+  color: #fff;
+} 
 
 /*----- 原作一覧 -----*/
 .login-check {
@@ -83,6 +119,7 @@ a {
 }
 
 .content-wrapper {
+  margin-top: 80px;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   background-color: #fff;
@@ -93,6 +130,7 @@ a {
   line-height: 3.5rem;
   padding: 0 80px;
   color: #65B2F7;
+  text-align: center;
 }
 
 .content-item {
@@ -108,9 +146,9 @@ a {
 }
 
 .team-img-wrapper {
-  height: 65%;
+  height: 55%;
   width: 100%;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px 10px 0 0;
   position: relative;
 }
 
@@ -121,63 +159,82 @@ a {
   top: 50%;
   left: 50%;  
   transform: translate(-50%, -50%);
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   -ms-filter: blur(1px);
   filter: blur(1px);
 }
 
-.team__date {
-  padding: 20px 10px;
-  border-radius: 10px;
-  font-size: 1.5rem;
-  background-color: blue;
-  color: #fff;
+.game_calender {
+  border-radius: 5px;
+  background-color: #fff;
   position: absolute;
   top: 10px;
   left: 10px;
+  text-align: center;
+}
+
+.game_year {
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+  width: 100%;
+  height: 10%;
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: bold;
+  background-color: red;
+}
+
+.game_date {
+  padding: 8px 10px 0;
+  height: 80%;
+  width: 100%;
+  font-size: 1.5rem;
+  color: #444;
+}
+
+.game_day {
+  height: 10%;
+  width: 100%;
+  font-size: 0.8rem;
+  color: #444;
+  font-weight: bold;
+  padding: 5px 10px;
 }
 
 .team-content-wrapper {
-  height: 35%;
+  height: 45%;
   width: 100%;
-  color: #3879D9;
-  display: grid;
-  grid-template: 
-    "..... ............  ............  ............... ....." 5px
-    "..... game_time     game_time     recruit__detail ....." 1.0fr
-    "..... game_place    game_place    game_place      ....." 1.0fr
-    "..... team_data     team_data     team_data       ....." 1.0fr
-    "..... ............  ............  ............... ....." 5px/
-     10px  1.5fr         1.5fr         1fr             10px;
 }
 
-.recruit_item {
+.game_table {
+  border-collapse: collapse;
+  height: 70%;
   width: 100%;
-  line-height: 2;
-  font-size: 1rem;
-  color: #3879D9;
-}
-
-.game_time {
-  grid-area: game_time;
-}
-
-.game_place {
-  grid-area: game_place;
-}
-
-.team_data {
-  grid-area: team_data;
-}
-
-.recruit__detail {
-  grid-area: recruit__detail;
-  color: #808080;
   text-align: center;
-  border: 1px solid #808080;
-  padding: 8px 12px;
-  border-radius: 20px;
-  height: 1.0;
+  color: #444;
+}
+
+.game_table_header {
+  position: relative;
+  width: 30%;
+  text-align: center;
+  font-weight: normal;
+  padding-top: 5px;
+  text-decoration: underline;
+  text-decoration-color: #bce2e8;
+  text-decoration-thickness: 3px;
+  text-underline-offset: -3px;
+}
+
+.game_table_data {
+  text-align: left;
+  padding-top: 5px;
+  width: 70%;
+}
+
+.recruit_detail {
+  padding: 0 30px;
+  height: 30%;
 }
 
 /* アコーディオンメニュー */
@@ -223,8 +280,7 @@ a {
 
 
 /*モーダル*/
-.opponent_recruit-modal-wrapper,
-.helper_recruit-modal-wrapper {
+.recruit-modal-wrapper {
   position: fixed;
   top: 0;
   right: 0;

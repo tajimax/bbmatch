@@ -11,7 +11,26 @@
 }
 
 .tab-nav__item.active {
-  border-bottom: #24B7CE 3px solid;
+  position: relative;
+  display: block;
+  color: #fff;
+  font-size: 16px;
+  background-color: #136FFF;
+  box-sizing: border-box;
+}
+
+.tab-nav__item.active {
+  border-radius: 10px 10px 0 0;
+}
+
+.tab-nav__item.active:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-top: 10px solid #136FFF;
 }
 
 .tab-content {

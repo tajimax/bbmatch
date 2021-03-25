@@ -30,7 +30,8 @@ Route::post('/home/update', 'HomeController@exeUpdate')->name('update'); // チ�
 
 // 募集要項を登録
 Route::get('/user/{recruit_id}/{user_id}', 'RecruitController@showRecruit')->name('show_recruit');
-Route::post('/home/recruit', 'RecruitController@storeRecruit')->name('store_recruit');
+Route::post('/home/recruit_store', 'RecruitController@storeRecruit')->name('store_recruit');
+Route::post('/home/recruit_delete', 'RecruitController@delete_recruit')->name('delete_recruit');
 
 // メッセージ機能
 Route::post('/home/message', 'MessageController@sendMessage')->name('send_msg');

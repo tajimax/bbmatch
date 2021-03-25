@@ -10,7 +10,7 @@ class Message extends Model
 {
     protected $table = 'messages';
     
-    protected $fillable = ['recruit_id' ,'send_user_id', 'receive_user_id', 'text',];
+    protected $fillable = ['recruit_id' ,'send_user_id', 'receive_user_id', 'text', 'unread', 'unread_count', 'unread_apply'];
 
 
 // ________________________________________________________________ユーザーテーブルとのリレーション
@@ -36,6 +36,10 @@ class Message extends Model
 
     public function getReceiveName() {
         return $this->receiveUser->name;
+    }
+
+    public function getReceiveAddress() {
+        return $this->receiveUser->address;
     }
 
 

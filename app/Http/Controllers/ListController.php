@@ -15,13 +15,18 @@ class ListController extends Controller
         $opponents = Recruit::searchByCategory('opponent')->get();
         $helpers = Recruit::searchByCategory('helper')->get();
         $auths = Auth::user();
-        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths]);
+
+        $weekday = ['日曜日' , '月曜日' , '火曜日' , '水曜日' , '木曜日' , '金曜日' , '土曜日'];
+
+        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths, 'weekday' => $weekday,]);
     }
 
     // チーム一覧画面を表示
     public function searchByAddressDate(Request $request){
         $address = $request->address;
         $date = $request->date;
+        $auths = Auth::user();
+        $weekday = ['日曜日' , '月曜日' , '火曜日' , '水曜日' , '木曜日' , '金曜日' , '土曜日'];
 
         if(isset($address) && empty($date)) {
             $opponents = Recruit::searchByCategory('opponent')->searchByAddress($address)->get();
@@ -36,6 +41,6 @@ class ListController extends Controller
             return redirect(route('show'));
         }
 
-        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers]);
+        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths, 'weekday' => $weekday,]);
     }
 }

@@ -1,17 +1,23 @@
 <div class="commonInner flex">
-    <a href="{{ url('/') }}">
-        <img class="header__logo" src="/images/hdlogo.png" alt="logo">
-    </a>
+    <div class="flex">
+        <a href="{{ url('/') }}">
+            <img class="header__logo" src="/images/logo.png" alt="logo">
+        </a>
+        <div class="header-nav">
+            <a href="{{ route('showSearchRecruit') }}">募集一覧</a>
+            <a href="#">新規投稿</a>
+        </div>
+    </div>
     <div class="btn-wrapper flex">
             <!-- Authentication Links -->
             @guest
-                <a class="button" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                <a class="header_button" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                 @if (Route::has('register'))
-                    <a class="button" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+                    <a class="header_button" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                 @endif
             @else
-                <a class="button" href="{{ route('home') }}">{{ __('マイページ') }}</a>
-                <a class="button" href="{{ route('logout') }}"
+                <a class="header_button" href="{{ route('home') }}">{{ __('マイページ') }}</a>
+                <a class="header_button" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                     {{ __('ログアウト') }}

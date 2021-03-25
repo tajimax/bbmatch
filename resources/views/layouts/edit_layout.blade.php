@@ -23,11 +23,24 @@
 
 <!----- 投稿一覧 ----->
 <section class="section-wrapper">
-    @yield('content')
+    <div class="commonInner">
+        <div class="content-wrapper">
+            <div class="content-item">
+                @include('profile_img')
+            </div>
+            <div class="content-item">
+                @include('edit')
+            </div>
+            <div class="content-item">
+                @include('recruit_status')
+            </div>
+            <div class="content-item">
+                @include('apply_status')
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<script src="js/tab.js"></script>
 <script>
     function imgPreView(event) {
         var file = event.target.files[0];

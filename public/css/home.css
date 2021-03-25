@@ -50,6 +50,27 @@ ul {
   margin-right: 20px;
 }
 
+.small-button {
+  color: #808080;
+  text-align: center;
+  border: 1px solid #808080;
+  font-size: 0.875rem;
+  padding: 4px 8px;
+  border-radius: 20px;
+  line-height: 1.0;
+  margin-right: 10px;
+}
+
+.header_button {
+  color: #fff;
+  text-align: center;
+  border: 1px solid #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  line-height: 1.0;
+  margin-right: 20px;
+}
+
 .button:hover {
   opacity: 1;
 }
@@ -59,13 +80,34 @@ ul {
   height: 80px;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(35, 35, 35, 0.9);
   z-index: 1;
 }
 
 .header__logo {
   height: 70px;
   width: 290px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #fff;
+  height: 70px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.header-nav a:link,
+.header-nav a:visited,
+.header-nav a:hover,
+.header-nav a:active {
+  margin-left: 20px;
+  color: #fff;
 }
 
 .commonInner {
@@ -84,6 +126,7 @@ ul {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   padding: 30px;
+  margin-top: 80px;
 }
 
 .content-item {
@@ -202,6 +245,13 @@ ul {
   box-sizing: border-box;
 }
 
+.profile-label {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
 .profile-item {
   padding: 0 0 10px 20px;
   margin-bottom: 0;
@@ -242,11 +292,14 @@ ul {
 
 /* ______________________________________________________________________________________  スケジュール一覧部分 */
 .schedule_table {
+  display: block;
   border-spacing: 0;
   border-collapse: collapse;
   margin: 20px auto 0;
+  max-height: 300px;
   width: 90%;
   text-align: center;
+  overflow-y: auto;
 }
 
 .schedule_header {
@@ -255,11 +308,21 @@ ul {
 }
 
 .schedule_data {
-  border: 1px solid #ddd;
-  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 5px 5px;
   text-align: center;
 }
 
+.recruit-category {
+  background-color: blue;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  border-radius: 20px;
+  max-width: 100px;
+  padding: 8px;
+  margin: 0 auto;
+}
 
 
 
@@ -287,13 +350,28 @@ ul {
   width: 100%;
   height: 700px;
   position: relative;
-  background-color: #DDD;
+  background-color: #91B9F0;
   border-radius: 10px;
   padding:10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) inset;
 }
 
+.message-header {
+  font-size:18px;
+  margin: 10px auto 5px;
+  text-align:center;
+  background-color:rgba(35, 35, 35, 0.9);
+  color:#fff;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  line-height: 60px;
+  border-radius: 10px 10px 0 0;
+}
+
 .message-content {
+  margin-top: 60px;
   height: 75%;
   width: 100%;
   overflow-x: hidden;
@@ -320,6 +398,18 @@ ul {
 
 .message-textarea {
   height: 160px;
+  color: #808080;
+  border: 1px solid #808080;
+  padding: 8px 12px;
+  border-radius: 10px;
+  line-height: 1.4;
+  margin-right: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.message-form {
+  height: 80px;
   color: #808080;
   border: 1px solid #808080;
   padding: 8px 12px;
@@ -382,4 +472,16 @@ ul {
 	padding:10px;
 	margin:0 10px 0 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.newArrival_badge {
+  padding: 3px 6px;
+  margin-right: 8px;
+  margin-left: 1px;
+  font-size: 75%;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 0 3px #ddd;
+  white-space: nowrap;
+  background-color: red;
 }

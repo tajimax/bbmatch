@@ -17,6 +17,10 @@ class Recruit extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function getUserID() {
+        return $this->user->id;
+    }
+
     public function getName() {
         return $this->user->name;
     }
