@@ -51,14 +51,24 @@ ul {
 }
 
 .small-button {
-  color: #808080;
   text-align: center;
-  border: 1px solid #808080;
   font-size: 0.875rem;
   padding: 4px 8px;
   border-radius: 20px;
   line-height: 1.0;
   margin-right: 10px;
+}
+
+.delete-btn {
+  background-color: #DD0000;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.detail-btn {
+  background-color: #239b76;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .header_button {
@@ -96,18 +106,26 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  color: #fff;
   height: 70px;
   margin-bottom: 30px;
   margin-left: 20px;
 }
 
-.header-nav a:link,
-.header-nav a:visited,
-.header-nav a:hover,
-.header-nav a:active {
-  margin-left: 20px;
+.header-nav__btn {
+  text-decoration: none;
+  color: #999;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.header-nav__btn:hover{
+  transition: color 0.1s linear;
   color: #fff;
+  text-decoration:none;
 }
 
 .commonInner {

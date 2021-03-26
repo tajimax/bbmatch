@@ -4,8 +4,8 @@
             <img class="header__logo" src="/images/logo.png" alt="logo">
         </a>
         <div class="header-nav">
-            <a href="{{ route('showSearchRecruit') }}">募集一覧</a>
-            <a href="#">新規投稿</a>
+            <a class="header-nav__btn" href="{{ route('showSearchRecruit') }}">募集一覧</a>
+            <a class="header-nav__btn" href="#">新規投稿</a>
         </div>
     </div>
     <div class="btn-wrapper flex">

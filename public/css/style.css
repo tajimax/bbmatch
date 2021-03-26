@@ -85,6 +85,7 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 2;
   background-color: rgba(35, 35, 35, 0.9);
 }
 

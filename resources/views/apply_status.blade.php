@@ -23,7 +23,7 @@
             <td class="schedule_data">{{ $apply->getReceiveName() }}（{{ $apply->getReceiveAddress() }}）</td>
             <td class="schedule_data">{{ date("Y.n.j", strtotime($apply['game_day'])) }}</td>
             <td class="schedule_data">
-                <a class="button" href="/home/chat/{{ $apply['recruit_id'] }}/{{ $apply['receive_user_id'] }}">詳細</a>
+                <a class="small-button detail-btn" href="/home/chat/{{ $apply['recruit_id'] }}/{{ $apply['receive_user_id'] }}">詳細</a>
                 @if($apply->unread_apply !== 0)
                 <span class="newArrival_badge">{{ $apply->unread_apply }}</span>
                 @endif

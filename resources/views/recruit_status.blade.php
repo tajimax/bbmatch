@@ -26,9 +26,9 @@
                 <form action="{{ route('delete_recruit') }}" method="post">
                     @csrf
                     <input type="hidden" name="recruit_id" value="{{ $recruit['id'] }}">
-                    <input class="small-button" type="submit" value="削除">
+                    <input class="small-button delete-btn" type="submit" value="削除">
                 </form>
-                <a class="small-button" href="home/chat/{{ $recruit['id'] }}">詳細</a>
+                <a class="small-button detail-btn" href="home/chat/{{ $recruit['id'] }}">詳細</a>
             </td>
         </tr>
         @endforeach
