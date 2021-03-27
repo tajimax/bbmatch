@@ -5,7 +5,7 @@
         </a>
         <div class="header-nav">
             <a class="header-nav__btn" href="{{ route('showSearchRecruit') }}">募集一覧</a>
-            <a class="header-nav__btn" href="#">新規投稿</a>
+            <a class="header-nav__btn" href="{{ route('post_recruit') }}">新規投稿</a>
         </div>
     </div>
     <div class="btn-wrapper flex">

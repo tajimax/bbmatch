@@ -38,4 +38,10 @@ class RecruitController extends Controller
         
         return redirect(route('home'));
     }
+    
+    // 新規投稿フォームを表示
+    public function postRecruit(){
+        $auths = Auth::user();
+        return view('post_form', ['auths' => $auths]);
+    }
 }

@@ -29,13 +29,6 @@ ul {
   align-items: center;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 20px;
-}
-
 .btn-wrapper {
   margin: 20px 0;
 }
@@ -79,10 +72,6 @@ ul {
   border-radius: 20px;
   line-height: 1.0;
   margin-right: 20px;
-}
-
-.button:hover {
-  opacity: 1;
 }
 
 /*----- ヘッダー部分 -----*/
@@ -148,7 +137,6 @@ ul {
 }
 
 .content-item {
-  border-radius: 20px;
   position: relative;
   max-height: 340px;
   max-width: 685px;
@@ -310,7 +298,6 @@ ul {
 
 /* ______________________________________________________________________________________  スケジュール一覧部分 */
 .schedule_table {
-  display: block;
   border-spacing: 0;
   border-collapse: collapse;
   margin: 20px auto 0;
@@ -376,12 +363,11 @@ ul {
 
 .message-header {
   font-size:18px;
-  margin: 10px auto 5px;
   text-align:center;
   background-color:rgba(35, 35, 35, 0.9);
   color:#fff;
   position: absolute;
-  top: -10px;
+  top: 0;
   left: 0;
   width: 100%;
   line-height: 60px;
@@ -389,7 +375,7 @@ ul {
 }
 
 .message-content {
-  margin-top: 60px;
+  margin-top: 50px;
   height: 75%;
   width: 100%;
   overflow-x: hidden;
@@ -402,54 +388,51 @@ ul {
 }
 
 .message-form {
+  height: 160px;
   width: 90%;
   margin: 15px auto 0;
+  display: block;
+  border: none;
 }
 
 .message-reply-form {
-  height: 15%;
+  padding-top: 10px;
   width: 90%;
   margin: 0 auto;
-  position: absolute;
-  bottom: 0;
 }
 
 .message-textarea {
-  height: 160px;
   color: #808080;
   border: 1px solid #808080;
   padding: 8px 12px;
   border-radius: 10px;
   line-height: 1.4;
-  margin-right: 20px;
-  width: 100%;
   box-sizing: border-box;
-}
-
-.message-form {
-  height: 80px;
-  color: #808080;
-  border: 1px solid #808080;
-  padding: 8px 12px;
-  border-radius: 10px;
-  line-height: 1.4;
-  margin-right: 20px;
   width: 100%;
-  box-sizing: border-box;
+  margin: 15px auto 0;
 }
 
 .msg-icon {
-  height:60px;
-  width:60px;
+  height:40px;
+  width:40px;
   border-radius: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   background-color: #fff;
 }
 
+.msg-time {
+  font-size: 0.75rem;
+  color:#222;
+  margin: auto 5px 0 5px;
+}
+
 
 .talk_left {
-	margin-top:25px;
+  display: flex;
+  flex-wrap: wrap;
+	margin-top:10px;
   margin-left: 10px;
+	margin-bottom:15px;
 }
 .talk_left p:before {  /* 左ふきだしの左三角を描画 */
 	content: '';
@@ -465,14 +448,16 @@ ul {
 	background-color:white;
 	border-radius:10px;
 	padding:10px;
-	margin:0 0 0 10px;
+	margin:0 0 0 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  max-width: 60%;
 }
 .talk_right {
   display: flex;
   flex-direction: row-reverse;
-	margin-top:25px;
-  margin-right: 10px;
+	margin-top:10px;
+  margin-left: 10px;
+	margin-bottom:15px;
 }
 .talk_right p:after { /* 右ふきだしの右三角を描画 */
 	content: '';
@@ -490,6 +475,7 @@ ul {
 	padding:10px;
 	margin:0 10px 0 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  max-width: 60%;
 }
 
 .newArrival_badge {

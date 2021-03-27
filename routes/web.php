@@ -41,3 +41,6 @@ Route::post('/home/reply', 'MessageController@replyMessage')->name('reply_msg');
 // ゲストユーザーログイン
 Route::get('guest01', 'Auth\LoginController@guestLogin_01')->name('login_guest_01');
 Route::get('guest02', 'Auth\LoginController@guestLogin_02')->name('login_guest_02');
+
+// 新規投稿フォームを表示
+Route::get('/home/post_form', 'RecruitController@postRecruit')->name('post_recruit');

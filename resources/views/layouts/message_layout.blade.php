@@ -39,6 +39,9 @@
 </section>
 
 
-<script src="js/tab.js"></script>
+<script>
+    let target = document.getElementById('scroll-inner');
+    target.scrollIntoView(false);
+</script>
 </body>
 </html>

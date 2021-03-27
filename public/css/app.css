@@ -10944,3 +10944,76 @@ a.text-dark:focus {
   }
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.commonInner {
+  width: 1450px;
+  margin: 0 auto;
+}
+
+.btn-wrapper {
+  margin-top: 10px;
+}
+
+.section-wrapper {
+  min-height: 100vh;
+  padding: 50px;
+  background-color: #F8FAFC;
+}
+
+/*----- ヘッダー部分 -----*/
+.header {
+  height: 80px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(35, 35, 35, 0.9);
+  z-index: 1;
+}
+
+.header__logo {
+  height: 70px;
+  width: 290px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 70px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.header-nav__btn {
+  text-decoration: none;
+  color: #999;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.header-nav__btn:hover{
+  transition: color 0.1s linear;
+  color: #fff;
+  text-decoration:none;
+}
+
+.header_button {
+  color: #fff;
+  text-align: center;
+  border: 1px solid #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  height: 1.0;
+  cursor: pointer;
+  margin: auto 10px;
+}
