@@ -34,7 +34,6 @@ Route::post('/home/recruit_store', 'RecruitController@storeRecruit')->name('stor
 Route::post('/home/recruit_delete', 'RecruitController@delete_recruit')->name('delete_recruit');
 
 // メッセージ機能
-Route::post('/home/message', 'MessageController@sendMessage')->name('send_msg');
 Route::post('/home/reply', 'MessageController@replyMessage')->name('reply_msg');
 
 

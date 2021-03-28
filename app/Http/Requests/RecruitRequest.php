@@ -30,7 +30,7 @@ class RecruitRequest extends FormRequest
         return [
             'category' => 'required',
             'game_day' => 'required',
-            'start_time' => '',
+            'start_time' => 'required',
             'end_time' => 'required',
         ];
     }

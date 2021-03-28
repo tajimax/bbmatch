@@ -1,10 +1,4 @@
 @charset "UTF-8";
-/*----- リセット追加 -----*/
-a {
-  text-decoration: none;
-  display: block;
-}
-
 /*----- 共通部分 -----*/
 .flex {
   display: flex;
@@ -40,7 +34,7 @@ a {
   margin-top: 10px;
 }
 
-.button {
+.btn {
   color: #808080;
   text-align: center;
   border: 1px solid #808080;
@@ -49,21 +43,6 @@ a {
   height: 1.0;
   cursor: pointer;
   margin: auto 10px;
-}
-
-.big-btn {
-  width: 90%;
-  color: #fff;
-  text-align: center;
-  padding: 16px 0;
-  border-radius: 5px;
-  margin: 0 auto 40px;
-  cursor: pointer;
-  background-color: #239b76;
-}
-
-.big-btn:hover {
-  opacity: 0.8;
 }
 
 /*----- ヘッダー部分 -----*/
@@ -92,7 +71,7 @@ a {
   margin-left: 20px;
 }
 
-.header-nav__btn {
+.header-nav__item {
   text-decoration: none;
   color: #999;
   display: inline-block;
@@ -103,13 +82,13 @@ a {
   margin-left: 30px;
 }
 
-.header-nav__btn:hover{
+.header-nav__item:hover{
   transition: color 0.1s linear;
   color: #fff;
   text-decoration:none;
 }
 
-.header_button {
+.header_btn {
   color: #fff;
   text-align: center;
   border: 1px solid #fff;
@@ -120,13 +99,14 @@ a {
   margin: auto 10px;
 }
 
-/*----- 募集一覧表示部分 -----*/
-.login-check {
+.login-status {
   color: #FFFFAA;
   text-align: center;
   margin-top: 15px;
   margin-right: 20px;
 }
+
+/*----- 募集一覧表示部分 -----*/
 
 .content-wrapper {
   margin-top: 80px;

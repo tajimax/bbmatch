@@ -22,8 +22,7 @@ class CreateRecruitsTable extends Migration
             $table->time('end_time')->nullable();
             $table->string('game_place')->nullable();
             $table->string('note')->nullable();
-            $table->string('file_name')->nullable();
-            $table->string('file_path')->nullable();
+            $table->integer('unread_count')->default(0);
             $table->timestamps();
         });
     }

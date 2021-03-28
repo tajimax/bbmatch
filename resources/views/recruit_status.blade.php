@@ -28,13 +28,13 @@
             @else
             <td class="schedule_data">未定</td>
             @endisset
-            <td class="small-button-wrapper">
+            <td class="small-btn-wrapper">
                 <form action="{{ route('delete_recruit') }}" method="post">
                     @csrf
                     <input type="hidden" name="recruit_id" value="{{ $recruit['id'] }}">
-                    <input class="small-button delete-btn" type="submit" value="削除">
+                    <input class="small-btn delete-btn" type="submit" value="削除">
                 </form>
-                <a class="small-button detail-btn" href="home/chat/{{ $recruit['id'] }}">詳細</a>
+                <a class="small-btn detail-btn" href="home/chat/{{ $recruit['id'] }}">詳細</a>
                 @if($recruit->unread_count !== 0)
                 <span class="newArrival_badge">{{ $recruit->unread_count }}</span>
                 @endif

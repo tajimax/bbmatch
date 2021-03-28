@@ -8,7 +8,7 @@
             <div class="tab-nav__item" data-nav="1">助っ人を募集</div>
         </div>
         <div class="btn-wrapper flex">
-            <div class="button">
+            <div class="btn">
                 <p class="js-menu">条件で絞り込む</p>
                 <form class="contents flex-column" action="{{ route('searchByAddressDate') }}" method="post">
                     @csrf
@@ -17,7 +17,7 @@
                     <input class="search_container" type="submit" value="検索">
                 </form>
             </div>
-            <a href="{{ route('showSearchRecruit') }}" class="button">検索条件をクリア</a>
+            <a href="{{ route('showSearchRecruit') }}" class="btn">検索条件をクリア</a>
         </div>
     </div>
 
@@ -59,7 +59,7 @@
                             </tr>
                         </table>
                         <div class="recruit-detail">
-                            <a class="button" href="/user/{{ $opponent -> id }}/{{ $opponent -> user_id }}" style="padding: 6px 12px;">詳細</a>
+                            <a class="btn" href="/user/{{ $opponent -> id }}/{{ $opponent -> user_id }}" style="padding: 6px 12px;">詳細</a>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                             </tr>
                         </table>
                         <div class="recruit-detail">
-                            <a class="button" href="/user/{{ $helper -> id }}/{{ $helper -> user_id }}" style="padding: 6px 12px;">詳細</a>
+                            <a class="btn" href="/user/{{ $helper -> id }}/{{ $helper -> user_id }}" style="padding: 6px 12px;">詳細</a>
                         </div>
                     </div>
                 </div>

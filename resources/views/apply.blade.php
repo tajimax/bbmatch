@@ -1,7 +1,7 @@
 <div class="section__title">メッセージを送る</div>
 @if(Auth::check())
     @if(Auth::id() !== $recruit['user_id'])
-    <form class="message-form flex-column" action="{{ route('send_msg') }}" method="post">
+    <form class="message-form flex-column" action="{{ route('reply_msg') }}" method="post">
         @csrf
         <input type="hidden" name="recruit_id" value="{{ $recruit->id }}">
         <input type="hidden" name="send_user_id" value="{{ Auth::id() }}">

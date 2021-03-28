@@ -15,8 +15,8 @@
             <img class="header__logo" src="/images/logo.png" alt="logo">
         </a>
         <div class="btn-wrapper flex">
-            <a class="button" href="{{ route('home') }}">ログイン</a>
-            <a class="button" href="{{ route('register') }}">新規登録</a>
+            <a class="btn" href="{{ route('home') }}">ログイン</a>
+            <a class="btn" href="{{ route('register') }}">新規登録</a>
         </div>
     </div>
 </header>
@@ -26,10 +26,10 @@
         <h2>草野球チームのためのマッチングサービス</h2>
         <p>草野球の「対戦チーム」「助っ人」探しを快適に</p>
         <div class="btn-wrapper flex" style="width:470px; margin:60px auto 0;">
-            <a href="{{ route('login_guest_01') }}" class="button guest1">ゲスト１でログイン</a>
-            <a href="{{ route('login_guest_02') }}" class="button guest2">ゲスト２でログイン</a>
+            <a href="{{ route('login_guest_01') }}" class="btn guest1">ゲスト１でログイン</a>
+            <a href="{{ route('login_guest_02') }}" class="btn guest2">ゲスト２でログイン</a>
         </div>
-        <a href="{{ route('showSearchRecruit') }}" class="facebook">ログインなしで利用</a>
+        <a href="{{ route('showSearchRecruit') }}" class="unlogin">ログインなしで利用</a>
     </div>
 </div>
 </body>

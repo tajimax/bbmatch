@@ -1,21 +1,3 @@
-input {
-  line-height: 1.0;
-}
-
-a {
-    text-decoration: none;
-    display: block;
-}
-
-a:hover {
-  text-decoration: none;
-  display: block;
-}
-  
-ul {
-  list-style: none;
-}
-  
 .flex {
   display: flex;
   justify-content: space-between;
@@ -63,7 +45,7 @@ ul {
   margin-left: 20px;
 }
 
-.header-nav__btn {
+.header-nav__item {
   text-decoration: none;
   color: #999;
   display: inline-block;
@@ -74,13 +56,13 @@ ul {
   margin-left: 30px;
 }
 
-.header-nav__btn:hover{
+.header-nav__item:hover{
   transition: color 0.1s linear;
   color: #fff;
   text-decoration:none;
 }
 
-.header_button {
+.header_btn {
   color: #fff;
   text-align: center;
   border: 1px solid #fff;
@@ -90,7 +72,8 @@ ul {
   cursor: pointer;
   margin: auto 10px;
 }
-.login-check {
+
+.login-status {
   color: #FFFFAA;
   text-align: center;
   margin-top: 15px;
@@ -101,9 +84,9 @@ ul {
 /* 入力フォーム  */
 .form-wrapper {
   position: fixed;
-  top: 50%;
+  top: 20%;
   left: 50%;
-  transform: translate(-50%, -65%);
+  transform: translateX(-50%);
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #DDD;
@@ -125,7 +108,7 @@ ul {
 }
 
 .form-item {
-  margin: 30px auto;
+  margin: 0 auto 20px;
 }
 
 .form-label {
@@ -152,7 +135,7 @@ ul {
 }
 
 .recruit-note {
-  margin: 5px 0 0 auto;
+  margin: 5px 0 10px auto;
   height: 150px;
   line-height: 1.4;
   width: 90%;
@@ -164,14 +147,29 @@ ul {
   background-color: #fff;
   white-space: pre-wrap;
 }
+  
+.form-btn-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
 
-.button {
-  color: #808080;
+.form-btn {
+  color: #fff;
   text-align: center;
-  border: 1px solid #808080;
-  padding: 8px 12px;
+  padding: 4px 12px;
   border-radius: 20px;
-  height: 1.0;
+  margin-left: 10px;
+  margin-right: 10px;
   cursor: pointer;
-  margin: auto 10px;
+  background-color: #239b76;
+  line-height: 1.0;
+  font-size: 1.0rem;
+}
+
+.caution {
+  color: red;
+  margin: 0 auto 20px;
+  text-align: right;
 }

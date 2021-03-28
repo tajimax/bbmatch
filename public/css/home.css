@@ -1,19 +1,4 @@
 @charset "UTF-8";
-/*----- リセット追加 -----*/
-a {
-  text-decoration: none;
-  display: block;
-}
-
-a:hover {
-  text-decoration: none;
-  display: block;
-}
-
-ul {
-  list-style: none;
-}
-
 /*----- 共通部分 -----*/
 .section-wrapper {
   height: 100vh;
@@ -29,11 +14,13 @@ ul {
   align-items: center;
 }
 
+
+/* ボタン関連 */
 .btn-wrapper {
   margin: 20px 0;
 }
 
-.button {
+.btn {
   color: #808080;
   text-align: center;
   border: 1px solid #808080;
@@ -43,7 +30,7 @@ ul {
   margin-right: 20px;
 }
 
-.small-button-wrapper {
+.small-btn-wrapper {
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
   display: flex;
@@ -53,7 +40,7 @@ ul {
   padding: 10px;
 }
 
-.small-button {
+.small-btn {
   text-align: center;
   font-size: 0.875rem;
   padding: 4px 8px;
@@ -74,7 +61,7 @@ ul {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.header_button {
+.header_btn {
   color: #fff;
   text-align: center;
   border: 1px solid #fff;
@@ -110,7 +97,7 @@ ul {
   margin-left: 20px;
 }
 
-.header-nav__btn {
+.header-nav__item {
   text-decoration: none;
   color: #999;
   display: inline-block;
@@ -121,12 +108,13 @@ ul {
   margin-left: 30px;
 }
 
-.header-nav__btn:hover{
+.header-nav__item:hover{
   transition: color 0.1s linear;
   color: #fff;
   text-decoration:none;
 }
-.login-check {
+
+.login-status {
   color: #FFFFAA;
   text-align: center;
   margin-top: 15px;

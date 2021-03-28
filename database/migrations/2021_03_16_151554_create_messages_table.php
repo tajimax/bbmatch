@@ -19,6 +19,8 @@ class CreateMessagesTable extends Migration
             $table->integer('send_user_id');
             $table->integer('receive_user_id');
             $table->string('text');
+            $table->integer('unread_count')->default(0);
+            $table->integer('unread_apply')->default(0);
             $table->timestamps();
         });
     }

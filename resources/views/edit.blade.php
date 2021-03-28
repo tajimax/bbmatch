@@ -1,8 +1,8 @@
 <form action="{{ route('update') }}" method="post" class="profile-wrapper" enctype="multipart/form-data">
     @csrf
     <div class="profile-btn flex">
-        <a href="{{ route('home') }}" class="button">キャンセル</a>
-        <input type="submit" value="更新" class="button">
+        <a href="{{ route('home') }}" class="btn">キャンセル</a>
+        <input type="submit" value="更新" class="btn">
     </div>
     <label for="img-select" class="img-select-label"><< プロフィール画像を選択</label>
     <input id="img-select" class="img-select" type="file" name="image" accept="image/png, image/jpeg, image/jpg" onChange="imgPreView(event)">

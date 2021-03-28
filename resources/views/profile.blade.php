@@ -2,7 +2,7 @@
     <div class="profile-name"><p class="profile-item"><span style="font-size:1rem;">チーム名： </span>{{ $profile['name'] }}</p></div>
     @if(Auth::id() === $profile['id'])
     <div class="profile-btn flex">
-        <a href="{{ route('edit') }}" class="button">プロフィール編集</a>
+        <a href="{{ route('edit') }}" class="btn">プロフィール編集</a>
     </div>
     @endif
     <div class="profile-address"><p class="profile-item"><span style="font-size:1rem;">所在地： </span>{{ $profile['address'] }}</p></div>

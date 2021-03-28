@@ -75,4 +75,18 @@ class Message extends Model
     public function getUnreadCount() {
         return $this->recruit->unread_count;
     }
+
+    // メッセージのスコープ
+    public function scopeGetMessages($query, $recruit_id, $id, $message_user_id) {
+        return $query -> where('recruit_id', $recruit_id)
+                        ->where('send_user_id', $id)
+                        ->where('receive_user_id', $message_user_id)
+                        ->orWhere('recruit_id', $recruit_id)
+                        ->where('send_user_id', $message_user_id)
+                        ->where('receive_user_id', $id);
+    }
+
+    public function scopeReceiveMessage($query, $str) {
+        return $query -> Where('recruit_id', $recruit_id)->where('send_user_id', $message_user_id)->where('receive_user_id', $id);
+    }
 }

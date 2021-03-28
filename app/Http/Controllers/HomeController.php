@@ -63,7 +63,7 @@ class HomeController extends Controller
         ];
 
         $message_user = User::find($message_user_id);
-        $messages = Message::where('recruit_id', $recruit_id)->where('send_user_id', $id)->orwhere('recruit_id', $recruit_id)->Where('send_user_id', $message_user_id)->where('receive_user_id', $id)->orWhere('receive_user_id', $message_user_id)->get();
+        $messages = Message::getMessages($recruit_id, $id, $message_user_id)->get();
 
         $receive_messages = Message::where('recruit_id', $recruit_id)->where('send_user_id', $message_user_id)->where('receive_user_id', $id)->get();
         foreach($receive_messages as $receive_message){

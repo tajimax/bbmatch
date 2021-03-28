@@ -29,8 +29,9 @@
                     @enderror
                 </div>
 
-                <div class="btn-wrapper flex">
-                    <button type="submit" class="button">
+                <div class="form-btn-wrapper">
+                    <a class="form-btn" href="javascript:history.back()">キャンセル</a>
+                    <button type="submit" class="form-btn">
                         {{ __('ログイン') }}
                     </button>
                 </div>
