@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')</title>
+    <title>プロフィール編集</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/reset.css">

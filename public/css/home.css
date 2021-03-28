@@ -96,7 +96,7 @@ ul {
   z-index: 1;
 }
 
-.header__logo {
+.header-logo {
   height: 70px;
   width: 290px;
 }
@@ -158,6 +158,10 @@ ul {
   max-width: 685px;
 }
 
+.caution {
+  color:red; 
+  margin:20px 0 0 40px
+}
 
 /* スケジュール部分 */
 .schedule-wrapper {
@@ -427,7 +431,7 @@ ul {
   color: #fff;
   text-align: center;
   padding: 8px 24px;
-  width: 80%;
+  width: 100%;
   border-radius: 5px;
   margin: 5px auto 0;
   background-color: #239b76;

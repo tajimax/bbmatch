@@ -1,7 +1,7 @@
 <div class="commonInner flex">
     <div class="flex">
         <a href="{{ url('/') }}">
-            <img class="header__logo" src="/images/logo.png" alt="logo">
+            <img class="header-logo" src="/images/logo.png" alt="logo">
         </a>
         <div class="header-nav">
             <a class="header-nav__btn" href="{{ route('showSearchRecruit') }}">募集一覧</a>

@@ -13,8 +13,8 @@
         <div>{{ $message }}</div>
     @enderror
     @else
-        <div class="caution" style="color:red; margin:20px 0 0 40px">※あなたの投稿です。</div>
+        <div class="caution">※あなたの投稿です。</div>
     @endif
 @else
-    <div class="caution" style="color:red; margin:20px 0 0 40px">※メッセージを送信するには、ログインしてください。</div>
+    <div class="caution">※メッセージを送信するには、ログインしてください。</div>
 @endif
