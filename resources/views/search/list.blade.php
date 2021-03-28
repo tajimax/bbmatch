@@ -23,11 +23,6 @@
 
     <!-- コンテンツ部分 -->
     <div class="tab-content">
-        @auth
-            <h2 class="login-check">※{{ $auths['name'] }}でログイン中です</h2>
-        @else
-            <h2 class="login-check">※ログインしていません。</h2>
-        @endauth
         <div class="tab-content__item" data-content="0">
             <div class="grid">
                 @foreach($opponents as $opponent)

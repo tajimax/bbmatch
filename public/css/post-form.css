@@ -87,6 +87,12 @@ a {
     cursor: pointer;
     margin: auto 10px;
   }
+  .login-check {
+    color: #FFFFAA;
+    text-align: center;
+    margin-top: 15px;
+    margin-right: 20px;
+  }
 
 
   /*モーダル*/  
@@ -119,18 +125,17 @@ a {
 
 .form-item {
     margin: 30px auto;
-    width: 560px;
 }
 
   .form-label {
-      width: 25%;
+      min-width: 120px;
       text-align: end;
       font-weight: bold;
-      padding: 5px;
   }
 
   .form-input {
-    width: 75%;
+    margin-left: 20px;
+    width: 300px;
     border-radius: 5px;
     background-color: #E7F1FE;
     border: 1px solid #DDD;
@@ -146,10 +151,10 @@ a {
   }
   
   .recruit-note {
-    margin: 5px auto 0;
+    margin: 5px 0 0 auto;
     height: 150px;
     line-height: 1.4;
-    width: 100%;
+    width: 90%;
     box-sizing: border-box;
     border: solid 1px #c2c2c2;
     border-radius: 5px;

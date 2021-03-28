@@ -43,13 +43,23 @@ ul {
   margin-right: 20px;
 }
 
+.small-button-wrapper {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:125px;
+  padding: 10px;
+}
+
 .small-button {
   text-align: center;
   font-size: 0.875rem;
   padding: 4px 8px;
   border-radius: 20px;
   line-height: 1.0;
-  margin-right: 10px;
+  margin-left: 8px;
 }
 
 .delete-btn {
@@ -115,6 +125,12 @@ ul {
   transition: color 0.1s linear;
   color: #fff;
   text-decoration:none;
+}
+.login-check {
+  color: #FFFFAA;
+  text-align: center;
+  margin-top: 15px;
+  margin-right: 20px;
 }
 
 .commonInner {
@@ -318,17 +334,29 @@ ul {
   text-align: center;
 }
 
-.recruit-category {
-  background-color: blue;
-  color: #fff;
+.recruit-category-helper {
+  background: radial-gradient(#FFFF66, #fff);
+  border-radius: 10%;
   font-size: 0.875rem;
   line-height: 1.2;
-  border-radius: 20px;
   max-width: 100px;
   padding: 8px;
   margin: 0 auto;
+  color: #777;
+  font-weight: bold;
 }
 
+.recruit-category-opponent {
+  background: radial-gradient(#FFDDFF, #fff);
+  border-radius: 10%;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  max-width: 100px;
+  padding: 8px;
+  margin: 0 auto;
+  color: #777;
+  font-weight: bold;
+}
 
 
 /* ______________________________________________________________________________________  お知らせ部分 */
@@ -388,11 +416,22 @@ ul {
 }
 
 .message-form {
-  height: 160px;
+  height: 240px;
   width: 90%;
   margin: 15px auto 0;
   display: block;
   border: none;
+}
+
+.msg-btn {
+  color: #fff;
+  text-align: center;
+  padding: 8px 24px;
+  width: 80%;
+  border-radius: 5px;
+  margin: 5px auto 0;
+  background-color: #239b76;
+  display: block;
 }
 
 .message-reply-form {
@@ -408,6 +447,7 @@ ul {
   border-radius: 10px;
   line-height: 1.4;
   box-sizing: border-box;
+  height: 80%;
   width: 100%;
   margin: 15px auto 0;
 }

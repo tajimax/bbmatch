@@ -72,7 +72,7 @@ class Message extends Model
         return $this->recruit->user_id;
     }
 
-    public function getMessageCount() {
-        $messages = Message::Where('send_user_id', $message_user_id)->where('receive_user_id', $id)->where('unread', true)->count();
+    public function getUnreadCount() {
+        return $this->recruit->unread_count;
     }
 }

@@ -14,16 +14,16 @@
             <td class="schedule_data">
                 <div class="recruit-category">
                 @if( $apply->getCategory() === 'opponent' )
-                対戦相手
+                <div class="recruit-category-opponent">対戦相手</div>
                 @else
-                助っ人
+                <div class="recruit-category-helper">助っ人</div>
                 @endif
                 </div>
             </td>
             <td class="schedule_data">{{ $apply->getReceiveName() }}（{{ $apply->getReceiveAddress() }}）</td>
-            <td class="schedule_data">{{ date("Y.n.j", strtotime($apply['game_day'])) }}</td>
+            <td class="schedule_data">{{ date("Y.n.j", strtotime($apply->getGameDay())) }}</td>
             <td class="schedule_data">
-                <a class="small-button detail-btn" href="/home/chat/{{ $apply['recruit_id'] }}/{{ $apply['receive_user_id'] }}">詳細</a>
+                <a class="" href="/home/chat/{{ $apply['recruit_id'] }}/{{ $apply['receive_user_id'] }}">トーク画面へ</a>
                 @if($apply->unread_apply !== 0)
                 <span class="newArrival_badge">{{ $apply->unread_apply }}</span>
                 @endif

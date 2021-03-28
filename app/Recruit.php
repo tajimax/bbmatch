@@ -9,7 +9,7 @@ class Recruit extends Model
 {    
     protected $table = 'recruits';
     
-    protected $fillable = ['category', 'game_day', 'user_id', 'start_time', 'end_time', 'game_place', 'note',];
+    protected $fillable = ['category', 'game_day', 'user_id', 'start_time', 'end_time', 'game_place', 'note', 'unread_count'];
 
 
 // ________________________________________________________________ユーザーテーブルとのリレーション

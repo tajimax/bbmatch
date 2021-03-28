@@ -1,5 +1,7 @@
-<div class="news__wrapper">
-    <h2 class="section__title"><span>応募してきているチーム</span></h2>
+<h2 class="section__title">応募してきているチーム</h2>
+@if($message_users->isEmpty())
+    <div class="notFound">応募してきているチームはありません。</div>
+@else
     <table class="schedule_table">
         @foreach($message_users as $message_user)
         <tr>
@@ -15,4 +17,4 @@
         </tr>
         @endforeach
     </table>
-</div>
+@endif

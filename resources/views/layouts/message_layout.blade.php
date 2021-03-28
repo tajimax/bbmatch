@@ -26,7 +26,10 @@
     <div class="commonInner">
         <div class="content-wrapper">
             <div class="content-item">
+                <h2 class="section__title" style="margin-bottom:0;">相手チーム詳細</h2>
+                <div style="width:90%; margin:0 auto;">
                 @include('profile')
+                </div>
             </div>
             <div class="content-item">
                 @include('message_form')

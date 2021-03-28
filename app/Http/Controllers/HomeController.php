@@ -44,7 +44,10 @@ class HomeController extends Controller
         $recruit = Recruit::where('id', $recruit_id)->first();     //該当する試合の詳細情報
 
         $message_users = Message::where('recruit_id', $recruit_id)->where('receive_user_id', $id)->groupBy('send_user_id')->get();   //該当する試合に応募してきているチーム
-
+        $recruit -> fill([
+            'unread_count' => 0,
+        ]);
+        $recruit -> save();
         return view('layouts.chat_layout', ['profile'=>$profile, 'recruit'=>$recruit, 'message_users'=>$message_users]);
     }
 
@@ -60,9 +63,9 @@ class HomeController extends Controller
         ];
 
         $message_user = User::find($message_user_id);
-        $messages = Message::where('send_user_id', $id)->orWhere('send_user_id', $message_user_id)->where('receive_user_id', $id)->orWhere('receive_user_id', $message_user_id)->get();
+        $messages = Message::where('recruit_id', $recruit_id)->where('send_user_id', $id)->orwhere('recruit_id', $recruit_id)->Where('send_user_id', $message_user_id)->where('receive_user_id', $id)->orWhere('receive_user_id', $message_user_id)->get();
 
-        $receive_messages = Message::where('send_user_id', $message_user_id)->where('receive_user_id', $id)->get();
+        $receive_messages = Message::where('recruit_id', $recruit_id)->where('send_user_id', $message_user_id)->where('receive_user_id', $id)->get();
         foreach($receive_messages as $receive_message){
             $receive_message -> fill([
                 'unread_count' => 0,
@@ -70,7 +73,7 @@ class HomeController extends Controller
             $receive_message -> save();
         }
         
-        $send_messages = Message::where('send_user_id', $id)->where('receive_user_id', $message_user_id)->get();
+        $send_messages = Message::where('recruit_id', $recruit_id)->where('send_user_id', $id)->where('receive_user_id', $message_user_id)->get();
         foreach($send_messages as $send_message){
             $send_message -> fill([
                 'unread_apply' => 0,

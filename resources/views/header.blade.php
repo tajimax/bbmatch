@@ -9,7 +9,11 @@
         </div>
     </div>
     <div class="btn-wrapper flex">
-            <!-- Authentication Links -->
+            @auth
+                <p class="login-check">※{{ Auth::user()->name }}でログイン中です</p>
+            @else
+                <p class="login-check">※ログインしていません。</p>
+            @endauth
             @guest
                 <a class="header_button" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                 @if (Route::has('register'))

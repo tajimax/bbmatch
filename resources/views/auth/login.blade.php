@@ -4,7 +4,7 @@
 @section('content')
 <div class="section">
     <div class="form-wrapper">
-        <div class="form-header">{{ __('新規投稿') }}</div>
+        <div class="form-header">{{ __('ログイン') }}</div>
 
         <div class="form-content">
             <form method="POST" action="{{ route('login') }}">

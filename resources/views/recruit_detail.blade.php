@@ -8,13 +8,11 @@
     </tr>
     <tr>
         <td class="schedule_data">
-            <div class="recruit-category">
             @if( $recruit->category === 'opponent' )
-            対戦相手
+            <div class="recruit-category-opponent">対戦相手</div>
             @else
-            助っ人
+            <div class="recruit-category-helper">助っ人</div>
             @endif
-            </div>
         </td>
         <td class="schedule_data">{{ date("Y.n.j", strtotime($recruit['game_day'])) }}</td>
         <td class="schedule_data">{{ date("H:i", strtotime($recruit['start_time'])) . '~' . date("H:i", strtotime($recruit['end_time'])) }}</td>

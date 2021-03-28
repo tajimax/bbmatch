@@ -32,7 +32,7 @@
         <input type="hidden" name="send_user_id" value="{{ Auth::id() }}">
         <input type="hidden" name="receive_user_id" value="{{ $message_user_id }}">
         <textarea class="message-textarea" name="text" id="" cols="30" rows="2" placeholder="メッセージを入力"></textarea>
-        <input class="button" type="submit" value="送信">
+        <input class="msg-btn" type="submit" value="送信">
         @error('text')
             <div>{{ $message }}</div>
         @enderror
