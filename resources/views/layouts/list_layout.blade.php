@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
 <!----- ヘッダー部分 ----->
@@ -32,11 +31,11 @@
     function toggle() {
     const content = this.nextElementSibling;
     this.classList.toggle("is-active");
-    content.classList.toggle("is-open");
+        content.classList.toggle("is-open");
     }
 
     for (let i = 0; i < menu.length; i++) {
-    menu[i].addEventListener("click", toggle);
+        menu[i].addEventListener("click", toggle);
     }
 </script>
 </body>

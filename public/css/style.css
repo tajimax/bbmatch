@@ -311,3 +311,7 @@
   border: none;
   line-height: 2.0;
 }
+.btn-grn {
+  background-color: #239b76;
+  color: #fff;
+}
