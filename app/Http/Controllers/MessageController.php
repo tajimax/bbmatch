@@ -27,6 +27,6 @@ class MessageController extends Controller
         }
         $recruit_id = $request->recruit_id;
         
-        return redirect(route('home'));
+        return redirect(route('message', ['recruit_id'=>$recruit_id ,'message_user_id'=>$receive_user_id ]));
     }
 }

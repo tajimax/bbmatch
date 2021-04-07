@@ -21,8 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->word . 'ズ',
         'email' => $faker->unique()->safeEmail,
-        'address' => $faker->prefecture . $faker->city,
-        'introduction' => $faker->realText,
+        'address' => $faker->prefecture,
         'password' => $faker->password,
     ];
 });

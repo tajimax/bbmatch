@@ -22,11 +22,11 @@ Route::post('/searchByAddressDate', 'ListController@searchByAddressDate')->name(
 
 // マイページを表示
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/chat/{recruit_id}', 'HomeController@chat')->name('chat');
-Route::get('/home/chat/{recruit_id}/{message_user_id}', 'HomeController@message')->name('message');
-Route::get('/home/edit', 'HomeController@showEdit')->name('edit'); // チーム詳細編集画面を表示
-Route::post('/home/update', 'HomeController@exeUpdate')->name('update'); // チーム詳細編集内容を登録
+Route::get('/home', 'HomeController@showMyPage')->name('home');
+Route::get('/home/chat/{recruit_id}', 'HomeController@showRecruitStatus')->name('chat');
+Route::get('/home/chat/{recruit_id}/{message_user_id}', 'HomeController@showMessages')->name('message');
+Route::get('/home/edit', 'HomeController@showProfileEdit')->name('edit'); // チーム詳細編集画面を表示
+Route::post('/home/update', 'HomeController@exeProfileEdit')->name('update'); // チーム詳細編集内容を登録
 
 // 募集要項を登録
 Route::get('/user/{recruit_id}/{user_id}', 'RecruitController@showRecruit')->name('show_recruit');

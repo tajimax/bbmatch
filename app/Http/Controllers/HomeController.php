@@ -25,7 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function showMyPage()
     {
         $id = Auth::id();
         $profile = User::where('id', $id)->first();          //自分のプロフィール情報
@@ -37,7 +37,7 @@ class HomeController extends Controller
         return view('layouts.home_layout', ['profile'=>$profile, 'recruits'=>$recruits, 'applys'=>$applys]);
     }
 
-    public function chat($recruit_id)  //応募してきているチームを表示
+    public function showRecruitStatus($recruit_id)  //応募してきているチームを表示
     {
         $id = Auth::id();
         $profile = User::where('id', $id)->first();                //自分のプロフィール情報
@@ -51,7 +51,7 @@ class HomeController extends Controller
         return view('layouts.chat_layout', ['profile'=>$profile, 'recruit'=>$recruit, 'message_users'=>$message_users]);
     }
 
-    public function message($recruit_id, $message_user_id)  //応募してきているチームとのトーク画面を表示
+    public function showMessages($recruit_id, $message_user_id)  //応募してきているチームとのトーク画面を表示
     {
         $id = Auth::id();
         $recruit = Recruit::where('id', $recruit_id)->first();
@@ -85,7 +85,7 @@ class HomeController extends Controller
     }
 
     // マイページ編集画面を表示
-    public function showEdit(){
+    public function showProfileEdit(){
         $id = Auth::id();
         $profile = User::where('id', $id)->first();
         $recruits = Recruit::where('user_id', $id)->get();
@@ -97,7 +97,7 @@ class HomeController extends Controller
     }
 
     // マイページの編集
-    public function exeUpdate(Request $request){
+    public function exeProfileEdit(Request $request){
         $inputs = $request->all();
         $id = Auth::id();
         $item = User::where('id', $id)->first();
@@ -119,7 +119,6 @@ class HomeController extends Controller
             }
         }
         $item -> save();
-        \Session::flash('err_msg', '編集しました。');
         return redirect(route('home'));
     }
 }
