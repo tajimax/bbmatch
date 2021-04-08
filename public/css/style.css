@@ -194,8 +194,6 @@
   left: 50%;  
   transform: translate(-50%, -50%);
   border-radius: 10px 10px 0 0;
-  -ms-filter: blur(1px);
-  filter: blur(1px);
 }
 
 .recruit-calender {
@@ -205,6 +203,7 @@
   top: 10px;
   left: 10px;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .recruit-calender_year {
