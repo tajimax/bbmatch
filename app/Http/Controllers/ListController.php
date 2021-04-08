@@ -43,4 +43,17 @@ class ListController extends Controller
 
         return view('layouts.list_layout', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths, 'weekday' => $weekday,]);
     }
+
+    // チーム一覧画面を表示
+    public function searchGest(Request $request){
+        $user_id = $request->id;
+        $auths = Auth::user();
+
+        $opponents = Recruit::searchByCategory('opponent')->where('user_id', $user_id )->get();
+        $helpers = Recruit::searchByCategory('helper')->where('user_id', $user_id )->get();
+
+        $weekday = ['日曜日' , '月曜日' , '火曜日' , '水曜日' , '木曜日' , '金曜日' , '土曜日'];
+
+        return view('layouts.list_layout', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths, 'weekday' => $weekday,]);
+    }
 }

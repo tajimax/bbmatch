@@ -273,7 +273,8 @@
 
 /* 条件検索メニュー部分（トグルメニュー） */
 .contents {
-  position: absolute;
+  position: fixed;
+  top: 165px;
   z-index: 1;
   text-align: center;
   line-height: 0;
@@ -283,6 +284,7 @@
   transition-duration: 0.4s;
   margin-top: 20px;
   background-color: #F8FAFC;
+  border-radius: 5px;
 }
  
 .contents.is-open {
@@ -291,6 +293,15 @@
   line-height: normal;
   height: auto;
   opacity: 1;
+}
+
+.contents.is-open:before {  /* 左ふきだしの左三角を描画 */
+	content: "";
+  position: fixed;
+  top: 165px;
+  transform: translateX(-200%);
+  border: 10px solid transparent;
+  border-bottom: 10px solid #F8FAFC;
 }
 
 .search_container {
@@ -311,7 +322,22 @@
   border: none;
   line-height: 2.0;
 }
+
 .btn-grn {
   background-color: #239b76;
   color: #fff;
+  border: none;
+}
+
+.gest-only-display-form {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.gest-only-display {
+  color: #136FFF;
+  padding: 2px 5px;
+  margin-right: 10px;
+  border-bottom: 1px solid #136FFF;
+  cursor: pointer;
 }

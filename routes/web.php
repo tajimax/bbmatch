@@ -19,6 +19,7 @@ Route::get('/', function(){
 // チーム一覧画面を表示
 Route::get('/showSearchRecruit', 'ListController@showList')->name('showSearchRecruit');
 Route::post('/searchByAddressDate', 'ListController@searchByAddressDate')->name('searchByAddressDate'); //日付と所在地で検索
+Route::post('/searchGest', 'ListController@searchGest')->name('searchGest'); //日付と所在地で検索
 
 // マイページを表示
 Auth::routes();
