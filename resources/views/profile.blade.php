@@ -9,7 +9,7 @@
     <div class="profile-intro">
         <label class="profile-intro-label">　チーム紹介</label>
         @if($profile['introduction'] === NULL)
-            <div class="profile-intro-text">チーム紹介文はありません。</div>
+            <i class="profile-intro-text" style="color:#999;">チーム紹介文はありません。</i>
         @else
             <div class="profile-intro-text">{{ $profile['introduction'] }}</div>
         @endif

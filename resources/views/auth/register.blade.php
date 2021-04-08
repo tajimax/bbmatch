@@ -11,7 +11,7 @@
                 <div>
                     <div class="flex form-item">
                         <label for="name" class="form-label">{{ __('チーム名') }}</label>
-                        <input id="name" type="text" class="form-input" name="name">
+                        <input id="name" type="text" value="{{ old('name') }}" required autocomplete="name" class="form-input" name="name">
                     </div>
                     @error('name')
                         {{$message}}

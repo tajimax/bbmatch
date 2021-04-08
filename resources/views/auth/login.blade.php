@@ -9,25 +9,23 @@
         <div class="form-content">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <div class="flex form-item">
-                    <label for="email" class="form-label">{{ __('メールアドレス') }}</label>
-                    <input id="email" type="email" class="form-input" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                    @error('email')
-                        <span>
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                <div class="flex-column form-item">
+                    <div class="flex">
+                        <label for="email" class="form-label">{{ __('メールアドレス') }}</label>
+                        <input id="email" type="email" class="form-input" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    </div>
                 </div>
 
-                <div class="flex form-item">
-                    <label for="password" class="form-label">{{ __('パスワード') }}</label>
-                    <input id="password" type="password" class="form-input" name="password" required autocomplete="current-password">
-                    @error('password')
-                        <span>
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                <div class="flex-column form-item">
+                    <div class="flex">
+                        <label for="password" class="form-label">{{ __('パスワード') }}</label>
+                        <input id="password" type="password" class="form-input" name="password" required autocomplete="current-password">
+                    </div>
                 </div>
+
+                @error('email')
+                    <p class="login-caution">{{ $message }}</p>
+                @enderror
 
                 <div class="form-btn-wrapper">
                     <a class="form-btn" href="javascript:history.back()">キャンセル</a>

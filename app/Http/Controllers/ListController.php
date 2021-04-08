@@ -18,7 +18,7 @@ class ListController extends Controller
 
         $weekday = ['日曜日' , '月曜日' , '火曜日' , '水曜日' , '木曜日' , '金曜日' , '土曜日'];
 
-        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths, 'weekday' => $weekday,]);
+        return view('layouts.list_layout', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths, 'weekday' => $weekday,]);
     }
 
     // チーム一覧画面を表示
@@ -41,6 +41,6 @@ class ListController extends Controller
             return redirect(route('show'));
         }
 
-        return view('search.list', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths, 'weekday' => $weekday,]);
+        return view('layouts.list_layout', ['opponents' => $opponents, 'helpers' => $helpers, 'auths' => $auths, 'weekday' => $weekday,]);
     }
 }

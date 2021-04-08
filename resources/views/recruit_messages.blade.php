@@ -7,8 +7,8 @@
         <tr>
             <td class="schedule_data">{{ $message_user->getSendName() }}（{{ $message_user->getAddress() }}）</td>
             <td class="schedule_data">
-                <a href="/home/chat/{{ $message_user['recruit_id'] }}/{{ $message_user['send_user_id'] }}">
-                トーク画面へ
+                <a href="/home/chat/{{ $message_user['recruit_id'] }}/{{ $message_user['send_user_id'] }}" class="small-btn" style="position:relative; width:100px; margin:0 auto;">
+                    トーク画面へ
                     @if($message_user->unread_count !== 0)
                     <span class="newArrival_badge">{{ $message_user->unread_count }}</span>
                     @endif

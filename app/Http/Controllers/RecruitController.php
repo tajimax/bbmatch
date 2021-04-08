@@ -40,7 +40,7 @@ class RecruitController extends Controller
     }
     
     // 投稿中の募集を編集
-    public function edit_recruit(Request $request){
+    public function exe_edit_recruit(Request $request){
         $recruit_id = $request->recruit_id;
         $recruit = Recruit::find($recruit_id);
     

@@ -26,7 +26,7 @@
             @isset($recruit['game_place'])
             <td class="schedule_data">{{ $recruit['game_place'] }}</td>
             @else
-            <td class="schedule_data">未定</td>
+            <td class="schedule_data"><i style="color:#999;">未定</i></td>
             @endisset
             <td class="small-btn-wrapper">
                 <form action="{{ route('delete_recruit') }}" method="post">
@@ -34,10 +34,12 @@
                     <input type="hidden" name="recruit_id" value="{{ $recruit['id'] }}">
                     <input class="small-btn delete-btn" type="submit" value="削除">
                 </form>
-                <a class="small-btn detail-btn" href="home/chat/{{ $recruit['id'] }}">詳細</a>
-                @if($recruit->unread_count !== 0)
-                <span class="newArrival_badge">{{ $recruit->unread_count }}</span>
-                @endif
+                <a class="small-btn detail-btn" href="home/chat/{{ $recruit['id'] }}">
+                    詳細
+                    @if($recruit->unread_count !== 0)
+                    <span class="newArrival_badge">{{ $recruit->unread_count }}</span>
+                    @endif
+                </a>
             </td>
         </tr>
         @endforeach

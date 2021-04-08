@@ -19,7 +19,7 @@
         @isset($recruit['game_place'])
         <td class="schedule_data">{{ $recruit['game_place'] }}</td>
         @else
-        <td class="schedule_data">未定</td>
+        <td class="schedule_data"><i style="color:#999;">未定</i></td>
         @endisset
     </tr>
     <tr>
@@ -38,7 +38,7 @@
     </tr>
 </table>
 @if($recruit->note === NULL)
-    <div class="recruit-note">備考はありません。</div>
+    <i class="recruit-note" style="color:#999;">備考はありません。</i>
 @else
     <div class="recruit-note">{{ $recruit->note }}</div>
 @endif
