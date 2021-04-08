@@ -174,7 +174,7 @@
 
 /* 募集 */
 .recruit-wrapper {
-  height: 300px;
+  height: 310px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
@@ -247,8 +247,18 @@
   color: #444;
 }
 
+.recruit-table_row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+}
+
 .recruit-table_header {
+  display: block;  
   position: relative;
+  text-overflow: ellipsis;
   width: 30%;
   text-align: center;
   font-weight: normal;
@@ -260,13 +270,17 @@
 }
 
 .recruit-table_data {
+  display: block;
   text-align: left;
   padding-top: 5px;
   width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .recruit-detail {
-  padding: 0 30px;
+  padding: 5px 30px;
   height: 30%;
 }
 
